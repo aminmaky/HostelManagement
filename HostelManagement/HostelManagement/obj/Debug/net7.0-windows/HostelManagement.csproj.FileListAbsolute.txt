@@ -16,3 +16,5 @@ D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-win
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\ref\HostelManagement.dll
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Login.resources
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.MainForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.StudentManagement.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.AddStudent.resources

@@ -29,7 +29,8 @@ namespace HostelManagement
 
         private void btnPeople_Click(object sender, EventArgs e)
         {
-            // TODO: Open People form
+            new StudentManagement().Show();
+            this.Hide();
         }
 
         private void btnAssets_Click(object sender, EventArgs e)

@@ -57,6 +57,7 @@
             btnBlocks.Size = new Size(200, 40);
             btnBlocks.TabIndex = 1;
             btnBlocks.Text = "Blocks";
+            btnBlocks.Click += btnBlocks_Click;
             // 
             // btnPeople
             // 
@@ -65,6 +66,7 @@
             btnPeople.Size = new Size(200, 40);
             btnPeople.TabIndex = 2;
             btnPeople.Text = "People";
+            btnPeople.Click += btnPeople_Click;
             // 
             // btnAssets
             // 
@@ -73,6 +75,7 @@
             btnAssets.Size = new Size(200, 40);
             btnAssets.TabIndex = 3;
             btnAssets.Text = "Assets";
+            btnAssets.Click += btnAssets_Click;
             // 
             // btnReports
             // 
@@ -81,6 +84,7 @@
             btnReports.Size = new Size(200, 40);
             btnReports.TabIndex = 4;
             btnReports.Text = "Reports";
+            btnReports.Click += btnReports_Click;
             // 
             // MainForm
             // 
