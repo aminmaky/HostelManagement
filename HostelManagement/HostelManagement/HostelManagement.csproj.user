@@ -1,7 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AddStudent.cs">
+    <Compile Update="Blocks\Blocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Blocks\Control\AddBlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Blocks\Control\BlockListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Blocks\Control\DeleteBlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Blocks\Control\EditBlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dormitories\Control\AddDormitoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dormitories\Control\DeleteDormitoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dormitories\Control\DormitoryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dormitories\DormitoryManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dormitories\Control\EditDormitoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Persons\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MainForm.cs">
@@ -10,7 +40,7 @@
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="StudentManagement.cs">
+    <Compile Update="Persons\StudentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HostelManagement.Blocks;
+using HostelManagement.Dormitories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,12 +21,14 @@ namespace HostelManagement
 
         private void btnDormitories_Click(object sender, EventArgs e)
         {
-            // TODO: Open Dormitories form
+            new DormitoryManagementForm().Show();
+            this.Hide();
         }
 
         private void btnBlocks_Click(object sender, EventArgs e)
         {
-            // TODO: Open Blocks form
+            new BlockManagementForm().Show();
+            this.Hide();
         }
 
         private void btnPeople_Click(object sender, EventArgs e)

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1FzKB6m+0i97qd+FXU58OBeOSGjp4fRr4ckqNXvEjTBIHLYoUS0G1HTuzyNVuitI73Ff0OEg0enVBrqoww1V9Q==",
+  "dgSpecHash": "z+9v5LhonB8No5BL6mMriYSm4cLBByWQKkGiCy+xeUqojeuA2oiP7a+H/4WaaRrZb4h4LLevJ0A5QxjcY+lnng==",
   "success": true,
   "projectFilePath": "D:\\UK\\HW\\PcPrograming\\Prj\\HostelManagement\\HostelManagement\\HostelManagement.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DOR CO\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

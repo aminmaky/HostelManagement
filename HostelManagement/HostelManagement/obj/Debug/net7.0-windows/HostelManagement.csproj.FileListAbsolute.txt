@@ -18,3 +18,15 @@ D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-win
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.MainForm.resources
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.StudentManagement.resources
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.AddStudent.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.csproj.CopyComplete
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Dormitories.AddDormitoryForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Dormitories.DeleteDormitoryForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Dormitories.DormitoryListForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Dormitories.EditDormitoryForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Dormitories.DormitoryManagementForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.BlockManagementForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.Control.AddBlockForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.Control.BlockListForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.Control.DeleteBlockForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.Control.EditBlockForm.resources
