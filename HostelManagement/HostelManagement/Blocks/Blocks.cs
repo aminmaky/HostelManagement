@@ -1,6 +1,4 @@
-﻿using HostelManagement.Blocks.Control;
-using HostelManagement.Dormitories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,8 +31,11 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new AddBlockForm().Show();
-            this.Hide();
+            else
+            {
+                new AddBlockForm((string)cmbDormitories.SelectedItem).Show();
+                this.Hide();
+            }
         }
 
         private void BtnDeleteBlock_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new DeleteBlockForm().Show();
+            new DeleteBlockForm((string)cmbDormitories.SelectedItem).Show();
             this.Hide();
         }
 
@@ -55,7 +56,7 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new EditBlockForm().Show();
+            new EditBlockForm((string)cmbDormitories.SelectedItem).Show();
             this.Hide();
         }
 
@@ -66,8 +67,13 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new BlockListForm().Show();
+            new BlockListForm((string)cmbDormitories.SelectedItem).Show();
             this.Hide();
+        }
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            new MainForm().Show();
+            this.Close();
         }
     }
 }

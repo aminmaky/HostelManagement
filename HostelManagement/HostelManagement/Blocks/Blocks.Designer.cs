@@ -16,6 +16,7 @@
         private Button btnDeleteBlock;
         private Button btnEditBlock;
         private Button btnViewBlocks;
+        private Button btnBack;
 
         private void InitializeComponent()
         {
@@ -24,7 +25,7 @@
             btnDeleteBlock = new Button();
             btnEditBlock = new Button();
             btnViewBlocks = new Button();
-
+            btnBack = new Button();
             SuspendLayout();
             // 
             // cmbDormitories
@@ -75,11 +76,23 @@
             btnViewBlocks.UseVisualStyleBackColor = true;
             btnViewBlocks.Click += BtnViewBlocks_Click;
             // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(30, 280);
+            btnBack.Margin = new Padding(4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(350, 40);
+            btnBack.TabIndex = 5;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += BtnBack_Click;
+            // 
             // BlockManagementForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(420, 300);
+            ClientSize = new Size(410, 350);
+            Controls.Add(btnBack);
             Controls.Add(cmbDormitories);
             Controls.Add(btnAddBlock);
             Controls.Add(btnDeleteBlock);

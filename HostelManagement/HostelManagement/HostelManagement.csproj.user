@@ -4,16 +4,16 @@
     <Compile Update="Blocks\Blocks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Blocks\Control\AddBlockForm.cs">
+    <Compile Update="Blocks\BlocksControl\AddBlockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Blocks\Control\BlockListForm.cs">
+    <Compile Update="Blocks\BlocksControl\BlockListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Blocks\Control\DeleteBlockForm.cs">
+    <Compile Update="Blocks\BlocksControl\DeleteBlockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Blocks\Control\EditBlockForm.cs">
+    <Compile Update="Blocks\BlocksControl\EditBlockForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Dormitories\Control\AddDormitoryForm.cs">
