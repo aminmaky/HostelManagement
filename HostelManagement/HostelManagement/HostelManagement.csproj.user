@@ -1,6 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Assets\AssetManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Assets\AssetsControl\AddAssetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Assets\AssetsControl\AssignAssetToRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Assets\AssetsControl\AssignAssetToStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Assets\AssetsControl\TransferAssetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Assets\AssetsControl\RepairAssetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Blocks\Blocks.cs">
       <SubType>Form</SubType>
     </Compile>

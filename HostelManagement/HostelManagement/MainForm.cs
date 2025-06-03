@@ -1,4 +1,5 @@
-﻿using HostelManagement.Blocks;
+﻿using HostelManagement.Assets;
+using HostelManagement.Blocks;
 using HostelManagement.Dormitories;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,8 @@ namespace HostelManagement
 
         private void btnAssets_Click(object sender, EventArgs e)
         {
-            // TODO: Open Assets form
+            new AssetManagementForm().Show();
+            this.Hide();
         }
 
         private void btnReports_Click(object sender, EventArgs e)

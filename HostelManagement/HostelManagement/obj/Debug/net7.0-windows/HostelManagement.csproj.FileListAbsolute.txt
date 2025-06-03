@@ -30,3 +30,9 @@ D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-win
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.BlockListForm.resources
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.DeleteBlockForm.resources
 D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Blocks.EditBlockForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Assets.AssetManagementForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Assets.AddAssetForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Assets.AssignAssetToRoomForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Assets.AssignAssetToStudentForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Assets.RepairAssetForm.resources
+D:\UK\HW\PcPrograming\Prj\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Assets.TransferAssetForm.resources
