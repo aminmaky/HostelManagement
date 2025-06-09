@@ -1,6 +1,7 @@
 ﻿using HostelManagement.Assets;
 using HostelManagement.Blocks;
 using HostelManagement.Dormitories;
+using HostelManagement.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,7 +47,8 @@ namespace HostelManagement
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            // TODO: Open Reports form
+            new ReportsForm().Show();
+            this.Hide();
         }
 
     }

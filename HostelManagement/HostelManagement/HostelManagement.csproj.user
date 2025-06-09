@@ -34,19 +34,19 @@
     <Compile Update="Blocks\BlocksControl\EditBlockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dormitories\Control\AddDormitoryForm.cs">
+    <Compile Update="Dormitories\DormitoriesControl\AddDormitoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dormitories\Control\DeleteDormitoryForm.cs">
+    <Compile Update="Dormitories\DormitoriesControl\DeleteDormitoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dormitories\Control\DormitoryListForm.cs">
+    <Compile Update="Dormitories\DormitoriesControl\DormitoryListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Dormitories\DormitoryManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dormitories\Control\EditDormitoryForm.cs">
+    <Compile Update="Dormitories\DormitoriesControl\EditDormitoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Persons\AddStudent.cs">
@@ -59,6 +59,21 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Persons\StudentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\ReportsControl\AssetsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\ReportsControl\HousingStatusReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\ReportsControl\RepairRequestsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\ReportsControl\StudentHousingHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reports\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
