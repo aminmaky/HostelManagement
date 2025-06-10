@@ -40,7 +40,7 @@
             // 
             // CmbFilter
             // 
-            CmbFilter.Items.AddRange(new object[] { "All", "سالم", "معیوب", "در حال تعمیر" });
+            CmbFilter.Items.AddRange(new object[] { "All", "Healthy", "Defective", "Under repair" });
             CmbFilter.Location = new Point(174, 17);
             CmbFilter.Name = "CmbFilter";
             CmbFilter.Size = new Size(200, 33);

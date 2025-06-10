@@ -44,10 +44,15 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please fill all fields correctly.");
                 return;
             }
+            else
+            {
+                Block block = new Block(blockName, numFloors, numRooms, cmbSupervisor.SelectedItem.ToString(), dormitoryName);
+            }
 
             // Save to DB or data structure here...
 
             MessageBox.Show("Block added successfully!");
+            new BlockManagementForm().Show();
             this.Close();
         }
 
