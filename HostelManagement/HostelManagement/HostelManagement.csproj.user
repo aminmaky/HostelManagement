@@ -52,6 +52,15 @@
     <Compile Update="Persons\BlockManagers\BlockManagersForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Persons\DormitoryManagers\DormitoryManagersControl\AddDormitoryManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Persons\DormitoryManagers\DormitoryManagersControl\EditDormitoryManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Persons\DormitoryManagers\ManageDormitoryManagersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Persons\Students\StudentControl\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,9 +71,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Persons\PersonManagementForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Persons\DormitoryManagers\DormitoryManagersForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Persons\Students\StudentManagementForm.cs">

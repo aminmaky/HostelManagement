@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace HostelManagement.People
 
         private void BtnDormitoryManagers_Click(object sender, EventArgs e)
         {
-            new DormitoryManagersForm().Show();
+            new ManageDormitoryManagersForm().Show();
             this.Hide();
         }
 
