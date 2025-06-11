@@ -25,13 +25,13 @@ namespace HostelManagement.People
 
         private void BtnBlockManagers_Click(object sender, EventArgs e)
         {
-            new BlockManagersForm().Show();
+            // new BlockManagersForm().Show();
             this.Hide();
         }
 
         private void BtnStudents_Click(object sender, EventArgs e)
         {
-            new StudentsForm().Show();
+            new StudentManagementForm().Show();
             this.Hide();
         }
 

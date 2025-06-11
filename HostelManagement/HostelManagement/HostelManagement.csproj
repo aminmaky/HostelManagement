@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persons\DormitoryManagers\" />
-    <Folder Include="Persons\BlockManagers\" />
+    <Folder Include="Persons\BlockManagers\BlockManagersControl\" />
+    <Folder Include="Persons\DormitoryManagers\DormitoryManagersControl\" />
   </ItemGroup>
 
 </Project>

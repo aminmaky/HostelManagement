@@ -79,3 +79,7 @@ D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\n
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.HousingStatusReportForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.RepairRequestsReportForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.StudentHousingHistoryForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.People.AddDormitoryManagerForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.People.DormitoryManagersForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.People.PersonManagementForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.Students.StudentsForm.resources

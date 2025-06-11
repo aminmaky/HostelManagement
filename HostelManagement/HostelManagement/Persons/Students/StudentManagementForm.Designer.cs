@@ -1,6 +1,6 @@
 ﻿namespace HostelManagement
 {
-    partial class StudentManagement
+    partial class StudentManagementForm
     {
         /// <summary>
         /// Required designer variable.

@@ -35,7 +35,7 @@ namespace HostelManagement
 
         private void btnPeople_Click(object sender, EventArgs e)
         {
-            new StudentManagement().Show();
+            new StudentManagementForm().Show();
             this.Hide();
         }
 
