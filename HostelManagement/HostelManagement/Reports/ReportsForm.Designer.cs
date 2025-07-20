@@ -61,7 +61,7 @@
             BtnBack.Location = new Point(60, 310);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(320, 50);
-            BtnBack.TabIndex = 3;
+            BtnBack.TabIndex = 4;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
@@ -71,9 +71,10 @@
             BtnStudentHousingHistory.Location = new Point(60, 240);
             BtnStudentHousingHistory.Name = "BtnStudentHousingHistory";
             BtnStudentHousingHistory.Size = new Size(320, 50);
-            BtnStudentHousingHistory.TabIndex = 4;
+            BtnStudentHousingHistory.TabIndex = 3;
             BtnStudentHousingHistory.Text = "Student Housing History";
             BtnStudentHousingHistory.UseVisualStyleBackColor = true;
+            BtnStudentHousingHistory.Click += BtnStudentHousingHistory_Click;
             // 
             // ReportsForm
             // 

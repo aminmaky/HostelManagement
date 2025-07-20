@@ -205,5 +205,14 @@
 //        this.controledDormitory=controledDormitory;
 //    }
 //}
+class DormitoryManager
+{
+    public string FirstName;
+    public string LastName;
+    public string Position;
+    public string Phone;
+    public string Address;
+
+}
 
 

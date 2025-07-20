@@ -32,6 +32,13 @@ namespace HostelManagement
             this.supervisor = supervisor;
         }
     }
+    public class BlockManager
+    {
+        public string FullName { get; set; }
+        public string StudentNumber { get; set; }
+        public string NationalId { get; set; }
+        public string BlockName { get; set; }
+    }
 
 
 

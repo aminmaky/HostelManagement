@@ -57,6 +57,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            BtnCancel = new Button();
             SuspendLayout();
             // 
             // txtFirstName
@@ -103,9 +104,9 @@
             // 
             // BtnSubmit
             // 
-            BtnSubmit.Location = new Point(120, 270);
+            BtnSubmit.Location = new Point(208, 268);
             BtnSubmit.Name = "BtnSubmit";
-            BtnSubmit.Size = new Size(100, 30);
+            BtnSubmit.Size = new Size(112, 34);
             BtnSubmit.TabIndex = 6;
             BtnSubmit.Text = "Submit";
             BtnSubmit.Click += BtnSubmit_Click;
@@ -160,9 +161,20 @@
             label6.TabIndex = 6;
             label6.Text = "Address";
             // 
+            // BtnCancel
+            // 
+            BtnCancel.Location = new Point(20, 268);
+            BtnCancel.Name = "BtnCancel";
+            BtnCancel.Size = new Size(112, 34);
+            BtnCancel.TabIndex = 0;
+            BtnCancel.Text = "Cancel";
+            BtnCancel.UseVisualStyleBackColor = true;
+            BtnCancel.Click += BtnCancel_Click;
+            // 
             // AddStudent
             // 
             ClientSize = new Size(360, 330);
+            Controls.Add(BtnCancel);
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(label3);
@@ -182,7 +194,9 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
         #endregion
 
+        private Button BtnCancel;
     }
 }

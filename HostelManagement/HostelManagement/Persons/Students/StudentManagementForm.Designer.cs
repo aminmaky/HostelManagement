@@ -1,131 +1,167 @@
-﻿namespace HostelManagement
+﻿namespace HostelManagement.Persons.Students
 {
     partial class StudentManagementForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.ListBox lstStudents;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnViewDetails;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnTransfer;
+        private System.Windows.Forms.Label lblTitle;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-
-        private Button btnAddStudent;
-        private Button btnDeleteStudent;
-        private Button btnEditStudent;
-        private Button btnSearchStudent;
-        private Button btnViewStudentInfo;
-        private Button btnAssignDorm;
-        private Button btnTransferStudent;
-
         private void InitializeComponent()
         {
-            btnAddStudent = new Button();
-            btnDeleteStudent = new Button();
-            btnEditStudent = new Button();
-            btnSearchStudent = new Button();
-            btnViewStudentInfo = new Button();
-            btnAssignDorm = new Button();
-            btnTransferStudent = new Button();
+            lstStudents = new ListBox();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnViewDetails = new Button();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
+            btnRegister = new Button();
+            btnTransfer = new Button();
+            lblTitle = new Label();
+            btnBack = new Button();
             SuspendLayout();
             // 
-            // btnAddStudent
+            // lstStudents
             // 
-            btnAddStudent.Location = new Point(50, 30);
-            btnAddStudent.Name = "btnAddStudent";
-            btnAddStudent.Size = new Size(200, 40);
-            btnAddStudent.TabIndex = 0;
-            btnAddStudent.Text = "Add Student";
-            btnAddStudent.Click += btnAddStudent_Click;
+            lstStudents.FormattingEnabled = true;
+            lstStudents.ItemHeight = 25;
+            lstStudents.Location = new Point(15, 51);
+            lstStudents.Name = "lstStudents";
+            lstStudents.Size = new Size(300, 279);
+            lstStudents.TabIndex = 1;
             // 
-            // btnDeleteStudent
+            // btnAdd
             // 
-            btnDeleteStudent.Location = new Point(50, 80);
-            btnDeleteStudent.Name = "btnDeleteStudent";
-            btnDeleteStudent.Size = new Size(200, 40);
-            btnDeleteStudent.TabIndex = 1;
-            btnDeleteStudent.Text = "Delete Student";
-            btnDeleteStudent.Click += btnDeleteStudent_Click;
+            btnAdd.Location = new Point(340, 30);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(150, 45);
+            btnAdd.TabIndex = 2;
+            btnAdd.Text = "Add Student";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // btnEditStudent
+            // btnEdit
             // 
-            btnEditStudent.Location = new Point(50, 130);
-            btnEditStudent.Name = "btnEditStudent";
-            btnEditStudent.Size = new Size(200, 40);
-            btnEditStudent.TabIndex = 2;
-            btnEditStudent.Text = "Edit Student";
-            btnEditStudent.Click += btnEditStudent_Click;
+            btnEdit.Location = new Point(340, 81);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(150, 45);
+            btnEdit.TabIndex = 3;
+            btnEdit.Text = "Edit Student";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
-            // btnSearchStudent
+            // btnDelete
             // 
-            btnSearchStudent.Location = new Point(50, 180);
-            btnSearchStudent.Name = "btnSearchStudent";
-            btnSearchStudent.Size = new Size(200, 40);
-            btnSearchStudent.TabIndex = 3;
-            btnSearchStudent.Text = "Search Student";
-            btnSearchStudent.Click += btnSearchStudent_Click;
+            btnDelete.Location = new Point(340, 132);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(150, 45);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "Delete Student";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // btnViewStudentInfo
+            // btnViewDetails
             // 
-            btnViewStudentInfo.Location = new Point(50, 230);
-            btnViewStudentInfo.Name = "btnViewStudentInfo";
-            btnViewStudentInfo.Size = new Size(200, 40);
-            btnViewStudentInfo.TabIndex = 4;
-            btnViewStudentInfo.Text = "View Full Info";
-            btnViewStudentInfo.Click += btnViewStudentInfo_Click;
+            btnViewDetails.Location = new Point(340, 183);
+            btnViewDetails.Name = "btnViewDetails";
+            btnViewDetails.Size = new Size(150, 45);
+            btnViewDetails.TabIndex = 5;
+            btnViewDetails.Text = "View Full Details";
+            btnViewDetails.UseVisualStyleBackColor = true;
+            btnViewDetails.Click += btnViewDetails_Click;
             // 
-            // btnAssignDorm
+            // txtSearch
             // 
-            btnAssignDorm.Location = new Point(50, 280);
-            btnAssignDorm.Name = "btnAssignDorm";
-            btnAssignDorm.Size = new Size(200, 40);
-            btnAssignDorm.TabIndex = 5;
-            btnAssignDorm.Text = "Assign to Dorm";
-            btnAssignDorm.Click += btnAssignDorm_Click;
+            txtSearch.Location = new Point(15, 350);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(220, 31);
+            txtSearch.TabIndex = 6;
             // 
-            // btnTransferStudent
+            // btnSearch
             // 
-            btnTransferStudent.Location = new Point(50, 330);
-            btnTransferStudent.Name = "btnTransferStudent";
-            btnTransferStudent.Size = new Size(200, 40);
-            btnTransferStudent.TabIndex = 6;
-            btnTransferStudent.Text = "Transfer Student";
-            btnTransferStudent.Click += btnTransferStudent_Click;
+            btnSearch.Location = new Point(250, 350);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(115, 31);
+            btnSearch.TabIndex = 7;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
-            // StudentManagement
+            // btnRegister
             // 
-            ClientSize = new Size(300, 420);
-            Controls.Add(btnAddStudent);
-            Controls.Add(btnDeleteStudent);
-            Controls.Add(btnEditStudent);
-            Controls.Add(btnSearchStudent);
-            Controls.Add(btnViewStudentInfo);
-            Controls.Add(btnAssignDorm);
-            Controls.Add(btnTransferStudent);
-            Name = "StudentManagement";
-            StartPosition = FormStartPosition.CenterScreen;
+            btnRegister.Location = new Point(340, 234);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(150, 45);
+            btnRegister.TabIndex = 8;
+            btnRegister.Text = "Register Student";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
+            // 
+            // btnTransfer
+            // 
+            btnTransfer.Location = new Point(340, 285);
+            btnTransfer.Name = "btnTransfer";
+            btnTransfer.Size = new Size(150, 45);
+            btnTransfer.TabIndex = 9;
+            btnTransfer.Text = "Transfer Student";
+            btnTransfer.UseVisualStyleBackColor = true;
+            btnTransfer.Click += btnTransfer_Click;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTitle.Location = new Point(12, 9);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(260, 32);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Student Management";
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(375, 350);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(115, 31);
+            btnBack.TabIndex = 10;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // StudentManagementForm
+            // 
+            ClientSize = new Size(514, 400);
+            Controls.Add(btnBack);
+            Controls.Add(lblTitle);
+            Controls.Add(lstStudents);
+            Controls.Add(btnAdd);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnViewDetails);
+            Controls.Add(txtSearch);
+            Controls.Add(btnSearch);
+            Controls.Add(btnRegister);
+            Controls.Add(btnTransfer);
+            Name = "StudentManagementForm";
             Text = "Student Management";
             ResumeLayout(false);
+            PerformLayout();
         }
 
-
-        #endregion
+        private Button btnBack;
     }
 }

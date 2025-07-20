@@ -1,4 +1,5 @@
 ﻿using HostelManagement.Persons;
+using HostelManagement.Persons.Students;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +45,12 @@ namespace HostelManagement
 
             MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            new StudentManagementForm().Show();
+            this.Hide();
         }
     }
 }

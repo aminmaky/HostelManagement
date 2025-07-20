@@ -38,7 +38,7 @@ namespace HostelManagement.People
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            new DormitoryManagersForm().Show();
+            // new DormitoryManagersForm().Show();
             this.Close();
         }
     }

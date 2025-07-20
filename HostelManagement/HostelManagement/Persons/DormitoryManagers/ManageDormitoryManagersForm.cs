@@ -30,11 +30,11 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
 
         private void RefreshManagerList()
         {
-            lstManagers.Items.Clear();
-            foreach (var m in managerList)
-            {
-                // lstManagers.Items.Add($"{m.FirstName} {m.LastName} - {m.Position}");
-            }
+            //lstManagers.Items.Clear();
+            //foreach (var m in managerList)
+            //{
+            //    // lstManagers.Items.Add($"{m.FirstName} {m.LastName} - {m.Position}");
+            //}
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -46,12 +46,12 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
                 return;
             }
 
-            // var selectedManager = managerList[index];
-            // var editForm = new EditDormitoryManagerForm(selectedManager);
-            // if (editForm.ShowDialog() == DialogResult.OK)
-            // {
-            //     RefreshManagerList();
-            // }
+            var selectedManager = managerList[index];
+            var editForm = new EditDormitoryManagerForm(/*selectedManager*/);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshManagerList();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

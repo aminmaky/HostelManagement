@@ -56,7 +56,6 @@ D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\n
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Login.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.MainForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.AddStudent.resources
-D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.StudentManagement.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.AssetsReportForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.ReportsForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.csproj.GenerateResource.cache
@@ -80,6 +79,9 @@ D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\n
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.RepairRequestsReportForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Reports.StudentHousingHistoryForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.People.AddDormitoryManagerForm.resources
-D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.People.DormitoryManagersForm.resources
-D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.People.PersonManagementForm.resources
-D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.Students.StudentsForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.BlockManagers.BlockManagersForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl.EditDormitoryManagerForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl.ManageDormitoryManagersForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.Students.StudentManagementForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.PersonManagementForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.BlockManagers.AddBlockManagerForm.resources

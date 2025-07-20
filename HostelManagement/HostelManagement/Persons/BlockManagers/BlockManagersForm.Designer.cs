@@ -2,38 +2,104 @@
 {
     partial class BlockManagersForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.ListBox lstBlockManagers;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnChangeDormitoryManager;
+        private System.Windows.Forms.ComboBox cmbDormitoryManagers;
+        private System.Windows.Forms.Label lblSelectDormitoryManager;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "BlockManagersForm";
+            lstBlockManagers = new ListBox();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            btnChangeDormitoryManager = new Button();
+            cmbDormitoryManagers = new ComboBox();
+            lblSelectDormitoryManager = new Label();
+            btnBack = new Button();
+            SuspendLayout();
+            // 
+            // lstBlockManagers
+            // 
+            lstBlockManagers.FormattingEnabled = true;
+            lstBlockManagers.ItemHeight = 25;
+            lstBlockManagers.Location = new Point(30, 30);
+            lstBlockManagers.Name = "lstBlockManagers";
+            lstBlockManagers.Size = new Size(300, 179);
+            lstBlockManagers.TabIndex = 0;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(336, 30);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(200, 47);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Add Block Manager";
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(336, 83);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(200, 47);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete Block Manager";
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnChangeDormitoryManager
+            // 
+            btnChangeDormitoryManager.Location = new Point(350, 250);
+            btnChangeDormitoryManager.Name = "btnChangeDormitoryManager";
+            btnChangeDormitoryManager.Size = new Size(150, 33);
+            btnChangeDormitoryManager.TabIndex = 5;
+            btnChangeDormitoryManager.Text = "Change Dormitory Manager";
+            btnChangeDormitoryManager.Click += btnChangeDormitoryManager_Click;
+            // 
+            // cmbDormitoryManagers
+            // 
+            cmbDormitoryManagers.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDormitoryManagers.Location = new Point(30, 250);
+            cmbDormitoryManagers.Name = "cmbDormitoryManagers";
+            cmbDormitoryManagers.Size = new Size(300, 33);
+            cmbDormitoryManagers.TabIndex = 4;
+            // 
+            // lblSelectDormitoryManager
+            // 
+            lblSelectDormitoryManager.AutoSize = true;
+            lblSelectDormitoryManager.Location = new Point(30, 230);
+            lblSelectDormitoryManager.Name = "lblSelectDormitoryManager";
+            lblSelectDormitoryManager.Size = new Size(224, 25);
+            lblSelectDormitoryManager.TabIndex = 3;
+            lblSelectDormitoryManager.Text = "Select New Block Manager:";
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(336, 162);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(200, 47);
+            btnBack.TabIndex = 6;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // BlockManagersForm
+            // 
+            ClientSize = new Size(540, 320);
+            Controls.Add(btnBack);
+            Controls.Add(lstBlockManagers);
+            Controls.Add(btnAdd);
+            Controls.Add(btnDelete);
+            Controls.Add(lblSelectDormitoryManager);
+            Controls.Add(cmbDormitoryManagers);
+            Controls.Add(btnChangeDormitoryManager);
+            Name = "BlockManagersForm";
+            Text = "Block Managers Management";
+            Load += BlockManagersForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
-        #endregion
+        private Button btnBack;
     }
 }

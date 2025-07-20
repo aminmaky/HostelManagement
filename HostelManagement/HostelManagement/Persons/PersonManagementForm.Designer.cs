@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace HostelManagement.People
+namespace HostelManagement.Persons
 {
     partial class PersonManagementForm
     {

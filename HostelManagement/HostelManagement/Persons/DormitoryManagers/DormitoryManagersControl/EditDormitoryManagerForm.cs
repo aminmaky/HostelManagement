@@ -14,8 +14,9 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
     {
         private DormitoryManager currentManager;
 
-        public EditDormitoryManagerForm(DormitoryManager manager)
+        public EditDormitoryManagerForm(/*DormitoryManager manager*/)
         {
+            DormitoryManager manager = new DormitoryManager(); // Must Be Delete!!
             InitializeComponent();
             currentManager = manager;
 

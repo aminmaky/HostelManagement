@@ -27,7 +27,11 @@ namespace HostelManagement.Reports
             new HousingStatusReportForm().Show();
             this.Hide();
         }
-
+        private void BtnStudentHousingHistory_Click(object sender, EventArgs e)
+        {
+            new StudentHousingHistoryForm().Show();
+            this.Hide();
+        }
         private void BtnAssetsReport_Click(object sender, EventArgs e)
         {
             new AssetsReportForm().Show();
@@ -36,7 +40,7 @@ namespace HostelManagement.Reports
 
         private void BtnSpecialReports_Click(object sender, EventArgs e)
         {
-            //new SpecialReportsForm().Show();
+            new RepairRequestsReportForm().Show();
             this.Hide();
         }
 

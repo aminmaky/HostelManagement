@@ -1,6 +1,7 @@
 ﻿using HostelManagement.Assets;
 using HostelManagement.Blocks;
 using HostelManagement.Dormitories;
+using HostelManagement.Persons;
 using HostelManagement.Reports;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace HostelManagement
 
         private void btnPeople_Click(object sender, EventArgs e)
         {
-            new StudentManagementForm().Show();
+            new PersonManagementForm().Show();
             this.Hide();
         }
 

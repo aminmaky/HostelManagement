@@ -49,6 +49,9 @@
     <Compile Update="Dormitories\DormitoriesControl\EditDormitoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Persons\BlockManagers\BlockManagersControl\AddBlockManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Persons\BlockManagers\BlockManagersForm.cs">
       <SubType>Form</SubType>
     </Compile>

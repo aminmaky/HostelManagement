@@ -1,4 +1,6 @@
-﻿using HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl;
+﻿using HostelManagement.Persons.BlockManagers;
+using HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl;
+using HostelManagement.Persons.Students;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HostelManagement.People
+namespace HostelManagement.Persons
 {
     public partial class PersonManagementForm : Form
     {
@@ -26,7 +28,7 @@ namespace HostelManagement.People
 
         private void BtnBlockManagers_Click(object sender, EventArgs e)
         {
-            // new BlockManagersForm().Show();
+            new BlockManagersForm().Show();
             this.Hide();
         }
 
