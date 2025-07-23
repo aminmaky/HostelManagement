@@ -13,19 +13,6 @@ namespace HostelManagement
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             //////////////////////////////////////////////////////////////////////////////////////////
-            // Memory:
-            // List<Dormitory> Dormitories = new List<Dormitory>();
-
-
-
-
-
-
-
-
-
-
-            //////////////////////////////////////////////////////////////////////////////////////////
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
         }
@@ -37,41 +24,16 @@ namespace HostelManagement
         public static List<Dormitory> Dormitories = new List<Dormitory>();
         public static List<Student> Students = new List<Student>();
         public static List<DormitoryManager> DormitoryManagers = new List<DormitoryManager>();
-        public static List<BlockManager> BlockManagers = new List<BlockManager>();
+        public static List<BlocksManager> BlockManagers = new List<BlocksManager>();
 
 
 
     }
-    /////////////////////////////////////////// Owner Class //////////////////////////////////////////
+    ///////////////////////////////////////////// Owner Class //////////////////////////////////////////
+    
 
 
-
-    public class BlockManager
-    {
-        public string FullName { get; set; }
-        public string StudentNumber { get; set; }
-        public string NationalId { get; set; }
-        public string BlockName { get; set; }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     //// Classes required for this application:
     ///*
     //class PremiumArray<G>
@@ -231,5 +193,5 @@ namespace HostelManagement
     //    public string Position { get { return position; } set { position = value; } }
 
     //}
-
+    
 }

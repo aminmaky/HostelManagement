@@ -22,33 +22,36 @@ namespace HostelManagement
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            // Basic validation (optional)
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
                 string.IsNullOrWhiteSpace(txtLastName.Text) ||
-                string.IsNullOrWhiteSpace(txtStudentID.Text))
+                string.IsNullOrWhiteSpace(txtStudentID.Text) // ||
+                // cmbDormitory.SelectedItem == null ||
+                // cmbBlock.SelectedItem == null ||
+                // !int.TryParse(txtRoom.Text, out int roomNumber)
+                )
             {
-                MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all required fields correctly.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Create and save student
-            /*
-            Student student = new Student(txtFirstName.Text, txtLastName.Text, txtStudentID.Text, txtNationalID.Text,
-            string address, string StudentId, int Room, int Block, int dormitory, List < Tools > tool);
-            {
-                FirstName = ,
-                LastName = ,
-                StudentID = ,
-                NationalID = ,
-                Phone = ,
-                Address = txtAddress.Text
-            };
+            string firstname = txtFirstName.Text.Trim();
+            string lastname = txtLastName.Text.Trim();
+            string idNum = txtNationalID.Text.Trim();
+            string telNum = txtPhone.Text.Trim();
+            string address = txtAddress.Text.Trim();
+            string studentId = txtStudentID.Text.Trim();
+            // Dormitory dorm = cmbDormitory.SelectedItem as Dormitory;
+            // Block block = cmbBlock.SelectedItem as Block;
+
+            var student = new Student(firstname, lastname, idNum, telNum, address,
+                                      studentId/*, roomNumber, block, dorm, new List<Tools>()*/);
 
             DATA.Students.Add(student);
-            */
+
             MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {

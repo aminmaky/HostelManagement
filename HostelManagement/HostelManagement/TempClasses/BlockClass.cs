@@ -1,4 +1,4 @@
-﻿using HostelManagement.TempClasses;
+﻿using HostelManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;

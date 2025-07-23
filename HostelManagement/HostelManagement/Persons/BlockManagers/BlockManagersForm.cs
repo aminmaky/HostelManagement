@@ -20,20 +20,18 @@ namespace HostelManagement.Persons.BlockManagers
         private void BlockManagersForm_Load(object sender, EventArgs e)
         {
             LoadBlockManagers();
-            LoadDormitoryManagers();
         }
 
         private void LoadBlockManagers()
         {
-            // Load from your database or sample data
             lstBlockManagers.Items.Clear();
+            foreach (var BlockManager in DATA.BlockManagers)
+            {
+                lstBlockManagers.Items.Add($"{BlockManager.Firstname} {BlockManager.Lastname} - {BlockManager.controledBlock}");
+            }
+            // Load from your database or sample data
+            // lstBlockManagers.Items.Clear();
             // lstBlockManagers.Items.AddRange(BlockManagerRepository.GetAll().ToArray());
-        }
-
-        private void LoadDormitoryManagers()
-        {
-            cmbDormitoryManagers.Items.Clear();
-            // cmbDormitoryManagers.Items.AddRange(DormitoryManagerRepository.GetAll().ToArray());
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -49,10 +47,10 @@ namespace HostelManagement.Persons.BlockManagers
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var selected = lstBlockManagers.SelectedItem as BlockManager;
+            var selected = lstBlockManagers.SelectedItem as BlocksManager;
             if (selected != null)
             {
-                // BlockManagerRepository.Delete(selected.Id);
+                DATA.Students.Remove(selected);
                 LoadBlockManagers();
             }
             else
@@ -63,7 +61,7 @@ namespace HostelManagement.Persons.BlockManagers
 
         private void btnChangeDormitoryManager_Click(object sender, EventArgs e)
         {
-            var selectedBlockManager = lstBlockManagers.SelectedItem as BlockManager;
+            var selectedBlockManager = lstBlockManagers.SelectedItem as BlocksManager;
             var selectedDormitoryManager = cmbDormitoryManagers.SelectedItem as DormitoryManager;
 
             if (selectedBlockManager == null || selectedDormitoryManager == null)

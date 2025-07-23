@@ -5,7 +5,7 @@
         private System.Windows.Forms.ListBox lstBlockManagers;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnChangeDormitoryManager;
+        private System.Windows.Forms.Button btnChangeBlockManager;
         private System.Windows.Forms.ComboBox cmbDormitoryManagers;
         private System.Windows.Forms.Label lblSelectDormitoryManager;
 
@@ -14,7 +14,7 @@
             lstBlockManagers = new ListBox();
             btnAdd = new Button();
             btnDelete = new Button();
-            btnChangeDormitoryManager = new Button();
+            btnChangeBlockManager = new Button();
             cmbDormitoryManagers = new ComboBox();
             lblSelectDormitoryManager = new Label();
             btnBack = new Button();
@@ -47,14 +47,14 @@
             btnDelete.Text = "Delete Block Manager";
             btnDelete.Click += btnDelete_Click;
             // 
-            // btnChangeDormitoryManager
+            // btnChangeBlockManager
             // 
-            btnChangeDormitoryManager.Location = new Point(350, 250);
-            btnChangeDormitoryManager.Name = "btnChangeDormitoryManager";
-            btnChangeDormitoryManager.Size = new Size(150, 33);
-            btnChangeDormitoryManager.TabIndex = 5;
-            btnChangeDormitoryManager.Text = "Change Dormitory Manager";
-            btnChangeDormitoryManager.Click += btnChangeDormitoryManager_Click;
+            btnChangeBlockManager.Location = new Point(336, 225);
+            btnChangeBlockManager.Name = "btnChangeBlockManager";
+            btnChangeBlockManager.Size = new Size(192, 58);
+            btnChangeBlockManager.TabIndex = 5;
+            btnChangeBlockManager.Text = "Change Block Manager";
+            btnChangeBlockManager.Click += btnChangeDormitoryManager_Click;
             // 
             // cmbDormitoryManagers
             // 
@@ -92,7 +92,7 @@
             Controls.Add(btnDelete);
             Controls.Add(lblSelectDormitoryManager);
             Controls.Add(cmbDormitoryManagers);
-            Controls.Add(btnChangeDormitoryManager);
+            Controls.Add(btnChangeBlockManager);
             Name = "BlockManagersForm";
             Text = "Block Managers Management";
             Load += BlockManagersForm_Load;

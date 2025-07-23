@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HostelManagement.Persons.Students.StudentControl;
+using HostelManagement.Persons.BlockManagers;
 
 namespace HostelManagement.Persons.Students
 {
@@ -39,6 +41,12 @@ namespace HostelManagement.Persons.Students
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            var form = new AddStudent();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                LoadStudents();
+            }
+            /*
             new AddStudent().Show();
             this.Hide();
             //var form = new AddStudentForm();
@@ -47,23 +55,21 @@ namespace HostelManagement.Persons.Students
             //    students.Add(form.NewStudent);
             //    LoadStudents();
             //}
+            */
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lstStudents.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a student to edit.");
+                MessageBox.Show("Please select a student for edit.");
                 return;
             }
 
             var student = students[lstStudents.SelectedIndex];
-            //var form = new EditStudentForm(student);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    students[lstStudents.SelectedIndex] = form.UpdatedStudent;
-            //    LoadStudents();
-            //}
+            new EditStudentForm(student).Show();
+            this.Hide();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -80,7 +86,7 @@ namespace HostelManagement.Persons.Students
                 var student = DATA.Students[lstStudents.SelectedIndex];
                 // student.Block?.Dormitory?.Blocks?.Remove(student.Block);
                 DATA.Students.Remove(student);
-                LoadStudents(); LoadStudents();
+                LoadStudents();
             }
         }
 
@@ -120,8 +126,8 @@ namespace HostelManagement.Persons.Students
             }
 
             var student = students[lstStudents.SelectedIndex];
-            //var form = new RegisterStudentForm(student);
-            //form.ShowDialog();
+            new RegisterStudentForm(student).Show();
+            this.Hide();
         }
 
         private void btnTransfer_Click(object sender, EventArgs e)

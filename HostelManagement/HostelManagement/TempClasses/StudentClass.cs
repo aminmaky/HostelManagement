@@ -17,14 +17,14 @@ namespace HostelManagement// .TempClasses
         public Dormitory dormitory;
         public List<Tools> tools;
         public Student(string firstname, string lastname, string idNum, string telNum, 
-            string address, string StudentId, int Room, Block Block, Dormitory dormitory, List<Tools> tool)
+            string address, string StudentId/*, int Room, Block Block, Dormitory dormitory, List<Tools> tool*/)
             : base(firstname, lastname, idNum, telNum, address)
         {
             this.StudentId = StudentId;
-            this.Room = Room;
-            this.Block = Block;
-            this.dormitory = dormitory;
-            this.tools = tool;
+            // this.Room = Room;
+            // his.Block = Block;
+            // this.dormitory = dormitory;
+            // this.tools = tool;
         }
 
         public string GetFullDetails()
