@@ -1,4 +1,5 @@
-﻿using HostelManagement.People;
+﻿using HostelManagement.Persons;
+using HostelManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace HostelManagement.Persons.Students
             InitializeComponent();
         }
 
-        private List<Student> students = new List<Student>();
+        private List<Student> students => DATA.Students;
 
         private void StudentManagementForm_Load(object sender, EventArgs e)
         {
@@ -29,11 +30,12 @@ namespace HostelManagement.Persons.Students
         private void LoadStudents()
         {
             lstStudents.Items.Clear();
-            foreach (var student in students)
+            foreach (var student in DATA.Students)
             {
-                // lstStudents.Items.Add($"{student.FullName} - {student.StudentNumber}");
+                lstStudents.Items.Add($"{student.Firstname} {student.Lastname} - {student.StudentId}");
             }
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -75,8 +77,10 @@ namespace HostelManagement.Persons.Students
             var result = MessageBox.Show("Are you sure you want to delete this student?", "Confirm Delete", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                students.RemoveAt(lstStudents.SelectedIndex);
-                LoadStudents();
+                var student = DATA.Students[lstStudents.SelectedIndex];
+                // student.Block?.Dormitory?.Blocks?.Remove(student.Block);
+                DATA.Students.Remove(student);
+                LoadStudents(); LoadStudents();
             }
         }
 
@@ -89,21 +93,22 @@ namespace HostelManagement.Persons.Students
             }
 
             var student = students[lstStudents.SelectedIndex];
-            // MessageBox.Show(student.GetFullDetails(), "Student Details");
+            MessageBox.Show(student.GetFullDetails(), "Student Details");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string query = txtSearch.Text.Trim().ToLower();
-            //var results = students.Where(s =>
-            //    s.FullName.ToLower().Contains(query) ||
-            //    s.StudentNumber.ToLower().Contains(query)).ToList();
+            var results = DATA.Students.Where(s =>
+                $"{s.Firstname} {s.Lastname}".ToLower().Contains(query) ||
+                s.StudentId.ToLower().Contains(query)).ToList();
 
-            //lstStudents.Items.Clear();
-            //foreach (var student in results)
-            //{
-            //    lstStudents.Items.Add($"{student.FullName} - {student.StudentNumber}");
-            //}
+            lstStudents.Items.Clear();
+            foreach (var student in results)
+            {
+                lstStudents.Items.Add($"{student.Firstname} {student.Lastname} - {student.StudentId}");
+            }
+
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

@@ -17,15 +17,12 @@
         private TextBox txtName;
         private TextBox txtAddress;
         private TextBox txtCapacity;
-        private TextBox txtManager;
-        private TextBox txtBlocks;
         private Button btnSaveChanges;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
 
         private void InitializeComponent()
         {
@@ -33,16 +30,14 @@
             txtName = new TextBox();
             txtAddress = new TextBox();
             txtCapacity = new TextBox();
-            txtManager = new TextBox();
-            txtBlocks = new TextBox();
             btnSaveChanges = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label6 = new Label();
             btnBack = new Button();
+            cmbManager = new ComboBox();
             SuspendLayout();
             // 
             // cmbDormitories
@@ -74,20 +69,6 @@
             txtCapacity.Name = "txtCapacity";
             txtCapacity.Size = new Size(300, 31);
             txtCapacity.TabIndex = 3;
-            // 
-            // txtManager
-            // 
-            txtManager.Location = new Point(135, 230);
-            txtManager.Name = "txtManager";
-            txtManager.Size = new Size(300, 31);
-            txtManager.TabIndex = 4;
-            // 
-            // txtBlocks
-            // 
-            txtBlocks.Location = new Point(135, 280);
-            txtBlocks.Name = "txtBlocks";
-            txtBlocks.Size = new Size(300, 31);
-            txtBlocks.TabIndex = 5;
             // 
             // btnSaveChanges
             // 
@@ -144,15 +125,6 @@
             label5.TabIndex = 7;
             label5.Text = "Manager:";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(20, 280);
-            label6.Name = "label6";
-            label6.Size = new Size(66, 25);
-            label6.TabIndex = 7;
-            label6.Text = "Blocks:";
-            // 
             // btnBack
             // 
             btnBack.Location = new Point(30, 330);
@@ -163,24 +135,30 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
+            // cmbManager
+            // 
+            cmbManager.FormattingEnabled = true;
+            cmbManager.Location = new Point(135, 230);
+            cmbManager.Name = "cmbManager";
+            cmbManager.Size = new Size(300, 33);
+            cmbManager.TabIndex = 9;
+            // 
             // EditDormitoryForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(460, 400);
+            Controls.Add(cmbManager);
             Controls.Add(btnBack);
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(label5);
-            Controls.Add(label6);
             Controls.Add(cmbDormitories);
             Controls.Add(txtName);
             Controls.Add(txtAddress);
             Controls.Add(txtCapacity);
-            Controls.Add(txtManager);
-            Controls.Add(txtBlocks);
             Controls.Add(btnSaveChanges);
             Name = "EditDormitoryForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -191,5 +169,6 @@
         }
 
         private Button btnBack;
+        private ComboBox cmbManager;
     }
 }

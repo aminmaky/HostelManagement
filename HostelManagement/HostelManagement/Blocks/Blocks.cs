@@ -20,8 +20,10 @@ namespace HostelManagement.Blocks
         private void BlockManagementForm_Load(object sender, EventArgs e)
         {
             // Sample data for dormitories - replace with actual list
-            cmbDormitories.Items.Add("Dorm A");
-            cmbDormitories.Items.Add("Dorm B");
+            cmbDormitories.DataSource = null;
+            cmbDormitories.DataSource = DATA.Dormitories;
+            cmbDormitories.DisplayMember = "Name";
+            cmbDormitories.SelectedIndex = -1;
         }
 
         private void BtnAddBlock_Click(object sender, EventArgs e)
@@ -33,7 +35,8 @@ namespace HostelManagement.Blocks
             }
             else
             {
-                new AddBlockForm((string)cmbDormitories.SelectedItem).Show();
+                Dormitory selectedDormitory = cmbDormitories.SelectedItem as Dormitory;
+                new AddBlockForm(selectedDormitory).Show();
                 this.Hide();
             }
         }
@@ -45,7 +48,8 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new DeleteBlockForm((string)cmbDormitories.SelectedItem).Show();
+            Dormitory selectedDormitory = cmbDormitories.SelectedItem as Dormitory;
+            new DeleteBlockForm(selectedDormitory).Show();
             this.Hide();
         }
 
@@ -56,7 +60,8 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new EditBlockForm((string)cmbDormitories.SelectedItem).Show();
+            Dormitory selectedDormitory = cmbDormitories.SelectedItem as Dormitory;
+            new EditBlockForm(selectedDormitory).Show();
             this.Hide();
         }
 
@@ -67,7 +72,8 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please select a dormitory first.");
                 return;
             }
-            new BlockListForm((string)cmbDormitories.SelectedItem).Show();
+            Dormitory selectedDormitory = cmbDormitories.SelectedItem as Dormitory;
+            new BlockListForm(selectedDormitory).Show();
             this.Hide();
         }
         private void BtnBack_Click(object sender, EventArgs e)

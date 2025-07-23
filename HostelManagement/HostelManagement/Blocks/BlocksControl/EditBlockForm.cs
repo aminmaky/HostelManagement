@@ -14,10 +14,10 @@ namespace HostelManagement.Blocks
     {
         private string dormitoryName;
 
-        public EditBlockForm(string dormitoryName)
+        public EditBlockForm(Dormitory dormitoryName)
         {
             InitializeComponent();
-            this.dormitoryName = dormitoryName;
+            // this.dormitoryName = dormitoryName;
         }
 
         private void EditBlockForm_Load(object sender, EventArgs e)

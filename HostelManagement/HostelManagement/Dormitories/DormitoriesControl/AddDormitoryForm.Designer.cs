@@ -19,8 +19,6 @@
         private NumericUpDown numCapacity;
         private Label lblManager;
         private ComboBox cmbManager;
-        private Label lblBlocks;
-        private CheckedListBox clbBlocks;
         private Button BtnSubmit;
         private Button BtnBack;
 
@@ -34,8 +32,6 @@
             numCapacity = new NumericUpDown();
             lblManager = new Label();
             cmbManager = new ComboBox();
-            lblBlocks = new Label();
-            clbBlocks = new CheckedListBox();
             BtnSubmit = new Button();
             BtnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)numCapacity).BeginInit();
@@ -103,24 +99,9 @@
             cmbManager.Size = new Size(250, 33);
             cmbManager.TabIndex = 7;
             // 
-            // lblBlocks
-            // 
-            lblBlocks.Location = new Point(30, 190);
-            lblBlocks.Name = "lblBlocks";
-            lblBlocks.Size = new Size(150, 30);
-            lblBlocks.TabIndex = 8;
-            lblBlocks.Text = "Blocks:";
-            // 
-            // clbBlocks
-            // 
-            clbBlocks.Location = new Point(200, 190);
-            clbBlocks.Name = "clbBlocks";
-            clbBlocks.Size = new Size(250, 88);
-            clbBlocks.TabIndex = 9;
-            // 
             // BtnSubmit
             // 
-            BtnSubmit.Location = new Point(80, 310);
+            BtnSubmit.Location = new Point(80, 200);
             BtnSubmit.Name = "BtnSubmit";
             BtnSubmit.Size = new Size(150, 40);
             BtnSubmit.TabIndex = 10;
@@ -129,7 +110,7 @@
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(250, 310);
+            BtnBack.Location = new Point(250, 200);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(150, 40);
             BtnBack.TabIndex = 11;
@@ -140,7 +121,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(500, 380);
+            ClientSize = new Size(500, 250);
             Controls.Add(lblName);
             Controls.Add(txtName);
             Controls.Add(lblAddress);
@@ -149,8 +130,6 @@
             Controls.Add(numCapacity);
             Controls.Add(lblManager);
             Controls.Add(cmbManager);
-            Controls.Add(lblBlocks);
-            Controls.Add(clbBlocks);
             Controls.Add(BtnSubmit);
             Controls.Add(BtnBack);
             Name = "AddDormitoryForm";

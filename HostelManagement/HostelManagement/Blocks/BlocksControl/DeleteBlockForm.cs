@@ -14,10 +14,10 @@ namespace HostelManagement.Blocks
     {
         private string dormitoryName;
 
-        public DeleteBlockForm(string dormitoryName)
+        public DeleteBlockForm(Dormitory dormitoryName)
         {
             InitializeComponent();
-            this.dormitoryName = dormitoryName;
+            // this.dormitoryName = dormitoryName;
         }
 
         private void DeleteBlockForm_Load(object sender, EventArgs e)

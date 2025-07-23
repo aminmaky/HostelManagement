@@ -23,24 +23,24 @@
 
 
 //}
-//public class Dormitory
-//{
-//    private string Name;
-//    private string Address;
-//    private long Capacity;
-//    private string supervisor;
-//    private List<Blocke> block;
-//    private List<Rooms> room;
-//    public Dormitory(string Name, string Address, long Capacity, string supervisor, List<Blocke> block, List<Rooms> room)
-//    {
-//        this.Name=Name;
-//        this.Address=Address;
-//        this.Capacity=Capacity;
-//        this.supervisor=supervisor;
-//        this.block = block;
-//        this.room = room;
-//    }
-//}
+////public class Dormitory
+////{
+////    private string Name;
+////    private string Address;
+////    private long Capacity;
+////    private string supervisor;
+////    private List<Blocke> block;
+////    private List<Rooms> room;
+////    public Dormitory(string Name, string Address, long Capacity, string supervisor, List<Blocke> block, List<Rooms> room)
+////    {
+////        this.Name=Name;
+////        this.Address=Address;
+////        this.Capacity=Capacity;
+////        this.supervisor=supervisor;
+////        this.block = block;
+////        this.room = room;
+////    }
+////}
 //public class Rooms
 //{
 //    private double RoomNum;
@@ -60,87 +60,87 @@
 //        this.tool=tool;
 //    }
 
-//}
-//public enum status
-//{
-//    Healty,
-//    Defective,
-//    UnderRepair
-//}
-//public enum Assets
-//{
-//    bed,
-//    desk,
-//    commode,
-//    chair,
-//    fridge
-//}
-//public class Tools
-//{
-//    private Assets Type;
-//    private string[] PartNum;
-//    private string Number;
-//    private status status;
-//    private int RoomNum;
-//    private string OwnerName;
+////}
+////public enum status
+////{
+////    Healty,
+////    Defective,
+////    UnderRepair
+////}
+////public enum Assets
+////{
+////    bed,
+////    desk,
+////    commode,
+////    chair,
+////    fridge
+////}
+////public class Tools
+////{
+////    private Assets Type;
+////    private string[] PartNum;
+////    private string Number;
+////    private status status;
+////    private int RoomNum;
+////    private string OwnerName;
 
-//    public Tools(Assets type, string[] partNum, string number, status status, int roomNum, string ownerName)
-//    {
-//        Type=type;
-//        PartNum=partNum;
-//        Number=number;
-//        this.status=status;
-//        RoomNum=roomNum;
-//        OwnerName=ownerName;
-//    }
-//}
+////    public Tools(Assets type, string[] partNum, string number, status status, int roomNum, string ownerName)
+////    {
+////        Type=type;
+////        PartNum=partNum;
+////        Number=number;
+////        this.status=status;
+////        RoomNum=roomNum;
+////        OwnerName=ownerName;
+////    }
+////}
 
 
 
-//public class Person
-//{
-//    protected string Firstname;
-//    protected string Lastname;
-//    protected string IdNum;
-//    protected string TelNum;
-//    protected string Address;
+////public class Person
+////{
+////    protected string Firstname;
+////    protected string Lastname;
+////    protected string IdNum;
+////    protected string TelNum;
+////    protected string Address;
 
-//    public Person(string Firstname, string Lastname, string IdNum, string TelNum, string Address)
-//    {
-//        this.Firstname=Firstname;
-//        this.Lastname=Lastname;
-//        this.IdNum=IdNum;
-//        this.TelNum=TelNum;
-//        this.Address=Address;
-//    }
-//    /*
-//    public string FirstName
-//    {
-//        get { return FirstName; }
-//        set { FirstName = value; }
-//    }
-//    public string LastName
-//    {
-//        get { return LastName; }
-//        set { LastName = value; }
-//    }
-//    public string IdNumber
-//    {
-//        get { return IdNum; }
-//        set { IdNum = value; }
-//    }
-//    public string TelephoneNumber
-//    {
-//        get { return TelNum; }
-//        set { TelNum = value; }
-//    }
-//    public string Addresss
-//    {
-//        get { return Address; }
-//        set { Address = value; }
-//    }
-//    */
-//}
+////    public Person(string Firstname, string Lastname, string IdNum, string TelNum, string Address)
+////    {
+////        this.Firstname=Firstname;
+////        this.Lastname=Lastname;
+////        this.IdNum=IdNum;
+////        this.TelNum=TelNum;
+////        this.Address=Address;
+////    }
+////    /*
+////    public string FirstName
+////    {
+////        get { return FirstName; }
+////        set { FirstName = value; }
+////    }
+////    public string LastName
+////    {
+////        get { return LastName; }
+////        set { LastName = value; }
+////    }
+////    public string IdNumber
+////    {
+////        get { return IdNum; }
+////        set { IdNum = value; }
+////    }
+////    public string TelephoneNumber
+////    {
+////        get { return TelNum; }
+////        set { TelNum = value; }
+////    }
+////    public string Addresss
+////    {
+////        get { return Address; }
+////        set { Address = value; }
+////    }
+////    */
+////}
 //public class student : Person
 //{
 //    protected string StudentId;
@@ -180,39 +180,39 @@
 //    }
 //    */
 //}
-//public class BlocksManager : student
+////public class BlocksManager : student
+////{
+////    private string Position;
+////    private int controledBlock;
+
+////    public BlocksManager(string firstname, string lastname, string idNum, string telNum, string address, string StudentId, int Room, int Block, int dormitory, string position, int controledBlock)
+////        : base(firstname, lastname, idNum, telNum, address, StudentId, Room, Block, dormitory)
+////    {
+////        Position=position;
+////        this.controledBlock=controledBlock;
+////    }
+////}
+////public class DormitoryManager : Person
+////{
+////    private string position;
+////    private int controledDormitory;
+
+////    public DormitoryManager(string firstname, string lastname, string idNum, string telNum, string address, string position, int controledDormitory)
+////        : base(firstname, lastname, idNum, telNum, address)
+
+////    {
+////        this.position=position;
+////        this.controledDormitory=controledDormitory;
+////    }
+////}
+//class DormitoryManager
 //{
-//    private string Position;
-//    private int controledBlock;
+//    public string FirstName;
+//    public string LastName;
+//    public string Position;
+//    public string Phone;
+//    public string Address;
 
-//    public BlocksManager(string firstname, string lastname, string idNum, string telNum, string address, string StudentId, int Room, int Block, int dormitory, string position, int controledBlock)
-//        : base(firstname, lastname, idNum, telNum, address, StudentId, Room, Block, dormitory)
-//    {
-//        Position=position;
-//        this.controledBlock=controledBlock;
-//    }
 //}
-//public class DormitoryManager : Person
-//{
-//    private string position;
-//    private int controledDormitory;
-
-//    public DormitoryManager(string firstname, string lastname, string idNum, string telNum, string address, string position, int controledDormitory)
-//        : base(firstname, lastname, idNum, telNum, address)
-
-//    {
-//        this.position=position;
-//        this.controledDormitory=controledDormitory;
-//    }
-//}
-class DormitoryManager
-{
-    public string FirstName;
-    public string LastName;
-    public string Position;
-    public string Phone;
-    public string Address;
-
-}
 
 

@@ -1,4 +1,4 @@
-﻿namespace HostelManagement.People
+﻿namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
 {
     partial class AddDormitoryManagerForm
     {
@@ -53,6 +53,8 @@
             txtAddress = new TextBox();
             btnSubmit = new Button();
             btnBack = new Button();
+            lblIDNum = new Label();
+            txtIDNum = new TextBox();
             SuspendLayout();
             // 
             // lblFirstName
@@ -94,7 +96,7 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(30, 190);
+            lblAddress.Location = new Point(28, 227);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(81, 25);
             lblAddress.TabIndex = 8;
@@ -130,14 +132,14 @@
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(150, 187);
+            txtAddress.Location = new Point(150, 221);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(200, 31);
             txtAddress.TabIndex = 9;
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(30, 230);
+            btnSubmit.Location = new Point(30, 288);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(140, 40);
             btnSubmit.TabIndex = 10;
@@ -147,7 +149,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(200, 230);
+            btnBack.Location = new Point(200, 288);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(150, 40);
             btnBack.TabIndex = 11;
@@ -155,9 +157,27 @@
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += BtnBack_Click;
             // 
+            // lblIDNum
+            // 
+            lblIDNum.AutoSize = true;
+            lblIDNum.Location = new Point(30, 190);
+            lblIDNum.Name = "lblIDNum";
+            lblIDNum.Size = new Size(104, 25);
+            lblIDNum.TabIndex = 12;
+            lblIDNum.Text = "ID Number:";
+            // 
+            // txtIDNum
+            // 
+            txtIDNum.Location = new Point(150, 184);
+            txtIDNum.Name = "txtIDNum";
+            txtIDNum.Size = new Size(200, 31);
+            txtIDNum.TabIndex = 13;
+            // 
             // AddDormitoryManagerForm
             // 
-            ClientSize = new Size(400, 300);
+            ClientSize = new Size(400, 376);
+            Controls.Add(txtIDNum);
+            Controls.Add(lblIDNum);
             Controls.Add(lblFirstName);
             Controls.Add(txtFirstName);
             Controls.Add(lblLastName);
@@ -178,5 +198,8 @@
         }
 
         #endregion
+
+        private Label lblIDNum;
+        private TextBox txtIDNum;
     }
 }

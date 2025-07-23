@@ -1,11 +1,12 @@
-﻿using HostelManagement.Persons;
-using HostelManagement.Persons.Students;
+﻿using HostelManagement.Persons.Students;
+using HostelManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,18 +32,20 @@ namespace HostelManagement
             }
 
             // Create and save student
-            Student student = new Student
+            /*
+            Student student = new Student(txtFirstName.Text, txtLastName.Text, txtStudentID.Text, txtNationalID.Text,
+            string address, string StudentId, int Room, int Block, int dormitory, List < Tools > tool);
             {
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                StudentID = txtStudentID.Text,
-                NationalID = txtNationalID.Text,
-                Phone = txtPhone.Text,
+                FirstName = ,
+                LastName = ,
+                StudentID = ,
+                NationalID = ,
+                Phone = ,
                 Address = txtAddress.Text
             };
 
-            StudentRepository.AddStudent(student);
-
+            DATA.Students.Add(student);
+            */
             MessageBox.Show("Student added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }

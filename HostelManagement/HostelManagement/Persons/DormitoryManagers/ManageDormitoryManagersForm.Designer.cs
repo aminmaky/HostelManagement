@@ -1,4 +1,4 @@
-﻿namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
+﻿namespace HostelManagement.Persons.DormitoryManagers
 {
     partial class ManageDormitoryManagersForm
     {

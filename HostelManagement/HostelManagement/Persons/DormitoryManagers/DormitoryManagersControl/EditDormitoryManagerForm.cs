@@ -14,18 +14,21 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
     {
         private DormitoryManager currentManager;
 
-        public EditDormitoryManagerForm(/*DormitoryManager manager*/)
+        public EditDormitoryManagerForm(DormitoryManager manager)
         {
-            DormitoryManager manager = new DormitoryManager(); // Must Be Delete!!
+            
+            // DormitoryManager manager = new DormitoryManager(); // Must Be Delete!!
             InitializeComponent();
             currentManager = manager;
 
             // Fill inputs with current values
-            txtFirstName.Text = currentManager.FirstName;
-            txtLastName.Text = currentManager.LastName;
-            txtPosition.Text = currentManager.Position;
-            txtPhone.Text = currentManager.Phone;
+            txtFirstName.Text = currentManager.Firstname;
+            txtLastName.Text = currentManager.Lastname;
+            txtPosition.Text = currentManager.position;
+            txtIDNumber.Text = currentManager.IdNum;
+            txtPhone.Text = currentManager.TelNum;
             txtAddress.Text = currentManager.Address;
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -40,10 +43,11 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
             }
 
             // Update the object
-            currentManager.FirstName = txtFirstName.Text.Trim();
-            currentManager.LastName = txtLastName.Text.Trim();
-            currentManager.Position = txtPosition.Text.Trim();
-            currentManager.Phone = txtPhone.Text.Trim();
+            currentManager.Firstname = txtFirstName.Text.Trim();
+            currentManager.Lastname = txtLastName.Text.Trim();
+            currentManager.position = txtPosition.Text.Trim();
+            currentManager.IdNum = txtIDNumber.Text.Trim();
+            currentManager.TelNum = txtPhone.Text.Trim();
             currentManager.Address = txtAddress.Text.Trim();
 
             MessageBox.Show("Manager information updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

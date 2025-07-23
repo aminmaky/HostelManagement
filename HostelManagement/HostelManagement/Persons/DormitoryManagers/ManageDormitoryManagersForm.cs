@@ -1,4 +1,5 @@
-﻿using HostelManagement.People;
+﻿using HostelManagement.Persons;
+using HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
+namespace HostelManagement.Persons.DormitoryManagers
 {
     public partial class ManageDormitoryManagersForm : Form
     {
         // private List<DormitoryManager> managerList;
-        private List<string> managerList;
+        // private List<string> managerList;
 
         public ManageDormitoryManagersForm()
         {
@@ -30,11 +31,11 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
 
         private void RefreshManagerList()
         {
-            //lstManagers.Items.Clear();
-            //foreach (var m in managerList)
-            //{
-            //    // lstManagers.Items.Add($"{m.FirstName} {m.LastName} - {m.Position}");
-            //}
+            lstManagers.Items.Clear();
+            foreach (var m in DATA.DormitoryManagers)
+            {
+                lstManagers.Items.Add($"{m.Firstname} {m.Lastname} - {m.position}");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -46,13 +47,14 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
                 return;
             }
 
-            var selectedManager = managerList[index];
-            var editForm = new EditDormitoryManagerForm(/*selectedManager*/);
+            var selectedManager = DATA.DormitoryManagers[index];
+            var editForm = new EditDormitoryManagerForm(selectedManager);
             if (editForm.ShowDialog() == DialogResult.OK)
             {
                 RefreshManagerList();
             }
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -66,11 +68,16 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
             var result = MessageBox.Show("Are you sure you want to delete this manager?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                // DormitoryManagerRepository.Delete(managerList[index]); // فرضی
-                managerList.RemoveAt(index);
+
+                if (DATA.DormitoryManagers[index].controledDormitory != null)
+                    DATA.DormitoryManagers[index].controledDormitory.DormitoryManager = null;
+                
+                DATA.DormitoryManagers.RemoveAt(index);
+
                 RefreshManagerList();
             }
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -80,13 +87,16 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var addForm = new AddDormitoryManagerForm();
-            if (addForm.ShowDialog() == DialogResult.OK)
-            {
-                // دوباره گرفتن لیست به‌روز شده از دیتابیس یا منبع داده
-                // managerList = DormitoryManagerRepository.GetAll(); // تابع فرضی
-                RefreshManagerList();
-            }
+            //var addForm = new AddDormitoryManagerForm();
+            //this.Close;
+            new AddDormitoryManagerForm(lstManagers.Items.Count).Show();
+            this.Close();
+            //if (addForm.ShowDialog() == DialogResult.OK)
+            //{
+            //    // دوباره گرفتن لیست به‌روز شده از دیتابیس یا منبع داده
+            //    // managerList = DormitoryManagerRepository.GetAll(); // تابع فرضی
+            //    RefreshManagerList();
+            //}
         }
 
     }

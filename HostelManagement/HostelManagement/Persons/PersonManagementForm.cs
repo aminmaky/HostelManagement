@@ -1,5 +1,5 @@
 ﻿using HostelManagement.Persons.BlockManagers;
-using HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl;
+using HostelManagement.Persons.DormitoryManagers;
 using HostelManagement.Persons.Students;
 using System;
 using System.Collections.Generic;

@@ -1,3 +1,5 @@
+using HostelManagement;
+
 namespace HostelManagement
 {
     internal static class Program
@@ -10,28 +12,40 @@ namespace HostelManagement
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            //////////////////////////////////////////////////////////////////////////////////////////
+            // Memory:
+            // List<Dormitory> Dormitories = new List<Dormitory>();
+
+
+
+
+
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
         }
     }
+
+    // Data:
+    public static class DATA
+    {
+        public static List<Dormitory> Dormitories = new List<Dormitory>();
+        public static List<Student> Students = new List<Student>();
+        public static List<DormitoryManager> DormitoryManagers = new List<DormitoryManager>();
+        public static List<BlockManager> BlockManagers = new List<BlockManager>();
+
+
+
+    }
     /////////////////////////////////////////// Owner Class //////////////////////////////////////////
 
-    public class Block
-    {
-        private string Name;
-        private int FloresCount;
-        private int RoomCount;
-        private string supervisor;
-        // private List<Rooms> room; (R V needed??)
-        private string DormitoryName;
-        public Block(string Name, int FloresCount, int RoomCount, string supervisor, string DormitoryName)
-        {
-            this.Name = Name;
-            this.FloresCount = FloresCount;
-            this.RoomCount = RoomCount;
-            this.supervisor = supervisor;
-        }
-    }
+
+
     public class BlockManager
     {
         public string FullName { get; set; }

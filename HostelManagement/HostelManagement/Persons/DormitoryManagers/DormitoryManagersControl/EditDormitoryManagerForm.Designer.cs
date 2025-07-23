@@ -13,72 +13,97 @@
 
         private void InitializeComponent()
         {
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtPosition = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-
+            txtFirstName = new TextBox();
+            txtLastName = new TextBox();
+            txtPosition = new TextBox();
+            txtPhone = new TextBox();
+            txtAddress = new TextBox();
+            btnUpdate = new Button();
+            btnCancel = new Button();
+            txtIDNumber = new TextBox();
+            SuspendLayout();
+            // 
             // txtFirstName
-            this.txtFirstName.Location = new System.Drawing.Point(30, 30);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.PlaceholderText = "First Name";
-            this.txtFirstName.Size = new System.Drawing.Size(250, 23);
-
+            // 
+            txtFirstName.Location = new Point(30, 30);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.PlaceholderText = "First Name";
+            txtFirstName.Size = new Size(250, 31);
+            txtFirstName.TabIndex = 0;
+            // 
             // txtLastName
-            this.txtLastName.Location = new System.Drawing.Point(30, 70);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.PlaceholderText = "Last Name";
-            this.txtLastName.Size = new System.Drawing.Size(250, 23);
-
+            // 
+            txtLastName.Location = new Point(30, 70);
+            txtLastName.Name = "txtLastName";
+            txtLastName.PlaceholderText = "Last Name";
+            txtLastName.Size = new Size(250, 31);
+            txtLastName.TabIndex = 1;
+            // 
             // txtPosition
-            this.txtPosition.Location = new System.Drawing.Point(30, 110);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.PlaceholderText = "Position";
-            this.txtPosition.Size = new System.Drawing.Size(250, 23);
-
+            // 
+            txtPosition.Location = new Point(30, 110);
+            txtPosition.Name = "txtPosition";
+            txtPosition.PlaceholderText = "Position";
+            txtPosition.Size = new Size(250, 31);
+            txtPosition.TabIndex = 2;
+            // 
             // txtPhone
-            this.txtPhone.Location = new System.Drawing.Point(30, 150);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.PlaceholderText = "Phone";
-            this.txtPhone.Size = new System.Drawing.Size(250, 23);
-
+            // 
+            txtPhone.Location = new Point(30, 184);
+            txtPhone.Name = "txtPhone";
+            txtPhone.PlaceholderText = "Phone";
+            txtPhone.Size = new Size(250, 31);
+            txtPhone.TabIndex = 3;
+            // 
             // txtAddress
-            this.txtAddress.Location = new System.Drawing.Point(30, 190);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.PlaceholderText = "Address";
-            this.txtAddress.Size = new System.Drawing.Size(250, 23);
-
+            // 
+            txtAddress.Location = new Point(30, 221);
+            txtAddress.Name = "txtAddress";
+            txtAddress.PlaceholderText = "Address";
+            txtAddress.Size = new Size(250, 31);
+            txtAddress.TabIndex = 4;
+            // 
             // btnUpdate
-            this.btnUpdate.Location = new System.Drawing.Point(30, 230);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 30);
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-
+            // 
+            btnUpdate.Location = new Point(30, 268);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(120, 30);
+            btnUpdate.TabIndex = 5;
+            btnUpdate.Text = "Update";
+            btnUpdate.Click += btnUpdate_Click;
+            // 
             // btnCancel
-            this.btnCancel.Location = new System.Drawing.Point(160, 230);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 30);
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-
+            // 
+            btnCancel.Location = new Point(160, 268);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(120, 30);
+            btnCancel.TabIndex = 6;
+            btnCancel.Text = "Cancel";
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // txtIDNumber
+            // 
+            txtIDNumber.Location = new Point(30, 147);
+            txtIDNumber.Name = "txtIDNumber";
+            txtIDNumber.PlaceholderText = "ID Number";
+            txtIDNumber.Size = new Size(250, 31);
+            txtIDNumber.TabIndex = 7;
+            // 
             // EditDormitoryManagerForm
-            this.ClientSize = new System.Drawing.Size(320, 300);
-            this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtPosition);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnCancel);
-            this.Name = "EditDormitoryManagerForm";
-            this.Text = "Edit Dormitory Manager";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            ClientSize = new Size(320, 310);
+            Controls.Add(txtIDNumber);
+            Controls.Add(txtFirstName);
+            Controls.Add(txtLastName);
+            Controls.Add(txtPosition);
+            Controls.Add(txtPhone);
+            Controls.Add(txtAddress);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnCancel);
+            Name = "EditDormitoryManagerForm";
+            Text = "Edit Dormitory Manager";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.TextBox txtFirstName;
@@ -88,5 +113,6 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnCancel;
+        private TextBox txtIDNumber;
     }
 }

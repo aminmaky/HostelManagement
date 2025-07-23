@@ -13,24 +13,23 @@ namespace HostelManagement.Blocks
 {
     public partial class AddBlockForm : Form
     {
-        private string dormitoryName;
-
-        public AddBlockForm(string dormitoryName)
+        private Dormitory dorm;
+        public AddBlockForm(Dormitory dormitory)
         {
             InitializeComponent();
-            this.dormitoryName = dormitoryName;
+            this.dorm = dormitory;
         }
+
 
         private void AddBlockForm_Load(object sender, EventArgs e)
         {
-            lblDormitoryName.Text = $"Dormitory: {dormitoryName}";
+            lblDormitoryName.Text = $"Dormitory: {dorm.Name}";
 
             // You can load available supervisors here
             cmbSupervisor.Items.Add("Supervisor A");
             cmbSupervisor.Items.Add("Supervisor B");
             cmbSupervisor.Items.Add("Supervisor C");
         }
-
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             string blockName = txtBlockName.Text.Trim();
@@ -44,18 +43,20 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please fill all fields correctly.");
                 return;
             }
-            else
-            {
-                Block block = new Block(blockName, numFloors, numRooms, cmbSupervisor.SelectedItem.ToString(), dormitoryName);
-            }
+            
+            // Block block = new Block(blockName, numFloors, numRooms, /*cmbSupervisor.SelectedItem.ToString(), */dorm);
 
+            if (dorm.Blocks == null)
+                dorm.Blocks = new List<Block>();
+            
             // Save to DB or data structure here...
+
+            // dorm.Blocks.Add(block);
 
             MessageBox.Show("Block added successfully!");
             new BlockManagementForm().Show();
             this.Close();
         }
-
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             new BlockManagementForm().Show();
