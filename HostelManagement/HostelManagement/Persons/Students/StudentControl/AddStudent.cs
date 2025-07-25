@@ -55,7 +55,7 @@ namespace HostelManagement
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            new StudentManagementForm().Show();
+            // new StudentManagementForm().Show();
             this.Hide();
         }
     }

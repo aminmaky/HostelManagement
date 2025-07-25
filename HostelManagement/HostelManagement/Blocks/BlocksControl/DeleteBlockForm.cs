@@ -12,23 +12,28 @@ namespace HostelManagement.Blocks
 {
     public partial class DeleteBlockForm : Form
     {
-        private string dormitoryName;
+        private Dormitory dorm;
 
-        public DeleteBlockForm(Dormitory dormitoryName)
+        public DeleteBlockForm(Dormitory dormitory)
         {
             InitializeComponent();
-            // this.dormitoryName = dormitoryName;
+            this.dorm = dormitory;
         }
 
         private void DeleteBlockForm_Load(object sender, EventArgs e)
         {
-            lblDormitory.Text = $"Dormitory: {dormitoryName}";
+            lblDormitory.Text = $"Dormitory: {dorm.Name}";
 
-            // Mock: Load block list from DB or data
-            lstBlocks.Items.Add("Block A");
-            lstBlocks.Items.Add("Block B");
-            lstBlocks.Items.Add("Block C");
+            lstBlocks.Items.Clear();
+            if (dorm.Blocks != null)
+            {
+                foreach (var block in dorm.Blocks)
+                {
+                    lstBlocks.Items.Add(block); 
+                }
+            }
         }
+
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -38,19 +43,21 @@ namespace HostelManagement.Blocks
                 return;
             }
 
-            string selectedBlock = lstBlocks.SelectedItem.ToString();
+            Block selectedBlock = lstBlocks.SelectedItem as Block;
+            if (selectedBlock == null) return;
 
-            var result = MessageBox.Show($"Are you sure you want to delete '{selectedBlock}'?",
+            var result = MessageBox.Show($"Are you sure you want to delete '{selectedBlock.Name}'?",
                                          "Confirm Delete", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
-                // Perform deletion from database or list here...
-
+                dorm.Blocks.Remove(selectedBlock);
                 MessageBox.Show("Block deleted successfully.");
+
                 lstBlocks.Items.Remove(selectedBlock);
             }
         }
+    
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {

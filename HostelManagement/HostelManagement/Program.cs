@@ -22,6 +22,7 @@ namespace HostelManagement
     public static class DATA
     {
         public static List<Dormitory> Dormitories = new List<Dormitory>();
+        public static List<Block> Blocks = new List<Block>();
         public static List<Student> Students = new List<Student>();
         public static List<DormitoryManager> DormitoryManagers = new List<DormitoryManager>();
         public static List<BlocksManager> BlockManagers = new List<BlocksManager>();

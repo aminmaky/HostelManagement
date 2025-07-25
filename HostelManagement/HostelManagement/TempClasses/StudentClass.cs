@@ -22,7 +22,7 @@ namespace HostelManagement// .TempClasses
         {
             this.StudentId = StudentId;
             // this.Room = Room;
-            // his.Block = Block;
+            // this.Block = Block;
             // this.dormitory = dormitory;
             // this.tools = tool;
         }
@@ -36,7 +36,10 @@ namespace HostelManagement// .TempClasses
                    $"Block: {Block?.Name}\n" +
                    $"Room: {Room}";
         }
-
+        public override string ToString()
+        {
+            return $"{Firstname} {Lastname} - {StudentId}";
+        }
 
         /*
         public string StudentID

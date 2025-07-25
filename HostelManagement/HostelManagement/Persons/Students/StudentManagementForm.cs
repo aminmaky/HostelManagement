@@ -139,8 +139,8 @@ namespace HostelManagement.Persons.Students
             }
 
             var student = students[lstStudents.SelectedIndex];
-            //var form = new TransferStudentForm(student);
-            //form.ShowDialog();
+            new TransferStudentForm(student).Show();
+            this.Hide();
         }
 
         private void btnBack_Click(object sender, EventArgs e)

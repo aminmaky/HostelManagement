@@ -25,14 +25,18 @@ namespace HostelManagement.Persons.BlockManagers
         private void LoadBlockManagers()
         {
             lstBlockManagers.Items.Clear();
-            foreach (var BlockManager in DATA.BlockManagers)
+
+            foreach (var blockManager in DATA.BlockManagers)
             {
-                lstBlockManagers.Items.Add($"{BlockManager.Firstname} {BlockManager.Lastname} - {BlockManager.controledBlock}");
+                string blockName = blockManager.controledBlock != null ? blockManager.controledBlock.Name : "Unassigned";
+                lstBlockManagers.Items.Add(blockManager);
             }
-            // Load from your database or sample data
-            // lstBlockManagers.Items.Clear();
-            // lstBlockManagers.Items.AddRange(BlockManagerRepository.GetAll().ToArray());
+
+            // Populate Dormitory Managers dropdown (once)
+            cmbDormitoryManagers.Items.Clear();
+            cmbDormitoryManagers.Items.AddRange(DATA.BlockManagers.ToArray());
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -48,9 +52,13 @@ namespace HostelManagement.Persons.BlockManagers
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var selected = lstBlockManagers.SelectedItem as BlocksManager;
+
             if (selected != null)
             {
-                DATA.Students.Remove(selected);
+                DATA.BlockManagers.Remove(selected);
+                if (selected.controledBlock != null)
+                    selected.controledBlock.supervisor = null;
+
                 LoadBlockManagers();
             }
             else
@@ -59,21 +67,37 @@ namespace HostelManagement.Persons.BlockManagers
             }
         }
 
-        private void btnChangeDormitoryManager_Click(object sender, EventArgs e)
+
+        private void btnChangeBlockManager_Click(object sender, EventArgs e)
         {
             var selectedBlockManager = lstBlockManagers.SelectedItem as BlocksManager;
-            var selectedDormitoryManager = cmbDormitoryManagers.SelectedItem as DormitoryManager;
+            var newBlockManager = cmbDormitoryManagers.SelectedItem as BlocksManager;
 
-            if (selectedBlockManager == null || selectedDormitoryManager == null)
+            if (selectedBlockManager == null || newBlockManager == null)
             {
-                MessageBox.Show("Please select both a block manager and a dormitory manager.");
+                MessageBox.Show("Please select both block managers.");
                 return;
             }
 
-            // BlockManagerRepository.UpdateDormitoryManager(selectedBlockManager.Id, selectedDormitoryManager.Id);
-            MessageBox.Show("Dormitory manager updated successfully.");
+            if (selectedBlockManager.controledBlock == null || newBlockManager.controledBlock == null)
+            {
+                MessageBox.Show("Each manager must be assigned to a block before swapping.");
+                return;
+            }
+
+            // --- Swap Logic ---
+            var tempBlock = selectedBlockManager.controledBlock;
+
+            selectedBlockManager.controledBlock = newBlockManager.controledBlock;
+            newBlockManager.controledBlock = tempBlock;
+
+            selectedBlockManager.controledBlock.supervisor = selectedBlockManager;
+            newBlockManager.controledBlock.supervisor = newBlockManager;
+
+            MessageBox.Show("Block managers swapped successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadBlockManagers();
         }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {

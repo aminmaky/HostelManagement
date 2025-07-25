@@ -54,7 +54,7 @@
             btnChangeBlockManager.Size = new Size(192, 58);
             btnChangeBlockManager.TabIndex = 5;
             btnChangeBlockManager.Text = "Change Block Manager";
-            btnChangeBlockManager.Click += btnChangeDormitoryManager_Click;
+            btnChangeBlockManager.Click += btnChangeBlockManager_Click;
             // 
             // cmbDormitoryManagers
             // 

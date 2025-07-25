@@ -12,23 +12,31 @@ namespace HostelManagement.Blocks
 {
     public partial class BlockListForm : Form
     {
-        private string dormitoryName;
+        private Dormitory dorm;
 
-        public BlockListForm(Dormitory dormitoryName)
+        public BlockListForm(Dormitory dormitory)
         {
             InitializeComponent();
-            // this.dormitoryName = dormitoryName;
+            this.dorm = dormitory;
         }
+
 
         private void BlockListForm_Load(object sender, EventArgs e)
         {
-            lblDormitory.Text = $"Dormitory: {dormitoryName}";
+            lblDormitory.Text = $"Dormitory: {dorm.Name}";
 
             // TODO: Replace with actual data from database
-            dgvBlocks.Rows.Add("Block A", 3, 30, "John Doe");
-            dgvBlocks.Rows.Add("Block B", 2, 20, "Jane Smith");
-            dgvBlocks.Rows.Add("Block C", 4, 40, "Ali Reza");
+            dgvBlocks.Rows.Clear();
+            if (dorm.Blocks != null)
+            {
+                foreach (var block in dorm.Blocks)
+                {
+                    dgvBlocks.Rows.Add(block.Name, block.FloresCount, block.RoomCount, block.supervisor);
+                }
+            }
         }
+
+    
 
         private void BtnClose_Click(object sender, EventArgs e)
         {

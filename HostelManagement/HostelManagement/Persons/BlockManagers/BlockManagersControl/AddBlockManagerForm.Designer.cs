@@ -4,9 +4,7 @@
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Label lblStudent;
-        private System.Windows.Forms.Label lblBlock;
         private System.Windows.Forms.ComboBox cmbStudents;
-        private System.Windows.Forms.ComboBox cmbBlocks;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnCancel;
 
@@ -19,87 +17,93 @@
 
         private void InitializeComponent()
         {
-            this.lblStudent = new System.Windows.Forms.Label();
-            this.lblBlock = new System.Windows.Forms.Label();
-            this.cmbStudents = new System.Windows.Forms.ComboBox();
-            this.cmbBlocks = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            lblStudent = new Label();
+            cmbStudents = new ComboBox();
+            btnAdd = new Button();
+            btnCancel = new Button();
+            txtPosition = new TextBox();
+            label1 = new Label();
+            SuspendLayout();
             // 
             // lblStudent
             // 
-            this.lblStudent.AutoSize = true;
-            this.lblStudent.Location = new System.Drawing.Point(30, 30);
-            this.lblStudent.Name = "lblStudent";
-            this.lblStudent.Size = new System.Drawing.Size(92, 17);
-            this.lblStudent.TabIndex = 0;
-            this.lblStudent.Text = "Select Student:";
-            // 
-            // lblBlock
-            // 
-            this.lblBlock.AutoSize = true;
-            this.lblBlock.Location = new System.Drawing.Point(30, 80);
-            this.lblBlock.Name = "lblBlock";
-            this.lblBlock.Size = new System.Drawing.Size(83, 17);
-            this.lblBlock.TabIndex = 1;
-            this.lblBlock.Text = "Select Block:";
+            lblStudent.AutoSize = true;
+            lblStudent.Location = new Point(38, 47);
+            lblStudent.Margin = new Padding(4, 0, 4, 0);
+            lblStudent.Name = "lblStudent";
+            lblStudent.Size = new Size(128, 25);
+            lblStudent.TabIndex = 0;
+            lblStudent.Text = "Select Student:";
             // 
             // cmbStudents
             // 
-            this.cmbStudents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStudents.FormattingEnabled = true;
-            this.cmbStudents.Location = new System.Drawing.Point(150, 27);
-            this.cmbStudents.Name = "cmbStudents";
-            this.cmbStudents.Size = new System.Drawing.Size(200, 24);
-            this.cmbStudents.TabIndex = 2;
-            // 
-            // cmbBlocks
-            // 
-            this.cmbBlocks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBlocks.FormattingEnabled = true;
-            this.cmbBlocks.Location = new System.Drawing.Point(150, 77);
-            this.cmbBlocks.Name = "cmbBlocks";
-            this.cmbBlocks.Size = new System.Drawing.Size(200, 24);
-            this.cmbBlocks.TabIndex = 3;
+            cmbStudents.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStudents.FormattingEnabled = true;
+            cmbStudents.Location = new Point(188, 42);
+            cmbStudents.Margin = new Padding(4, 5, 4, 5);
+            cmbStudents.Name = "cmbStudents";
+            cmbStudents.Size = new Size(249, 33);
+            cmbStudents.TabIndex = 2;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(80, 130);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 30);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Assign";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.Location = new Point(100, 203);
+            btnAdd.Margin = new Padding(4, 5, 4, 5);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(125, 47);
+            btnAdd.TabIndex = 4;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(200, 130);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 30);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.Location = new Point(250, 203);
+            btnCancel.Margin = new Padding(4, 5, 4, 5);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(125, 47);
+            btnCancel.TabIndex = 5;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // txtPosition
+            // 
+            txtPosition.Location = new Point(188, 120);
+            txtPosition.Name = "txtPosition";
+            txtPosition.Size = new Size(249, 31);
+            txtPosition.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(38, 126);
+            label1.Name = "label1";
+            label1.Size = new Size(75, 25);
+            label1.TabIndex = 7;
+            label1.Text = "Position";
             // 
             // AddBlockManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 190);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.cmbBlocks);
-            this.Controls.Add(this.cmbStudents);
-            this.Controls.Add(this.lblBlock);
-            this.Controls.Add(this.lblStudent);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "AddBlockManagerForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Block Manager";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(488, 297);
+            Controls.Add(label1);
+            Controls.Add(txtPosition);
+            Controls.Add(btnCancel);
+            Controls.Add(btnAdd);
+            Controls.Add(cmbStudents);
+            Controls.Add(lblStudent);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "AddBlockManagerForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Add Block Manager";
+            ResumeLayout(false);
+            PerformLayout();
         }
+
+        private TextBox txtPosition;
+        private Label label1;
     }
 }

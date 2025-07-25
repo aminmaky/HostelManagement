@@ -82,6 +82,9 @@
     <Compile Update="Persons\Students\StudentControl\RegisterStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Persons\Students\StudentControl\TransferStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Persons\Students\StudentManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>

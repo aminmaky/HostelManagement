@@ -13,43 +13,73 @@ namespace HostelManagement.Persons.BlockManagers
 {
     public partial class AddBlockManagerForm : Form
     {
+        private List<Student> allStudents;
+        private List<Block> allBlocks;
+
         public AddBlockManagerForm()
         {
             InitializeComponent();
             LoadStudents();
-            LoadBlocks();
+            //LoadBlocks();
         }
 
         private void LoadStudents()
         {
-            // Load student list from your data source
-            cmbStudents.Items.Add("Student A");
-            cmbStudents.Items.Add("Student B");
-            cmbStudents.Items.Add("Student C");
+            allStudents = DATA.Students.Where(s => !(s is BlocksManager)).ToList();
+            cmbStudents.Items.Clear();
+            foreach (var s in allStudents)
+            {
+                cmbStudents.Items.Add($"{s.Firstname} {s.Lastname} ({s.StudentId})");
+            }
         }
 
-        private void LoadBlocks()
-        {
-            // Load block list from your data source
-            cmbBlocks.Items.Add("Block 1");
-            cmbBlocks.Items.Add("Block 2");
-            cmbBlocks.Items.Add("Block 3");
-        }
+        //private void LoadBlocks()
+        //{
+        //    allBlocks = DATA.Blocks.Where(b => b.supervisor == null).ToList();
+        //    cmbBlocks.Items.Clear();
+        //    foreach (var b in allBlocks)
+        //    {
+        //        cmbBlocks.Items.Add(b.Name);
+        //    }
+        //}
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (cmbStudents.SelectedItem == null || cmbBlocks.SelectedItem == null)
+            if (cmbStudents.SelectedIndex == -1/* || cmbBlocks.SelectedIndex == -1*/)
             {
-                MessageBox.Show("Please select both a student and a block.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a student", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string selectedStudent = cmbStudents.SelectedItem.ToString();
-            string selectedBlock = cmbBlocks.SelectedItem.ToString();
+            var selectedStudent = allStudents[cmbStudents.SelectedIndex];
+            // var selectedBlock = allBlocks[cmbBlocks.SelectedIndex];
+            Block selectedBlock = null;
+            string Position = txtPosition.Text;
+            var blockManager = new BlocksManager(
+                selectedStudent.Firstname,
+                selectedStudent.Lastname,
+                selectedStudent.IdNum,
+                selectedStudent.TelNum,
+                selectedStudent.Address,
+                selectedStudent.StudentId,
+                selectedStudent.Room,
+                selectedStudent.Block,
+                selectedStudent.dormitory,
+                selectedStudent.tools,
+                Position,
+                selectedBlock
+                );
+
+            // selectedBlock.supervisor = blockManager;
+            if (DATA.BlockManagers == null)
+                DATA.BlockManagers = new List<BlocksManager>();
+            DATA.BlockManagers.Add(blockManager);
 
             // Save block manager assignment here
-            MessageBox.Show($"{selectedStudent} is now assigned as block manager for {selectedBlock}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{selectedStudent} is now add as block manager.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+            new BlockManagersForm().Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

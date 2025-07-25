@@ -12,51 +12,94 @@ namespace HostelManagement.Blocks
 {
     public partial class EditBlockForm : Form
     {
-        private string dormitoryName;
+        private Dormitory dorm;
 
-        public EditBlockForm(Dormitory dormitoryName)
+        public EditBlockForm(Dormitory dormitory)
         {
             InitializeComponent();
-            // this.dormitoryName = dormitoryName;
+            this.dorm = dormitory;
         }
+
 
         private void EditBlockForm_Load(object sender, EventArgs e)
         {
-            lblDormitory.Text = $"Dormitory: {dormitoryName}";
+            lblDormitory.Text = $"Dormitory: {dorm.Name}";
+            cmbBlocks.Items.Clear();
 
-            // Mock: load existing blocks (should be fetched from DB)
-            cmbBlocks.Items.Add("Block A");
-            cmbBlocks.Items.Add("Block B");
-            cmbBlocks.Items.Add("Block C");
+            if (dorm.Blocks != null)
+            {
+                foreach (var block in dorm.Blocks)
+                    cmbBlocks.Items.Add(block);
+            }
+
+            cmbBlockManagers.Items.Clear();
+            foreach (var manager in DATA.BlockManagers)
+            {
+                cmbBlockManagers.Items.Add(manager);
+            }
+
         }
+
+
+        private Block selectedBlock;
 
         private void CmbBlocks_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Load block details for editing - Mock values
-            string selected = cmbBlocks.SelectedItem.ToString();
-            txtBlockName.Text = selected;
-            numFloors.Value = 3;
-            numRooms.Value = 30;
-            txtManager.Text = "John Doe";
+            selectedBlock = cmbBlocks.SelectedItem as Block;
+
+            if (selectedBlock != null)
+            {
+                txtBlockName.Text = selectedBlock.Name;
+                numFloors.Value = selectedBlock.FloresCount;
+                numRooms.Value = selectedBlock.RoomCount;
+                // txt.Text = selectedBlock.supervisor;
+            }
+            if (selectedBlock.supervisor != null)
+            {
+                cmbBlockManagers.SelectedItem = selectedBlock.supervisor;
+            }
+            else
+            {
+                cmbBlockManagers.SelectedIndex = -1;
+            }
+
         }
+
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (cmbBlocks.SelectedItem == null)
+            if (selectedBlock == null)
             {
                 MessageBox.Show("Please select a block to edit.");
                 return;
             }
 
-            string newName = txtBlockName.Text;
-            int floors = (int)numFloors.Value;
-            int rooms = (int)numRooms.Value;
-            string manager = txtManager.Text;
+            if (selectedBlock == null)
+            {
+                MessageBox.Show("Please select a block to edit.");
+                return;
+            }
 
-            // Save logic here...
+            selectedBlock.Name = txtBlockName.Text;
+            selectedBlock.FloresCount = (int)numFloors.Value;
+            selectedBlock.RoomCount = (int)numRooms.Value;
+
+            var newManager = cmbBlockManagers.SelectedItem as BlocksManager;
+
+            if (newManager != null && newManager != selectedBlock.supervisor)
+            {
+                if (selectedBlock.supervisor != null)
+                    selectedBlock.supervisor.controledBlock = null;
+
+                selectedBlock.supervisor = newManager;
+                newManager.controledBlock = selectedBlock;
+            }
 
             MessageBox.Show("Block updated successfully.");
+            this.Close();
+
         }
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {

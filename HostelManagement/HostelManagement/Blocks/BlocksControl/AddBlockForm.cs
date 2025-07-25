@@ -25,11 +25,15 @@ namespace HostelManagement.Blocks
         {
             lblDormitoryName.Text = $"Dormitory: {dorm.Name}";
 
-            // You can load available supervisors here
-            cmbSupervisor.Items.Add("Supervisor A");
-            cmbSupervisor.Items.Add("Supervisor B");
-            cmbSupervisor.Items.Add("Supervisor C");
+            cmbSupervisor.Items.Clear();
+            foreach (var manager in DATA.BlockManagers)
+            {
+                cmbSupervisor.Items.Add(manager);
+            }
+
+            cmbSupervisor.SelectedIndex = -1;
         }
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             string blockName = txtBlockName.Text.Trim();
@@ -43,20 +47,52 @@ namespace HostelManagement.Blocks
                 MessageBox.Show("Please fill all fields correctly.");
                 return;
             }
-            
-            // Block block = new Block(blockName, numFloors, numRooms, /*cmbSupervisor.SelectedItem.ToString(), */dorm);
+
+            BlocksManager supervisorName = cmbSupervisor.SelectedItem as BlocksManager;
+
+            Block newBlock = new Block(blockName, numFloors, numRooms, supervisorName, dorm);
 
             if (dorm.Blocks == null)
                 dorm.Blocks = new List<Block>();
-            
-            // Save to DB or data structure here...
+            dorm.Blocks.Add(newBlock);
 
-            // dorm.Blocks.Add(block);
+            if (DATA.Blocks == null)
+                DATA.Blocks = new List<Block>();
+            DATA.Blocks.Add(newBlock);
+            supervisorName.controledBlock = newBlock;
 
             MessageBox.Show("Block added successfully!");
             new BlockManagementForm().Show();
             this.Close();
         }
+
+        //private void BtnAdd_Click(object sender, EventArgs e)
+        //{
+        //    string blockName = txtBlockName.Text.Trim();
+        //    int numFloors, numRooms;
+
+        //    if (string.IsNullOrWhiteSpace(blockName) ||
+        //        !int.TryParse(txtFloors.Text, out numFloors) ||
+        //        !int.TryParse(txtRooms.Text, out numRooms) ||
+        //        cmbSupervisor.SelectedItem == null)
+        //    {
+        //        MessageBox.Show("Please fill all fields correctly.");
+        //        return;
+        //    }
+            
+        //    // Block block = new Block(blockName, numFloors, numRooms, /*cmbSupervisor.SelectedItem.ToString(), */dorm);
+
+        //    if (dorm.Blocks == null)
+        //        dorm.Blocks = new List<Block>();
+            
+        //    // Save to DB or data structure here...
+
+        //    // dorm.Blocks.Add(block);
+
+        //    MessageBox.Show("Block added successfully!");
+        //    new BlockManagementForm().Show();
+        //    this.Close();
+        //}
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             new BlockManagementForm().Show();

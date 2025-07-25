@@ -87,3 +87,4 @@ D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\n
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.DormitoryManagers.ManageDormitoryManagersForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.Students.StudentControl.EditStudentForm.resources
 D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.Students.RegisterStudentForm.resources
+D:\UK\HW\PcPrograming\Prj\PrjFiles\HostelManagement\HostelManagement\obj\Debug\net7.0-windows\HostelManagement.Persons.Students.TransferStudentForm.resources

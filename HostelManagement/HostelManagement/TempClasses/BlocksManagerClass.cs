@@ -20,8 +20,9 @@ namespace HostelManagement// .TempClasses
         }
         public override string ToString()
         {
-            return $"{Firstname} {Lastname} - {controledBlock}";
+            return $"{Firstname} {Lastname} - Block: {(controledBlock != null ? controledBlock.Name : "None")}";
         }
+
     }
 
 }

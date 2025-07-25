@@ -1,17 +1,18 @@
-﻿using System;
+﻿using HostelManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace HostelManagement.Persons.Students
 {
-    public partial class RegisterStudentForm : Form
+    public partial class TransferStudentForm : Form
     {
         private List<Student> students;
         private List<Dormitory> dormitories;
         private Student FStudent;
 
-        public RegisterStudentForm(Student fStudent)
+        public TransferStudentForm(Student fStudent)
         {
             InitializeComponent();
             FStudent = fStudent;
@@ -46,33 +47,31 @@ namespace HostelManagement.Persons.Students
         }
 
 
-
         private void CmbDormitory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbBlock.Items.Clear();
-            var selectedDorm = cmbDormitory.SelectedItem as Dormitory;
-
-            if (selectedDorm?.Blocks != null)
+            if (cmbDormitory.SelectedItem is Dormitory selectedDorm)
             {
-                foreach (var block in selectedDorm.Blocks)
-                    cmbBlock.Items.Add(block);
+                cmbBlock.Items.AddRange(selectedDorm.Blocks.ToArray());
             }
-
-            cmbBlock.SelectedIndex = -1;
         }
 
-
-
-        private void BtnRegister_Click(object sender, EventArgs e)
+        private void BtnTransfer_Click(object sender, EventArgs e)
         {
-            var student = FStudent;
+            var student = cmbStudent.SelectedItem as Student;
             var dorm = cmbDormitory.SelectedItem as Dormitory;
             var block = cmbBlock.SelectedItem as Block;
             int roomNumber = (int)numRoom.Value;
 
-            if (dorm == null || block == null || roomNumber <= 0)
+            if (student == null || dorm == null || block == null || roomNumber <= 0)
             {
                 MessageBox.Show("Please select all fields and enter a valid room number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (student.dormitory == dorm && student.Block == block && student.Room == roomNumber)
+            {
+                MessageBox.Show("Student is already assigned to the selected room.");
                 return;
             }
 
@@ -80,16 +79,15 @@ namespace HostelManagement.Persons.Students
             student.Block = block;
             student.Room = roomNumber;
 
-            MessageBox.Show("Student registered to dormitory successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Student transferred successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             new StudentManagementForm().Show();
             this.Close();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+
+        private void BtnBack_Click(object sender, EventArgs e)
         {
-            new StudentManagementForm().Show();
             this.Close();
         }
-
     }
 }

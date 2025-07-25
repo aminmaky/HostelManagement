@@ -40,10 +40,12 @@
             dgvBlocks.AllowUserToDeleteRows = false;
             dgvBlocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            dgvBlocks.Columns.Add("BlockName", "Block Name");
+            dgvBlocks.Columns.Clear();
+            dgvBlocks.Columns.Add("Name", "Block Name");
             dgvBlocks.Columns.Add("Floors", "Floors");
             dgvBlocks.Columns.Add("Rooms", "Rooms");
-            dgvBlocks.Columns.Add("Manager", "Manager");
+            dgvBlocks.Columns.Add("Supervisor", "Supervisor");
+
             // 
             // btnClose
             // 
