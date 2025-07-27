@@ -1,0 +1,22 @@
+# Ignore Visual Studio temporary files, build results, and
+.vs/
+*.user
+*.suo
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore others
+*.pdb
+*.db
+*.log
+*.cache
+*.vsidx
+*.exe
+*.dll
+*.nuget.*
+*.nupkg
+
+# Optional: Ignore your local data files
+HostelManagement/data/
