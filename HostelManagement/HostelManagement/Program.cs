@@ -15,10 +15,16 @@ namespace HostelManagement
             //////////////////////////////////////////////////////////////////////////////////////////
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
+            // ????? ??????? SQLite
+            HostelDataService.InitializeDatabase();
+
+            // ????? ?? ?????????? ??????
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new Login());
         }
     }
 
-    // Data:
+    //// Data:
     public static class DATA
     {
         public static List<Dormitory> Dormitories = new List<Dormitory>();
@@ -31,10 +37,10 @@ namespace HostelManagement
 
     }
     ///////////////////////////////////////////// Owner Class //////////////////////////////////////////
-    
 
 
-    
+
+
     //// Classes required for this application:
     ///*
     //class PremiumArray<G>
@@ -194,5 +200,5 @@ namespace HostelManagement
     //    public string Position { get { return position; } set { position = value; } }
 
     //}
-    
+
 }

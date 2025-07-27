@@ -1,6 +1,6 @@
-﻿using HostelManagement;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +9,46 @@ namespace HostelManagement// .TempClasses
 {
     public class Block
     {
-        public string Name;
-        public int FloresCount;
-        public int RoomCount;
-        public BlocksManager supervisor;
-        // private List<Rooms> room; (R V needed??)
-        public Dormitory DormitoryName;
-        public Block(string Name, int FloresCount, int RoomCount, BlocksManager supervisor, Dormitory DormitoryName)
+        // سازنده بدون پارامتر برای EF Core
+        public Block()
         {
-            this.Name = Name;
-            this.FloresCount = FloresCount;
-            this.RoomCount = RoomCount;
-            this.supervisor = supervisor;
-            this.DormitoryName = DormitoryName;
+            Name = string.Empty;
+            FloresCount = 0;
+            RoomCount = 0;
         }
+
+        // سازنده اصلی با 3 پارامتر
+        public Block(string name, int floresCount, int roomCount)
+        {
+            Name = name;
+            FloresCount = floresCount;
+            RoomCount = roomCount;
+        }
+
+        // سازنده با 5 پارامتر (برای حفظ سازگاری با کد موجود)
+        public Block(string name, int floresCount, int roomCount, BlocksManager supervisor, Dormitory dormitoryName)
+        {
+            Name = name;
+            FloresCount = floresCount;
+            RoomCount = roomCount;
+            this.supervisor = supervisor;
+            this.DormitoryName = dormitoryName;
+        }
+
+        // بقیه کد کلاس Block
+        [Key]
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        public int FloresCount { get; set; }
+        public int RoomCount { get; set; }
+
+        public virtual BlocksManager supervisor { get; set; }
+        public string SupervisorId { get; set; }
+
+        public virtual Dormitory DormitoryName { get; set; }
+        public int? DormitoryId { get; set; }
+
         public override string ToString()
         {
             return $"{Name} ({FloresCount} floors, {RoomCount} rooms)";

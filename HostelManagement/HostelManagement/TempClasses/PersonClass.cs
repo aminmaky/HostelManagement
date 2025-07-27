@@ -1,26 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace HostelManagement// .TempClasses
 {
     public class Person
     {
-        public string Firstname;
-        public string Lastname;
-        public string IdNum;
-        public string TelNum;
-        public string Address;
-
-        public Person(string Firstname, string Lastname, string IdNum, string TelNum, string Address)
+        // سازنده بدون پارامتر برای EF Core
+        public Person()
         {
-            this.Firstname = Firstname;
-            this.Lastname = Lastname;
-            this.IdNum = IdNum;
-            this.TelNum = TelNum;
-            this.Address = Address;
+            Firstname = string.Empty;
+            Lastname = string.Empty;
+            IdNum = string.Empty;
+            TelNum = string.Empty;
+            Address = string.Empty;
         }
+
+        // سازنده اصلی
+        public Person(string firstname, string lastname, string idNum, string telNum, string address)
+        {
+            Firstname = firstname;
+            Lastname = lastname;
+            IdNum = idNum;
+            TelNum = telNum;
+            Address = address;
+        }
+
+        // کلید اصلی
+        [Key]
+        public string IdNum { get; set; }
+
+        // تبدیل فیلدها به property
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string TelNum { get; set; }
+        public string Address { get; set; }
     }
 }
+
