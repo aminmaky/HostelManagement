@@ -20,7 +20,6 @@ namespace HostelManagement.Persons.BlockManagers
         {
             InitializeComponent();
             LoadStudents();
-            //LoadBlocks();
         }
 
         private void LoadStudents()
@@ -33,17 +32,6 @@ namespace HostelManagement.Persons.BlockManagers
             }
         }
 
-        //private void LoadBlocks()
-        //{
-        //    allBlocks = DATA.Blocks.Where(b => b.supervisor == null).ToList();
-        //    cmbBlocks.Items.Clear();
-        //    foreach (var b in allBlocks)
-        //    {
-        //        cmbBlocks.Items.Add(b.Name);
-        //    }
-        //}
-
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (cmbStudents.SelectedIndex == -1/* || cmbBlocks.SelectedIndex == -1*/)
@@ -53,7 +41,6 @@ namespace HostelManagement.Persons.BlockManagers
             }
 
             var selectedStudent = allStudents[cmbStudents.SelectedIndex];
-            // var selectedBlock = allBlocks[cmbBlocks.SelectedIndex];
             Block selectedBlock = null;
             string Position = txtPosition.Text;
             var blockManager = new BlocksManager(
@@ -71,12 +58,10 @@ namespace HostelManagement.Persons.BlockManagers
                 selectedBlock
                 );
 
-            // selectedBlock.supervisor = blockManager;
             if (DATA.BlockManagers == null)
                 DATA.BlockManagers = new List<BlocksManager>();
             DATA.BlockManagers.Add(blockManager);
 
-            // Save block manager assignment here
             MessageBox.Show($"{selectedStudent} is now add as block manager.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
             new BlockManagersForm().Show();

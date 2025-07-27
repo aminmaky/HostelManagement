@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class Block
     {
-        // سازنده بدون پارامتر برای EF Core
         public Block()
         {
             Name = string.Empty;
@@ -17,7 +16,7 @@ namespace HostelManagement// .TempClasses
             RoomCount = 0;
         }
 
-        // سازنده اصلی با 3 پارامتر
+        
         public Block(string name, int floresCount, int roomCount)
         {
             Name = name;
@@ -25,7 +24,6 @@ namespace HostelManagement// .TempClasses
             RoomCount = roomCount;
         }
 
-        // سازنده با 5 پارامتر (برای حفظ سازگاری با کد موجود)
         public Block(string name, int floresCount, int roomCount, BlocksManager supervisor, Dormitory dormitoryName)
         {
             Name = name;
@@ -34,8 +32,6 @@ namespace HostelManagement// .TempClasses
             this.supervisor = supervisor;
             this.DormitoryName = dormitoryName;
         }
-
-        // بقیه کد کلاس Block
         [Key]
         public int Id { get; set; }
 

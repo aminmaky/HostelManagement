@@ -9,7 +9,6 @@ namespace HostelManagement// .TempClasses
 {
     public class Dormitory
     {
-        // سازنده بدون پارامتر برای EF Core
         public Dormitory()
         {
             Name = string.Empty;
@@ -18,7 +17,6 @@ namespace HostelManagement// .TempClasses
             Blocks = new List<Block>();
         }
 
-        // سازنده اصلی
         public Dormitory(string name, string address, long capacity, DormitoryManager dormitoryManager)
         {
             Name = name;
@@ -28,16 +26,13 @@ namespace HostelManagement// .TempClasses
             Blocks = new List<Block>();
         }
 
-        // کلید اصلی
         [Key]
         public int Id { get; set; }
 
-        // تبدیل فیلدها به property
         public string Name { get; set; }
         public string Address { get; set; }
         public long Capacity { get; set; }
 
-        // روابط (navigation properties)
         public virtual DormitoryManager DormitoryManager { get; set; }
         public string DormitoryManagerId { get; set; }
 
