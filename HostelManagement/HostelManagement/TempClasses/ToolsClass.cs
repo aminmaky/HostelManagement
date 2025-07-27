@@ -25,16 +25,14 @@ namespace HostelManagement// .TempClasses
 
     public class Tools
     {
-        // سازنده بدون پارامتر برای EF Core
         public Tools()
         {
             Number = string.Empty;
             OwnerName = string.Empty;
-            PartNum = new string[0];
+            PartNum2 = new string[0];
         }
 
-        // سازنده اصلی
-        public Tools(Asset type, string[] partNum, string number, status status, int roomNum, string ownerName)
+        public Tools(Asset type, string partNum, string number, status status, int roomNum, string ownerName)
         {
             Type = type;
             PartNum = partNum;
@@ -44,13 +42,16 @@ namespace HostelManagement// .TempClasses
             OwnerName = ownerName;
         }
 
-        // کلید اصلی
         [Key]
         public int Id { get; set; }
 
-        // تبدیل فیلدها به property
         public Asset Type { get; set; }
-        public string[] PartNum { get; set; }
+        public string PartNum { get; set; }  
+        public string[] PartNum2
+        {
+            get => PartNum?.Split(',') ?? new string[0];  
+            set => PartNum = string.Join(',', value);  
+        }
         public string Number { get; set; }
         public status Status { get; set; }
         public int RoomNum { get; set; }
