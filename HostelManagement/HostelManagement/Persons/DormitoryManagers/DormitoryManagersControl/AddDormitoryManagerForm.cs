@@ -48,5 +48,25 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
             new ManageDormitoryManagersForm().Show();
             this.Close();
         }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPhone.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtPhone.Text = txtPhone.Text.Remove(txtPhone.Text.Length - 1);
+                txtPhone.SelectionStart = txtPhone.Text.Length;
+            }
+        }
+
+        private void txtIDNum_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtIDNum.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtIDNum.Text = txtIDNum.Text.Remove(txtIDNum.Text.Length - 1);
+                txtIDNum.SelectionStart = txtIDNum.Text.Length;
+            }
+        }
     }
 }

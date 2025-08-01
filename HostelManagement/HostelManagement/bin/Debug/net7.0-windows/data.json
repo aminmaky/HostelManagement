@@ -13,20 +13,55 @@
           "$id": "4",
           "$values": []
         }
+      },
+      {
+        "$id": "5",
+        "Name": "gdgdg",
+        "Address": "gdgdgd",
+        "Capacity": 6,
+        "DormitoryManager": {
+          "$id": "6",
+          "Position": "gdgdgdd",
+          "ControledDormitory": {
+            "$id": "7",
+            "Name": "ddfd",
+            "Address": "dfdfd",
+            "Capacity": 120,
+            "DormitoryManager": {
+              "$ref": "6"
+            },
+            "Blocks": {
+              "$id": "8",
+              "$values": []
+            }
+          },
+          "Firstname": "dggdgd",
+          "Lastname": "dgdgdg",
+          "IdNum": "gdgdg",
+          "TelNum": "dgdgdg",
+          "Address": "gdgdgdg"
+        },
+        "Blocks": {
+          "$id": "9",
+          "$values": []
+        }
+      },
+      {
+        "$ref": "7"
       }
     ]
   },
   "Blocks": {
-    "$id": "5",
+    "$id": "10",
     "$values": [
       {
-        "$id": "6",
+        "$id": "11",
         "Name": null,
         "FloresCount": 0,
         "RoomCount": 0,
         "Supervisor": null,
         "Rooms": {
-          "$id": "7",
+          "$id": "12",
           "$values": []
         },
         "DormitoryName": null
@@ -34,20 +69,20 @@
     ]
   },
   "Students": {
-    "$id": "8",
+    "$id": "13",
     "$values": [
       {
-        "$id": "9",
+        "$id": "14",
         "StudentId": "401412091",
         "Room": null,
         "Block": null,
         "Dormitory": null,
         "Tools": {
-          "$id": "10",
+          "$id": "15",
           "$values": []
         },
         "HousingHistory": {
-          "$id": "11",
+          "$id": "16",
           "$values": []
         },
         "Firstname": "Amin",
@@ -59,18 +94,22 @@
     ]
   },
   "DormitoryManagers": {
-    "$id": "12",
-    "$values": []
+    "$id": "17",
+    "$values": [
+      {
+        "$ref": "6"
+      }
+    ]
   },
   "BlockManagers": {
-    "$id": "13",
+    "$id": "18",
     "$values": []
   },
   "Tools": {
-    "$id": "14",
+    "$id": "19",
     "$values": [
       {
-        "$id": "15",
+        "$id": "20",
         "Type": 0,
         "PartNum": null,
         "PropertyNum": null,
@@ -80,7 +119,7 @@
         "Room": null
       },
       {
-        "$id": "16",
+        "$id": "21",
         "Type": 0,
         "PartNum": null,
         "PropertyNum": null,
@@ -90,7 +129,7 @@
         "Room": null
       },
       {
-        "$id": "17",
+        "$id": "22",
         "Type": 0,
         "PartNum": null,
         "PropertyNum": null,
@@ -100,10 +139,20 @@
         "Room": null
       },
       {
-        "$id": "18",
+        "$id": "23",
         "Type": 0,
         "PartNum": null,
         "PropertyNum": null,
+        "Status": 0,
+        "RoomNum": 0,
+        "OwnerName": null,
+        "Room": null
+      },
+      {
+        "$id": "24",
+        "Type": 0,
+        "PartNum": "001",
+        "PropertyNum": "12454545",
         "Status": 0,
         "RoomNum": 0,
         "OwnerName": null,

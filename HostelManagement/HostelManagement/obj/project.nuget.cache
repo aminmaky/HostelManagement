@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Xtoxuk1jjhDuIHIpQV823I9PsbYeB8oeLNj2gO4N3do6I+lUGb2nF71eqzQ1CV7eYGL8TMwPMyOoqdHC3CV4lA==",
+  "dgSpecHash": "br6fO46DFlg=",
   "success": true,
-  "projectFilePath": "D:\\UK\\HW\\PcPrograming\\Prj\\PrjFiles\\HostelManagement\\HostelManagement\\HostelManagement.csproj",
+  "projectFilePath": "D:\\code\\project\\HostelManagement_TryToMakeUiFinish\\HostelManagement\\HostelManagement\\HostelManagement.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DOR CO\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\Kian\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Kian\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Kian\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Kian\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Kian\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }

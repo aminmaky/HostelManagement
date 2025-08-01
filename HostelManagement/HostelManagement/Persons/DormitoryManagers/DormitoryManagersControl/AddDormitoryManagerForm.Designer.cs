@@ -62,7 +62,7 @@
             lblFirstName.AutoSize = true;
             lblFirstName.Location = new Point(30, 30);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(101, 25);
+            lblFirstName.Size = new Size(83, 20);
             lblFirstName.TabIndex = 0;
             lblFirstName.Text = "First Name:";
             // 
@@ -71,7 +71,7 @@
             lblLastName.AutoSize = true;
             lblLastName.Location = new Point(30, 70);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(99, 25);
+            lblLastName.Size = new Size(82, 20);
             lblLastName.TabIndex = 2;
             lblLastName.Text = "Last Name:";
             // 
@@ -80,7 +80,7 @@
             lblPosition.AutoSize = true;
             lblPosition.Location = new Point(30, 110);
             lblPosition.Name = "lblPosition";
-            lblPosition.Size = new Size(79, 25);
+            lblPosition.Size = new Size(64, 20);
             lblPosition.TabIndex = 4;
             lblPosition.Text = "Position:";
             // 
@@ -89,7 +89,7 @@
             lblPhone.AutoSize = true;
             lblPhone.Location = new Point(30, 150);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(66, 25);
+            lblPhone.Size = new Size(53, 20);
             lblPhone.TabIndex = 6;
             lblPhone.Text = "Phone:";
             // 
@@ -98,7 +98,7 @@
             lblAddress.AutoSize = true;
             lblAddress.Location = new Point(28, 227);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(81, 25);
+            lblAddress.Size = new Size(65, 20);
             lblAddress.TabIndex = 8;
             lblAddress.Text = "Address:";
             // 
@@ -106,35 +106,36 @@
             // 
             txtFirstName.Location = new Point(150, 27);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(200, 31);
+            txtFirstName.Size = new Size(200, 27);
             txtFirstName.TabIndex = 1;
             // 
             // txtLastName
             // 
             txtLastName.Location = new Point(150, 67);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(200, 31);
+            txtLastName.Size = new Size(200, 27);
             txtLastName.TabIndex = 3;
             // 
             // txtPosition
             // 
             txtPosition.Location = new Point(150, 107);
             txtPosition.Name = "txtPosition";
-            txtPosition.Size = new Size(200, 31);
+            txtPosition.Size = new Size(200, 27);
             txtPosition.TabIndex = 5;
             // 
             // txtPhone
             // 
             txtPhone.Location = new Point(150, 147);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(200, 31);
+            txtPhone.Size = new Size(200, 27);
             txtPhone.TabIndex = 7;
+            txtPhone.TextChanged += txtPhone_TextChanged;
             // 
             // txtAddress
             // 
             txtAddress.Location = new Point(150, 221);
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(200, 31);
+            txtAddress.Size = new Size(200, 27);
             txtAddress.TabIndex = 9;
             // 
             // btnSubmit
@@ -162,7 +163,7 @@
             lblIDNum.AutoSize = true;
             lblIDNum.Location = new Point(30, 190);
             lblIDNum.Name = "lblIDNum";
-            lblIDNum.Size = new Size(104, 25);
+            lblIDNum.Size = new Size(85, 20);
             lblIDNum.TabIndex = 12;
             lblIDNum.Text = "ID Number:";
             // 
@@ -170,8 +171,9 @@
             // 
             txtIDNum.Location = new Point(150, 184);
             txtIDNum.Name = "txtIDNum";
-            txtIDNum.Size = new Size(200, 31);
+            txtIDNum.Size = new Size(200, 27);
             txtIDNum.TabIndex = 13;
+            txtIDNum.TextChanged += txtIDNum_TextChanged;
             // 
             // AddDormitoryManagerForm
             // 
