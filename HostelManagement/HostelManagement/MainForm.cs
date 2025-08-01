@@ -52,5 +52,9 @@ namespace HostelManagement
             this.Hide();
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            DataStorage.SaveData(); // Save...
+        }
     }
 }

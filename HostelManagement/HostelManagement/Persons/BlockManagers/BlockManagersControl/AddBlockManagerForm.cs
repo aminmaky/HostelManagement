@@ -65,8 +65,8 @@ namespace HostelManagement.Persons.BlockManagers
                 selectedStudent.StudentId,
                 selectedStudent.Room,
                 selectedStudent.Block,
-                selectedStudent.dormitory,
-                selectedStudent.tools,
+                selectedStudent.Dormitory,
+                selectedStudent.Tools,
                 Position,
                 selectedBlock
                 );

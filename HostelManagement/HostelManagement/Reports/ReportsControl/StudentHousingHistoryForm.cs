@@ -19,11 +19,14 @@ namespace HostelManagement.Reports
 
         private void StudentHousingHistoryForm_Load(object sender, EventArgs e)
         {
-            // Sample data - later will be loaded from actual student list
-            cmbStudents.Items.Add("98123456 - Ali Rezaei");
-            cmbStudents.Items.Add("99111222 - Sara Ahmadi");
-            cmbStudents.SelectedIndex = 0;
+            cmbStudents.Items.Clear();
+            foreach (var student in DATA.Students)
+                cmbStudents.Items.Add($"{student.StudentId} - {student.Firstname} {student.Lastname}");
+
+            if (cmbStudents.Items.Count > 0)
+                cmbStudents.SelectedIndex = 0;
         }
+
 
         private void BtnLoadHistory_Click(object sender, EventArgs e)
         {
@@ -33,13 +36,23 @@ namespace HostelManagement.Reports
             dgvHistory.Columns.Add("Room", "Room");
             dgvHistory.Columns.Add("Dormitory", "Dormitory");
             dgvHistory.Columns.Add("Block", "Block");
-            dgvHistory.Columns.Add("CheckIn", "Check-in Date");
-            dgvHistory.Columns.Add("CheckOut", "Check-out Date");
 
-            // Sample history for selected student
-            dgvHistory.Rows.Add("101", "Dorm A", "Block 1", "2023-09-01", "2024-02-01");
-            dgvHistory.Rows.Add("204", "Dorm B", "Block 2", "2024-02-02", "2025-01-01");
+            var selectedItem = cmbStudents.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedItem))
+                return;
+
+            var studentId = selectedItem.Split('-')[0].Trim();
+            var student = DATA.Students.FirstOrDefault(s => s.StudentId == studentId);
+
+            if (student?.HousingHistory != null)
+            {
+                foreach (var record in student.HousingHistory)
+                {
+                    dgvHistory.Rows.Add(record.Room, record.Dormitory, record.Block);
+                }
+            }
         }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {

@@ -68,7 +68,7 @@ namespace HostelManagement.Dormitories
             selected.Address = txtAddress.Text;
             selected.Capacity = int.TryParse(txtCapacity.Text, out int capacity) ? capacity : selected.Capacity;
             selected.DormitoryManager = newManager;
-            newManager.controledDormitory = selected;
+            newManager.ControledDormitory = selected;
 
             MessageBox.Show("Dormitory information updated successfully.");
             new DormitoryManagementForm().Show();

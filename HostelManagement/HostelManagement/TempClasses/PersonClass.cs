@@ -4,23 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class Person
     {
-        public string Firstname;
-        public string Lastname;
-        public string IdNum;
-        public string TelNum;
-        public string Address;
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string IdNum { get; set; }
+        public string TelNum { get; set; }
+        public string Address { get; set; }
 
-        public Person(string Firstname, string Lastname, string IdNum, string TelNum, string Address)
+        public Person()
         {
-            this.Firstname = Firstname;
-            this.Lastname = Lastname;
-            this.IdNum = IdNum;
-            this.TelNum = TelNum;
-            this.Address = Address;
+        }
+
+        public Person(string firstname, string lastname, string idNum, string telNum, string address)
+        {
+            Firstname = firstname;
+            Lastname = lastname;
+            IdNum = idNum;
+            TelNum = telNum;
+            Address = address;
         }
     }
 }

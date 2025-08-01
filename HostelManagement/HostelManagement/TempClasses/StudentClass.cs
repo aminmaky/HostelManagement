@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 using System.Xml;
 using Newtonsoft.Json;
 
-
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class Student : Person
     {
-        public string StudentId;
-        public Room Room;
-        public Block Block;
-        public Dormitory dormitory;
-        public List<Tool> tools;
-        public Student(string firstname, string lastname, string idNum, string telNum, 
-            string address, string StudentId/*, int Room, Block Block, Dormitory dormitory, List<Tools> tool*/)
+        public string StudentId { get; set; }
+        public Room Room { get; set; }
+        public Block Block { get; set; }
+        public Dormitory Dormitory { get; set; }
+        public List<Tool> Tools { get; set; } = new List<Tool>();
+        public List<HousingRecord> HousingHistory { get; set; } = new List<HousingRecord>();
+
+        public Student() : base()
+        {
+        }
+
+        public Student(string firstname, string lastname, string idNum, string telNum,
+                       string address, string studentId)
             : base(firstname, lastname, idNum, telNum, address)
         {
-            this.StudentId = StudentId;
-            // this.Room = Room;
-            // this.Block = Block;
-            // this.dormitory = dormitory;
-            // this.tools = tool;
+            StudentId = studentId;
         }
 
         public string GetFullDetails()
@@ -32,86 +33,29 @@ namespace HostelManagement// .TempClasses
             return $"Name: {Firstname} {Lastname}\n" +
                    $"Student ID: {StudentId}\n" +
                    $"Tel: {TelNum}\n" +
-                   $"Dormitory: {dormitory?.Name}\n" +
+                   $"Dormitory: {Dormitory?.Name}\n" +
                    $"Block: {Block?.Name}\n" +
                    $"Room: {Room}";
         }
+
         public override string ToString()
         {
             return $"{Firstname} {Lastname} - {StudentId}";
         }
-
-        /*
-        public string StudentID
-        {
-            get { return StudentId; }
-            set { StudentId = value; }
-        }
-        public int RoomNumber
-        {
-            get { return Room; }
-            set { Room = value; }
-        }
-        public int BlockNumber
-        {
-            get { return Block; }
-            set { Block = value; }
-        }
-        public int DormitoryNumber
-        {
-            get { return dormitory; }
-            set { dormitory = value; }
-        }
-        */
     }
+    public class HousingRecord
+    {
+        public string Room { get; set; }
+        public string Dormitory { get; set; }
+        public string Block { get; set; }
 
+        public HousingRecord() { }
 
-    //public static class StudentRepository
-    //{
-    //    private static readonly string filePath = "students.json";
-
-    //    public static void AddStudent(StudentClass student)
-    //    {
-    //        var students = LoadStudents();
-    //        students.Add(student);
-    //        SaveStudents(students);
-    //    }
-
-    //    public static List<StudentClass> GetAllStudents()
-    //    {
-    //        return LoadStudents();
-    //    }
-
-    //    public static StudentClass FindById(string studentId)
-    //    {
-    //        var students = LoadStudents();
-    //        return students.Find(s => s.StudentID == studentId);
-    //    }
-
-    //    public static void RemoveStudent(string studentId)
-    //    {
-    //        var students = LoadStudents();
-    //        var student = students.Find(s => s.StudentID == studentId);
-    //        if (student != null)
-    //        {
-    //            students.Remove(student);
-    //            SaveStudents(students);
-    //        }
-    //    }
-
-    //    private static List<StudentClass> LoadStudents()
-    //    {
-    //        if (!File.Exists(filePath))
-    //            return new List<StudentClass>();
-
-    //        var json = File.ReadAllText(filePath);
-    //        return JsonConvert.DeserializeObject<List<StudentClass>>(json) ?? new List<StudentClass>();
-    //    }
-
-    //    private static void SaveStudents(List<StudentClass> students)
-    //    {
-    //        var json = JsonConvert.SerializeObject(students, Newtonsoft.Json.Formatting.Indented);
-    //        File.WriteAllText(filePath, json);
-    //    }
-    //}
+        public HousingRecord(string room, string dormitory, string block)
+        {
+            Room = room;
+            Dormitory = dormitory;
+            Block = block;
+        }
+    }
 }

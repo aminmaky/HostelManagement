@@ -31,7 +31,7 @@ namespace HostelManagement.Persons.Students.StudentControl
             cmbStudents.Items.Clear();
             foreach (var student in allStudents)
                 cmbStudents.Items.Add($"{student.Firstname} {student.Lastname} ({student.StudentId})");
-            
+
             int index = allStudents.IndexOf(FStudent);
             if (index >= 0)
                 cmbStudents.SelectedIndex = index;

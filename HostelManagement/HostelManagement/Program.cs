@@ -14,6 +14,8 @@ namespace HostelManagement
             // see https://aka.ms/applicationconfiguration.
             //////////////////////////////////////////////////////////////////////////////////////////
             ApplicationConfiguration.Initialize();
+            DataStorage.LoadData();
+            Application.Run(new Login());
             Application.Run(new Login());
         }
     }
@@ -27,9 +29,6 @@ namespace HostelManagement
         public static List<DormitoryManager> DormitoryManagers = new List<DormitoryManager>();
         public static List<BlocksManager> BlockManagers = new List<BlocksManager>();
         public static List<Tool> Tools = new List<Tool>();
-
-
-
     }
     
 }

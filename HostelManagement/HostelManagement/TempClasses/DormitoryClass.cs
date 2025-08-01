@@ -1,28 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class Dormitory
     {
-        public string Name;
-        public string Address;
-        public long Capacity;
-        public DormitoryManager DormitoryManager;
-        public List<Block> Blocks;
-        public Dormitory(string Name, string Address, long Capacity, 
-            DormitoryManager dormitorymanager/*, List<Block> blocks*/)
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public long Capacity { get; set; }
+        public DormitoryManager DormitoryManager { get; set; }
+        public List<Block> Blocks { get; set; }
+
+        public Dormitory()
         {
-            this.Name = Name;
-            this.Address = Address;
-            this.Capacity = Capacity;
-            this.DormitoryManager = dormitorymanager;
-            // this.Blocks = blocks;
+            Blocks = new List<Block>();
         }
-        public override string ToString() 
+
+        public Dormitory(string name, string address, long capacity, DormitoryManager dormitoryManager)
+        {
+            Name = name;
+            Address = address;
+            Capacity = capacity;
+            DormitoryManager = dormitoryManager;
+            Blocks = new List<Block>();
+        }
+
+        public override string ToString()
         {
             return Name;
         }

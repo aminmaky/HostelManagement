@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data;
+
 
 namespace HostelManagement.Assets
 {
@@ -28,7 +30,7 @@ namespace HostelManagement.Assets
 
             foreach (var tool in DATA.Tools)
             {
-                if (tool.Type != Asset.fridge && tool.OwnerName != null)
+                if (tool.Type != Asset.Fridge && tool.OwnerName == null)
                 {
                     CmbAssets.Items.Add(tool);
                 }
@@ -40,22 +42,22 @@ namespace HostelManagement.Assets
 
         public bool AssignToolToStudent(Student student, Tool tool)
         {
-            if (tool.Type == Asset.fridge)
+            if (tool.Type == Asset.Fridge)
             {
                 MessageBox.Show("Fridge cannot be assigned to a student individually.", "Invalid Operation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            if (student.tools == null)
-                student.tools = new List<Tool>();
+            if (student.Tools == null)
+                student.Tools = new List<Tool>();
 
-            if (student.tools.Any(t => t.Type == tool.Type))
+            if (student.Tools.Any(t => t.Type == tool.Type))
             {
                 MessageBox.Show($"This student already has a {tool.Type}.", "Assignment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            student.tools.Add(tool);
+            student.Tools.Add(tool);
             tool.OwnerName = student;
 
             MessageBox.Show($"{tool.Type} assigned to {student.Firstname}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

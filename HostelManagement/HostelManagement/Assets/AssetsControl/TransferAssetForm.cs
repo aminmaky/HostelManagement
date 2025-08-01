@@ -1,12 +1,7 @@
 ﻿using HostelManagement.Blocks;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HostelManagement.Assets
@@ -17,69 +12,128 @@ namespace HostelManagement.Assets
         {
             InitializeComponent();
             LoadAssets();
+            CmbTransferType.SelectedIndexChanged += CmbTransferType_SelectedIndexChanged;
         }
 
         private void LoadAssets()
         {
             CmbAssets.Items.Clear();
-            //foreach (var eq in AssetStorage.AllEquipments)
-            //{
-            //    CmbAssets.Items.Add($"{eq.AssetNumber} - {eq.Type}");
-            //}
+            foreach (var tool in DATA.Tools)
+            {
+                CmbAssets.Items.Add(tool);
+            }
+
+            CmbAssets.SelectedIndex = -1;
         }
 
         private void CmbTransferType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TxtTarget.Text = "";
-            LblTarget.Text = CmbTransferType.SelectedIndex == 0 ? "New Room Number:" : "New Student:";
+            comboBoxTarget.Items.Clear();
+            comboBoxTarget.Text = "";
+            if (CmbTransferType.SelectedIndex == 0) // انتقال به اتاق
+            {
+                LblTarget.Text = "New Room:";
+                foreach (var dorm in DATA.Dormitories)
+                {
+                    foreach (var block in dorm.Blocks)
+                    {
+                        foreach (var room in block.Rooms)
+                        {
+                            comboBoxTarget.Items.Add(room);
+                        }
+                    }
+                }
+            }
+            else if (CmbTransferType.SelectedIndex == 1) // انتقال به دانشجو
+            {
+                LblTarget.Text = "New Student:";
+                foreach (var student in DATA.Students)
+                {
+                    comboBoxTarget.Items.Add(student);
+                }
+            }
+
+            comboBoxTarget.SelectedIndex = -1;
         }
 
         private void BtnTransfer_Click(object sender, EventArgs e)
         {
-            /*
-            if (CmbAssets.SelectedItem == null || CmbTransferType.SelectedItem == null || string.IsNullOrWhiteSpace(TxtTarget.Text))
+            if (CmbAssets.SelectedItem == null || CmbTransferType.SelectedIndex == -1 || comboBoxTarget.SelectedItem == null)
             {
                 MessageBox.Show("Please complete all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string assetNumber = CmbAssets.SelectedItem.ToString().Split('-')[0].Trim();
-            var equipment = AssetStorage.AllEquipments.Find(e => e.AssetNumber == assetNumber);
+            Tool selectedTool = CmbAssets.SelectedItem as Tool;
 
-            if (equipment == null)
+            if (CmbTransferType.SelectedIndex == 0)
             {
-                MessageBox.Show("Equipment not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                Room newRoom = comboBoxTarget.SelectedItem as Room;
 
-            if (CmbTransferType.SelectedIndex == 0) // Room transfer
-            {
-                equipment.Room = TxtTarget.Text.Trim();
-                MessageBox.Show("Asset moved to new room.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else // Student transfer
-            {
-                if (IsPersonal(equipment.Type))
+                if (newRoom == null)
                 {
-                    equipment.Student = TxtTarget.Text.Trim();
-                    MessageBox.Show("Asset transferred to new student.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid room selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
+
+                if (selectedTool.Type == Asset.Fridge)
+                {
+                    if (newRoom.Tool.Any(t => t.Type == Asset.Fridge))
+                    {
+                        MessageBox.Show("This room already has a fridge.", "Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                newRoom.Tool.Add(selectedTool);
+                selectedTool.RoomNum = (int)newRoom.RoomNum;
+                selectedTool.OwnerName.Tools.Remove(selectedTool);
+                selectedTool.OwnerName = null;
+                selectedTool.Room = newRoom;
+                
+
+                MessageBox.Show("Asset successfully transferred to the selected room.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else 
+            {
+                Student newStudent = comboBoxTarget.SelectedItem as Student;
+
+                if (newStudent == null)
+                {
+                    MessageBox.Show("Invalid student selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!IsPersonal(selectedTool.Type.ToString()))
                 {
                     MessageBox.Show("Only personal items can be assigned to students.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+
+                if (newStudent.Tools.Any(t => t.Type == selectedTool.Type))
+                {
+                    MessageBox.Show("Student already has this type of asset.", "Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                selectedTool.OwnerName.Tools.Remove(selectedTool);
+                newStudent.Tools.Add(selectedTool);
+                selectedTool.OwnerName = newStudent;
+                if (newStudent.Room != null)
+                    selectedTool.RoomNum = (int)newStudent.Room.RoomNum;
+
+                MessageBox.Show("Asset successfully transferred to the selected student.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            // Reset form
             CmbAssets.SelectedIndex = -1;
             CmbTransferType.SelectedIndex = -1;
-            TxtTarget.Text = "";
+            comboBoxTarget.Items.Clear();
             LblTarget.Text = "Target:";
-            */
         }
 
         private bool IsPersonal(string type)
         {
-            return type == "تخت" || type == "میز" || type == "صندلی" || type == "کمد";
+            return type == "bed" || type == "desk" || type == "chair" || type == "commode";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

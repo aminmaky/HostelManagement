@@ -34,7 +34,7 @@ namespace HostelManagement.Persons.DormitoryManagers
             lstManagers.Items.Clear();
             foreach (var m in DATA.DormitoryManagers)
             {
-                lstManagers.Items.Add($"{m.Firstname} {m.Lastname} - {m.position}");
+                lstManagers.Items.Add($"{m.Firstname} {m.Lastname} - {m.Position}");
             }
         }
 
@@ -69,8 +69,8 @@ namespace HostelManagement.Persons.DormitoryManagers
             if (result == DialogResult.Yes)
             {
 
-                if (DATA.DormitoryManagers[index].controledDormitory != null)
-                    DATA.DormitoryManagers[index].controledDormitory.DormitoryManager = null;
+                if (DATA.DormitoryManagers[index].ControledDormitory != null)
+                    DATA.DormitoryManagers[index].ControledDormitory.DormitoryManager = null;
                 
                 DATA.DormitoryManagers.RemoveAt(index);
 

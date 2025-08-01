@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static HostelManagement.Student;
 
 namespace HostelManagement.Persons.Students
 {
@@ -63,7 +64,7 @@ namespace HostelManagement.Persons.Students
 
             if (selectedBlock != null)
             {
-                foreach (var room in selectedBlock.rooms)
+                foreach (var room in selectedBlock.Rooms)
                     cmbRoom.Items.Add(room);
             }
 
@@ -77,13 +78,14 @@ namespace HostelManagement.Persons.Students
             var block = cmbBlock.SelectedItem as Block;
             var room = cmbRoom.SelectedItem as Room;
 
+            
             if (student == null || dorm == null || block == null || room == null)
             {
                 MessageBox.Show("Please select all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (student.dormitory == dorm && student.Block == block && student.Room == room)
+            if (student.Dormitory == dorm && student.Block == block && student.Room == room)
             {
                 MessageBox.Show("Student is already assigned to the selected room.");
                 return;
@@ -94,8 +96,18 @@ namespace HostelManagement.Persons.Students
                 MessageBox.Show("Room is full.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
+            // Save current location before transfer
+            if (student.Room != null && student.Block != null && student.Dormitory != null)
+            {
+                student.HousingHistory.Add(new HousingRecord(
+                    room: ((int)student.Room.RoomNum).ToString(),
+                    dormitory: student.Dormitory.Name,
+                    block: student.Block.Name
+                ));
+            }
 
-            student.dormitory = dorm;
+            student.Dormitory = dorm;
             student.Block = block;
             student.Room = room;
 

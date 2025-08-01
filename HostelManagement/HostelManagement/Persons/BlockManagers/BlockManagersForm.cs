@@ -28,7 +28,7 @@ namespace HostelManagement.Persons.BlockManagers
 
             foreach (var blockManager in DATA.BlockManagers)
             {
-                string blockName = blockManager.controledBlock != null ? blockManager.controledBlock.Name : "Unassigned";
+                string blockName = blockManager.ControledBlock != null ? blockManager.ControledBlock.Name : "Unassigned";
                 lstBlockManagers.Items.Add(blockManager);
             }
 
@@ -56,8 +56,8 @@ namespace HostelManagement.Persons.BlockManagers
             if (selected != null)
             {
                 DATA.BlockManagers.Remove(selected);
-                if (selected.controledBlock != null)
-                    selected.controledBlock.supervisor = null;
+                if (selected.ControledBlock != null)
+                    selected.ControledBlock.Supervisor = null;
 
                 LoadBlockManagers();
             }
@@ -79,20 +79,20 @@ namespace HostelManagement.Persons.BlockManagers
                 return;
             }
 
-            if (selectedBlockManager.controledBlock == null || newBlockManager.controledBlock == null)
+            if (selectedBlockManager.ControledBlock == null || newBlockManager.ControledBlock == null)
             {
                 MessageBox.Show("Each manager must be assigned to a block before swapping.");
                 return;
             }
 
             // --- Swap Logic ---
-            var tempBlock = selectedBlockManager.controledBlock;
+            var tempBlock = selectedBlockManager.ControledBlock;
 
-            selectedBlockManager.controledBlock = newBlockManager.controledBlock;
-            newBlockManager.controledBlock = tempBlock;
+            selectedBlockManager.ControledBlock = newBlockManager.ControledBlock;
+            newBlockManager.ControledBlock = tempBlock;
 
-            selectedBlockManager.controledBlock.supervisor = selectedBlockManager;
-            newBlockManager.controledBlock.supervisor = newBlockManager;
+            selectedBlockManager.ControledBlock.Supervisor = selectedBlockManager;
+            newBlockManager.ControledBlock.Supervisor = newBlockManager;
 
             MessageBox.Show("Block managers swapped successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadBlockManagers();

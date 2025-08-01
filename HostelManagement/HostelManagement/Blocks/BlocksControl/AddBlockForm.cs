@@ -59,7 +59,7 @@ namespace HostelManagement.Blocks
             if (DATA.Blocks == null)
                 DATA.Blocks = new List<Block>();
             DATA.Blocks.Add(newBlock);
-            supervisorName.controledBlock = newBlock;
+            supervisorName.ControledBlock = newBlock;
 
             MessageBox.Show("Block added successfully!");
             new BlockManagementForm().Show();

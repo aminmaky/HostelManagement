@@ -1,0 +1,114 @@
+{
+  "$id": "1",
+  "Dormitories": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "Name": null,
+        "Address": null,
+        "Capacity": 0,
+        "DormitoryManager": null,
+        "Blocks": {
+          "$id": "4",
+          "$values": []
+        }
+      }
+    ]
+  },
+  "Blocks": {
+    "$id": "5",
+    "$values": [
+      {
+        "$id": "6",
+        "Name": null,
+        "FloresCount": 0,
+        "RoomCount": 0,
+        "Supervisor": null,
+        "Rooms": {
+          "$id": "7",
+          "$values": []
+        },
+        "DormitoryName": null
+      }
+    ]
+  },
+  "Students": {
+    "$id": "8",
+    "$values": [
+      {
+        "$id": "9",
+        "StudentId": "401412091",
+        "Room": null,
+        "Block": null,
+        "Dormitory": null,
+        "Tools": {
+          "$id": "10",
+          "$values": []
+        },
+        "HousingHistory": {
+          "$id": "11",
+          "$values": []
+        },
+        "Firstname": "Amin",
+        "Lastname": "Maky",
+        "IdNum": "3066666666",
+        "TelNum": "09393471431",
+        "Address": "Amins Home"
+      }
+    ]
+  },
+  "DormitoryManagers": {
+    "$id": "12",
+    "$values": []
+  },
+  "BlockManagers": {
+    "$id": "13",
+    "$values": []
+  },
+  "Tools": {
+    "$id": "14",
+    "$values": [
+      {
+        "$id": "15",
+        "Type": 0,
+        "PartNum": null,
+        "PropertyNum": null,
+        "Status": 0,
+        "RoomNum": 0,
+        "OwnerName": null,
+        "Room": null
+      },
+      {
+        "$id": "16",
+        "Type": 0,
+        "PartNum": null,
+        "PropertyNum": null,
+        "Status": 0,
+        "RoomNum": 0,
+        "OwnerName": null,
+        "Room": null
+      },
+      {
+        "$id": "17",
+        "Type": 0,
+        "PartNum": null,
+        "PropertyNum": null,
+        "Status": 0,
+        "RoomNum": 0,
+        "OwnerName": null,
+        "Room": null
+      },
+      {
+        "$id": "18",
+        "Type": 0,
+        "PartNum": null,
+        "PropertyNum": null,
+        "Status": 0,
+        "RoomNum": 0,
+        "OwnerName": null,
+        "Room": null
+      }
+    ]
+  }
+}

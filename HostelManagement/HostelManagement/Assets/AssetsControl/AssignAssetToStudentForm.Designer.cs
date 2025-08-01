@@ -91,6 +91,7 @@
             Name = "AssignAssetToStudentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Assign Asset to Student";
+            Load += AssignAssetToStudentForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

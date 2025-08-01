@@ -67,7 +67,7 @@ namespace HostelManagement.Persons.Students
 
             if (selectedBlock != null)
             {
-                foreach (var room in selectedBlock.rooms)
+                foreach (var room in selectedBlock.Rooms)
                     cmbRoom.Items.Add(room);
             }
 
@@ -93,7 +93,7 @@ namespace HostelManagement.Persons.Students
                 return;
             }
 
-            student.dormitory = dorm;
+            student.Dormitory = dorm;
             student.Block = block;
             student.Room = room;
 

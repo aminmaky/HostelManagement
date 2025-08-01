@@ -4,39 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
-    public enum status
+    public enum Status
     {
         Healty,
         Defective,
         UnderRepair
     }
+
     public enum Asset
     {
-        bed,
-        desk,
-        commode,
-        chair,
-        fridge
+        Bed,
+        Desk,
+        Commode,
+        Chair,
+        Fridge
     }
+
     public class Tool
     {
-        public Asset Type;
-        public string PartNum;
-        public string PropertyNum;
-        public status Status;
-        public int RoomNum;
-        public Person OwnerName;
+        public Asset Type { get; set; }
+        public string PartNum { get; set; }
+        public string PropertyNum { get; set; }
+        public Status Status { get; set; }
+        public int RoomNum { get; set; }
+        public Student OwnerName { get; set; }
+        public Room Room { get; set; }
 
-        public Tool(Asset type, string partNum, string propertyNum, status status/*, int roomNum, string ownerName*/)
+        public Tool()
+        {
+        }
+
+        public Tool(Asset type, string partNum, string propertyNum, Status status)
         {
             Type = type;
             PartNum = partNum;
             PropertyNum = propertyNum;
             Status = status;
-            // RoomNum = roomNum;
-            // OwnerName = ownerName;
         }
 
         public override string ToString()

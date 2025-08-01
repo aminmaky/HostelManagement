@@ -94,7 +94,7 @@ namespace HostelManagement.Assets
             cmbDormitory.Name = "cmbDormitory";
             cmbDormitory.Size = new Size(249, 33);
             cmbDormitory.TabIndex = 12;
-            // cmbDormitory.SelectedIndexChanged += cmbDormitory_SelectedIndexChanged;
+            cmbDormitory.SelectedIndexChanged += CmbDormitory_SelectedIndexChanged;
             // 
             // lblBlock
             // 
@@ -142,6 +142,7 @@ namespace HostelManagement.Assets
             Name = "AssignAssetToRoomForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Assign Asset to Room";
+            Load += AssignAssetToRoomForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

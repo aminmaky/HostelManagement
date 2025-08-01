@@ -54,9 +54,9 @@ namespace HostelManagement.Blocks
                 numRooms.Value = selectedBlock.RoomCount;
                 // txt.Text = selectedBlock.supervisor;
             }
-            if (selectedBlock.supervisor != null)
+            if (selectedBlock.Supervisor != null)
             {
-                cmbBlockManagers.SelectedItem = selectedBlock.supervisor;
+                cmbBlockManagers.SelectedItem = selectedBlock.Supervisor;
             }
             else
             {
@@ -86,13 +86,13 @@ namespace HostelManagement.Blocks
 
             var newManager = cmbBlockManagers.SelectedItem as BlocksManager;
 
-            if (newManager != null && newManager != selectedBlock.supervisor)
+            if (newManager != null && newManager != selectedBlock.Supervisor)
             {
-                if (selectedBlock.supervisor != null)
-                    selectedBlock.supervisor.controledBlock = null;
+                if (selectedBlock.Supervisor != null)
+                    selectedBlock.Supervisor.ControledBlock = null;
 
-                selectedBlock.supervisor = newManager;
-                newManager.controledBlock = selectedBlock;
+                selectedBlock.Supervisor = newManager;
+                newManager.ControledBlock = selectedBlock;
             }
 
             MessageBox.Show("Block updated successfully.");

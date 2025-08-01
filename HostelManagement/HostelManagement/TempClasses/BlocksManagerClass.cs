@@ -1,28 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class BlocksManager : Student
     {
-        public string Position;
-        public Block controledBlock;
+        public string Position { get; set; }
+        public Block ControledBlock { get; set; }
 
-        public BlocksManager(string firstname, string lastname, string idNum, string telNum, string address, string StudentId, Room Room, Block Block,
-            Dormitory dormitory, List<Tool> tool, string position, Block controledBlock)
-            : base(firstname, lastname, idNum, telNum, address, StudentId/* , Room, Block, dormitory, tool*/ )
+        public BlocksManager() : base() { }
+
+        public BlocksManager(
+            string firstname,
+            string lastname,
+            string idNum,
+            string telNum,
+            string address,
+            string studentId,
+            Room room,
+            Block block,
+            Dormitory dormitory,
+            List<Tool> tools,
+            string position,
+            Block controledBlock
+        ) : base(firstname, lastname, idNum, telNum, address, studentId)
         {
-            this.Position = position;
-            this.controledBlock = controledBlock;
+            Room = room;
+            Block = block;
+            this.Dormitory = dormitory;
+            this.Tools = tools ?? new();
+            Position = position;
+            ControledBlock = controledBlock;
         }
+
         public override string ToString()
         {
-            return $"{Firstname} {Lastname} - Block: {(controledBlock != null ? controledBlock.Name : "None")}";
+            return $"{Firstname} {Lastname} - Block: {(ControledBlock != null ? ControledBlock.Name : "None")}";
         }
-
     }
-
 }

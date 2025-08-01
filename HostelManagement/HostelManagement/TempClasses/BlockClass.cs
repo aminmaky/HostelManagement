@@ -1,30 +1,28 @@
-﻿using HostelManagement;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class Block
     {
-        public string Name;
-        public int FloresCount;
-        public int RoomCount;
-        public BlocksManager supervisor;
-        public List<Room> rooms;
-        public Dormitory DormitoryName;
+        public string Name { get; set; }
+        public int FloresCount { get; set; }
+        public int RoomCount { get; set; }
+        public BlocksManager Supervisor { get; set; }
+        public List<Room> Rooms { get; set; } = new();
+        public Dormitory DormitoryName { get; set; }
+
+        public Block() { }  // ← مهم برای deserialization
 
         public Block(string name, int floresCount, int roomCount, BlocksManager supervisor, Dormitory dormitoryName)
         {
             Name = name;
             FloresCount = floresCount;
             RoomCount = roomCount;
-            this.supervisor = supervisor;
+            Supervisor = supervisor;
             DormitoryName = dormitoryName;
 
-            rooms = new List<Room>();
+            Rooms = new List<Room>();
             GenerateRooms();
         }
 
@@ -33,10 +31,10 @@ namespace HostelManagement// .TempClasses
             int roomsPerFloor = RoomCount / FloresCount;
             for (int i = 0; i < RoomCount; i++)
             {
-                int floor = (i / roomsPerFloor) + 1; // طبقه‌گذاری از 1
+                int floor = (i / roomsPerFloor) + 1;
                 double roomNum = i + 1;
                 Room room = new Room(roomNum, floor, this);
-                rooms.Add(room);
+                Rooms.Add(room);
             }
         }
 
@@ -45,5 +43,4 @@ namespace HostelManagement// .TempClasses
             return $"{Name} ({FloresCount} floors, {RoomCount} rooms)";
         }
     }
-
 }

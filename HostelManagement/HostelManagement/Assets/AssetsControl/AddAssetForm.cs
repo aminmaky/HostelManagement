@@ -1,15 +1,9 @@
 ﻿using HostelManagement.Blocks;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HostelManagement.Assets
 {
@@ -19,63 +13,72 @@ namespace HostelManagement.Assets
         {
             InitializeComponent();
         }
+
         private void AddAssetForm_Load(object sender, EventArgs e)
         {
+            comboBoxType.Items.Clear();
+            CmbStatus.Items.Clear();
+            CmbPartNumber.Items.Clear();
             comboBoxType.DataSource = Enum.GetNames(typeof(Asset));
+            CmbStatus.DataSource = Enum.GetNames(typeof(Status));
+            CmbPartNumber.Items.AddRange(new string[] { "001", "002", "003", "004", "005" });
         }
-
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            string typeText = comboBoxType.SelectedItem?.ToString(); 
+            string typeText = comboBoxType.SelectedItem?.ToString();
             string partNumber = CmbPartNumber.SelectedItem?.ToString();
-            string PropertyNumber = txtPropertyNumber.Text.Trim();
+            string propertyNumber = txtPropertyNumber.Text.Trim();
             string statusText = CmbStatus.SelectedItem?.ToString();
-            //string roomText = TxtRoom.Text.Trim();
-            //string ownerName = TxtOwner.Text.Trim();
 
-            if (string.IsNullOrEmpty(typeText) || string.IsNullOrEmpty(partNumber) || string.IsNullOrEmpty(PropertyNumber) || string.IsNullOrEmpty(statusText))
+            if (string.IsNullOrEmpty(typeText) || string.IsNullOrEmpty(partNumber) ||
+                string.IsNullOrEmpty(propertyNumber) || string.IsNullOrEmpty(statusText))
             {
                 MessageBox.Show("Please fill all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!Enum.TryParse(statusText, out status statusEnum))
+            if (!Enum.TryParse(typeText, out Asset typeEnum))
             {
-                MessageBox.Show("Invalid status type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid asset type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (PropertyNumber.Length != 8 || !PropertyNumber.All(char.IsDigit))
+            if (!Enum.TryParse(statusText, out Status statusEnum))
+            {
+                MessageBox.Show("Invalid status.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (propertyNumber.Length != 8 || !propertyNumber.All(char.IsDigit))
             {
                 MessageBox.Show("Property Number must be exactly 8 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Asset typeEnum = typeText as Asset;
+
+            if (DATA.Tools.Any(t => t.PropertyNum == propertyNumber))
+            {
+                MessageBox.Show("This Property Number already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             Tool newTool = new Tool(
                 typeEnum,
                 partNumber,
-                PropertyNumber,
-                statusEnum // ,
-                           // roomNum,
-                           // ownerName
+                propertyNumber,
+                statusEnum
             );
 
             DATA.Tools.Add(newTool);
 
-            MessageBox.Show($"New asset added:\nAsset Number: {PropertyNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"New asset added:\nAsset Number: {propertyNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Clear fields
-            comboBoxType.SelectedIndex = -1;
+            // Reset form
+            comboBoxType.SelectedIndex = 0;
             txtPropertyNumber.Text = "";
-            CmbPartNumber.SelectedIndex = -1;
-            CmbStatus.SelectedIndex = -1;
-            // TxtRoom.Text = "";
-            // TxtOwner.Text = "";
+            CmbPartNumber.SelectedIndex = 0;
+            CmbStatus.SelectedIndex = 0;
         }
-
-
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

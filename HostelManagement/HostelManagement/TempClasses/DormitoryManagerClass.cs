@@ -4,22 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HostelManagement//.TempClasses
+namespace HostelManagement
 {
     public class DormitoryManager : Person
     {
-        public string position;
-        public Dormitory controledDormitory;
+        public string Position { get; set; }
+        public Dormitory ControledDormitory { get; set; }
 
-        public DormitoryManager(string firstname, string lastname, string idNum, string telNum, string address, string position/*, int controledDormitory*/)
+        public DormitoryManager()
+            : base()
+        {
+        }
+
+        public DormitoryManager(string firstname, string lastname, string idNum, string telNum, string address, string position)
             : base(firstname, lastname, idNum, telNum, address)
         {
-            this.position = position;
-            // this.controledDormitory = controledDormitory;
+            Position = position;
         }
+
         public override string ToString()
         {
-            return $"{Firstname}-{Lastname}";
+            return $"{Firstname} {Lastname}";
         }
     }
 }

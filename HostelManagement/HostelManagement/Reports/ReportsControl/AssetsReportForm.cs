@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using HostelManagement.Blocks;
 
 namespace HostelManagement.Reports
 {
@@ -14,6 +15,15 @@ namespace HostelManagement.Reports
 
         private void AssetsReportForm_Load(object sender, EventArgs e)
         {
+            cmbReportType.Items.Clear();
+            cmbReportType.Items.AddRange(new string[]
+            {
+                "All Assets",
+                "Assets Per Room",
+                "Assets Per Student",
+                "Broken & Repairing Assets"
+            });
+
             cmbReportType.SelectedIndex = 0;
         }
 
@@ -30,27 +40,37 @@ namespace HostelManagement.Reports
                     dgvReport.Columns.Add("PartNumber", "Part Number");
                     dgvReport.Columns.Add("AssetNumber", "Asset Number");
 
-                    dgvReport.Rows.Add("Bed", "001", "00012345");
-                    dgvReport.Rows.Add("Desk", "002", "00023456");
-                    dgvReport.Rows.Add("Chair", "003", "00034567");
+                    foreach (var tool in DATA.Tools)
+                    {
+                        dgvReport.Rows.Add(tool.Type, tool.PartNum, tool.PropertyNum);
+                    }
                     break;
 
                 case "Assets Per Room":
                     dgvReport.Columns.Add("Room", "Room");
                     dgvReport.Columns.Add("Item", "Item");
 
-                    dgvReport.Rows.Add("101", "Bed");
-                    dgvReport.Rows.Add("101", "Desk");
-                    dgvReport.Rows.Add("102", "Chair");
+                    foreach (var tool in DATA.Tools)
+                    {
+                        if (tool.Room != null)
+                            dgvReport.Rows.Add($"Room {tool.Room.RoomNum}", tool.Type);
+                        else if (tool.RoomNum != 0)
+                            dgvReport.Rows.Add($"Room {tool.RoomNum}", tool.Type);
+                    }
                     break;
 
                 case "Assets Per Student":
                     dgvReport.Columns.Add("Student", "Student");
                     dgvReport.Columns.Add("Item", "Item");
 
-                    dgvReport.Rows.Add("Ali", "Bed");
-                    dgvReport.Rows.Add("Ali", "Desk");
-                    dgvReport.Rows.Add("Sara", "Wardrobe");
+                    foreach (var tool in DATA.Tools)
+                    {
+                        if (tool.OwnerName != null)
+                        {
+                            string studentName = $"{tool.OwnerName.Firstname} {tool.OwnerName.Lastname}";
+                            dgvReport.Rows.Add(studentName, tool.Type);
+                        }
+                    }
                     break;
 
                 case "Broken & Repairing Assets":
@@ -58,8 +78,13 @@ namespace HostelManagement.Reports
                     dgvReport.Columns.Add("PartNumber", "Part Number");
                     dgvReport.Columns.Add("Status", "Status");
 
-                    dgvReport.Rows.Add("Desk", "00298765", "Broken");
-                    dgvReport.Rows.Add("Chair", "00355555", "Repairing");
+                    foreach (var tool in DATA.Tools)
+                    {
+                        if (tool.Status == Status.Defective || tool.Status == Status.UnderRepair)
+                        {
+                            dgvReport.Rows.Add(tool.Type.ToString(), tool.PartNum, tool.Status.ToString());
+                        }
+                    }
                     break;
             }
         }

@@ -24,7 +24,7 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
             // Fill inputs with current values
             txtFirstName.Text = currentManager.Firstname;
             txtLastName.Text = currentManager.Lastname;
-            txtPosition.Text = currentManager.position;
+            txtPosition.Text = currentManager.Position;
             txtIDNumber.Text = currentManager.IdNum;
             txtPhone.Text = currentManager.TelNum;
             txtAddress.Text = currentManager.Address;
@@ -45,7 +45,7 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
             // Update the object
             currentManager.Firstname = txtFirstName.Text.Trim();
             currentManager.Lastname = txtLastName.Text.Trim();
-            currentManager.position = txtPosition.Text.Trim();
+            currentManager.Position = txtPosition.Text.Trim();
             currentManager.IdNum = txtIDNumber.Text.Trim();
             currentManager.TelNum = txtPhone.Text.Trim();
             currentManager.Address = txtAddress.Text.Trim();

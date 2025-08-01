@@ -97,6 +97,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main Menu";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 

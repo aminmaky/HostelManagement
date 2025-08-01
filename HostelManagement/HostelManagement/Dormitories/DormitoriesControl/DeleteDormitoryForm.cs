@@ -38,7 +38,7 @@ namespace HostelManagement.Dormitories
             DATA.Dormitories.Remove(selectedDormitory);
 
             if (selectedDormitory.DormitoryManager != null)
-                selectedDormitory.DormitoryManager.controledDormitory = null;
+                selectedDormitory.DormitoryManager.ControledDormitory = null;
 
             cmbDormitories.DataSource = null;
             cmbDormitories.DataSource = DATA.Dormitories;

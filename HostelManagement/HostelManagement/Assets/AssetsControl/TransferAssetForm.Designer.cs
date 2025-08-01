@@ -12,7 +12,6 @@ namespace HostelManagement.Assets
         private Label LblTransferType;
         private ComboBox CmbTransferType;
         private Label LblTarget;
-        private TextBox TxtTarget;
         private Button BtnTransfer;
 
         protected override void Dispose(bool disposing)
@@ -29,9 +28,9 @@ namespace HostelManagement.Assets
             LblTransferType = new Label();
             CmbTransferType = new ComboBox();
             LblTarget = new Label();
-            TxtTarget = new TextBox();
             BtnTransfer = new Button();
             btnCancel = new Button();
+            comboBoxTarget = new ComboBox();
             SuspendLayout();
             // 
             // LblAsset
@@ -45,7 +44,7 @@ namespace HostelManagement.Assets
             // 
             // CmbAssets
             // 
-            CmbAssets.Location = new Point(180, 27);
+            CmbAssets.Location = new Point(269, 27);
             CmbAssets.Name = "CmbAssets";
             CmbAssets.Size = new Size(250, 33);
             CmbAssets.TabIndex = 1;
@@ -63,7 +62,7 @@ namespace HostelManagement.Assets
             // 
             CmbTransferType.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbTransferType.Items.AddRange(new object[] { "Move between Rooms", "Transfer between Students" });
-            CmbTransferType.Location = new Point(180, 77);
+            CmbTransferType.Location = new Point(269, 77);
             CmbTransferType.Name = "CmbTransferType";
             CmbTransferType.Size = new Size(250, 33);
             CmbTransferType.TabIndex = 3;
@@ -78,16 +77,9 @@ namespace HostelManagement.Assets
             LblTarget.TabIndex = 4;
             LblTarget.Text = "Target:";
             // 
-            // TxtTarget
-            // 
-            TxtTarget.Location = new Point(180, 127);
-            TxtTarget.Name = "TxtTarget";
-            TxtTarget.Size = new Size(250, 31);
-            TxtTarget.TabIndex = 5;
-            // 
             // BtnTransfer
             // 
-            BtnTransfer.Location = new Point(280, 180);
+            BtnTransfer.Location = new Point(381, 180);
             BtnTransfer.Name = "BtnTransfer";
             BtnTransfer.Size = new Size(100, 40);
             BtnTransfer.TabIndex = 6;
@@ -104,16 +96,24 @@ namespace HostelManagement.Assets
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // comboBoxTarget
+            // 
+            comboBoxTarget.FormattingEnabled = true;
+            comboBoxTarget.Location = new Point(269, 127);
+            comboBoxTarget.Name = "comboBoxTarget";
+            comboBoxTarget.Size = new Size(250, 33);
+            comboBoxTarget.TabIndex = 8;
+            // 
             // TransferAssetForm
             // 
-            ClientSize = new Size(480, 250);
+            ClientSize = new Size(583, 250);
+            Controls.Add(comboBoxTarget);
             Controls.Add(btnCancel);
             Controls.Add(LblAsset);
             Controls.Add(CmbAssets);
             Controls.Add(LblTransferType);
             Controls.Add(CmbTransferType);
             Controls.Add(LblTarget);
-            Controls.Add(TxtTarget);
             Controls.Add(BtnTransfer);
             Name = "TransferAssetForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -123,5 +123,6 @@ namespace HostelManagement.Assets
         }
 
         private Button btnCancel;
+        private ComboBox comboBoxTarget;
     }
 }

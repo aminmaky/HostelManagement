@@ -11,6 +11,7 @@ namespace HostelManagement.Assets
         public RepairAssetForm()
         {
             InitializeComponent();
+            CmbFilter.Items.Clear();
             CmbFilter.Items.AddRange(new string[] { "All", "Healty", "Defective", "UnderRepair" });
             CmbFilter.SelectedIndex = 0;
             LoadAssets();
@@ -24,7 +25,7 @@ namespace HostelManagement.Assets
 
             if (filter != "All")
             {
-                if (Enum.TryParse(filter, out status parsedStatus))
+                if (Enum.TryParse(filter, out Status parsedStatus))
                     assets = assets.Where(a => a.Status == parsedStatus);
             }
 
@@ -57,7 +58,7 @@ namespace HostelManagement.Assets
                 return;
             }
 
-            tool.Status = status.Defective;
+            tool.Status = Status.Defective;
             LoadAssets(CmbFilter.SelectedItem?.ToString() ?? "All");
         }
 
@@ -70,13 +71,13 @@ namespace HostelManagement.Assets
                 return;
             }
 
-            if (tool.Status != status.Defective)
+            if (tool.Status != Status.Defective)
             {
                 MessageBox.Show("Only defective items can be sent to repair.", "Warning");
                 return;
             }
 
-            tool.Status = status.UnderRepair;
+            tool.Status = Status.UnderRepair;
             LoadAssets(CmbFilter.SelectedItem?.ToString() ?? "All");
         }
 
@@ -89,7 +90,7 @@ namespace HostelManagement.Assets
                 return;
             }
 
-            tool.Status = status.Healty;
+            tool.Status = Status.Healty;
             LoadAssets(CmbFilter.SelectedItem?.ToString() ?? "All");
         }
 

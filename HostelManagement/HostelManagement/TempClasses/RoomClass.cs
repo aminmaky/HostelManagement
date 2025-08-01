@@ -4,30 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HostelManagement// .TempClasses
+namespace HostelManagement
 {
     public class Room
     {
-        public double RoomNum;
-        public int Floor;
-        public int Capacity;
-        public Block BlockName;
-        public List<Student> daneshgo;
-        public List<Tool> tool;
+        public double RoomNum { get; set; }
+        public int Floor { get; set; }
+        public int Capacity { get; set; }
+        public Block BlockName { get; set; }
+        public List<Student> Daneshgo { get; set; }
+        public List<Tool> Tool { get; set; }
+
+        public Room()
+        {
+            Daneshgo = new List<Student>();
+            Tool = new List<Tool>();
+        }
+
+        public Room(double roomNum, int floor, Block block)
+        {
+            RoomNum = roomNum;
+            Floor = floor;
+            Capacity = 6;
+            BlockName = block;
+            Daneshgo = new List<Student>();
+            Tool = new List<Tool>();
+        }
 
         public bool IsFull()
         {
-            return daneshgo.Count >= Capacity;
+            return Daneshgo.Count >= Capacity;
         }
 
-        public Room(double RoomNum, int Floor, Block Block)
+        public override string ToString()
         {
-            this.RoomNum = RoomNum;
-            this.Floor = Floor;
-            this.Capacity = 6;
-            this.BlockName = Block;
-            // this.daneshgo = daneshgo;
-            // this.tool = tool;
+            return $"Room {(int)RoomNum} - Floor {Floor} - Capacity {Capacity}";
         }
     }
 }

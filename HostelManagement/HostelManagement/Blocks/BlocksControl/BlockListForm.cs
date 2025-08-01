@@ -31,7 +31,7 @@ namespace HostelManagement.Blocks
             {
                 foreach (var block in dorm.Blocks)
                 {
-                    dgvBlocks.Rows.Add(block.Name, block.FloresCount, block.RoomCount, block.supervisor);
+                    dgvBlocks.Rows.Add(block.Name, block.FloresCount, block.RoomCount, block.Supervisor);
                 }
             }
         }

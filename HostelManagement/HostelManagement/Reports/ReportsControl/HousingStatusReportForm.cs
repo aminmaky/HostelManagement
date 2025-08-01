@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System;
-using System.Windows.Forms;
+using HostelManagement.Blocks;
 
 namespace HostelManagement.Reports
 {
@@ -22,6 +14,14 @@ namespace HostelManagement.Reports
 
         private void HousingStatusReportForm_Load(object sender, EventArgs e)
         {
+            cmbReportType.Items.Clear();
+            cmbReportType.Items.AddRange(new string[]
+            {
+                "Overall Student Housing",
+                "Empty and Occupied Rooms",
+                "Dormitory and Block Capacities"
+            });
+
             cmbReportType.SelectedIndex = 0;
         }
 
@@ -38,16 +38,29 @@ namespace HostelManagement.Reports
                     dgvHousingReport.Columns.Add("Housed", "Housed");
                     dgvHousingReport.Columns.Add("NotHoused", "Not Housed");
 
-                    dgvHousingReport.Rows.Add("300", "250", "50");
+                    int totalStudents = DATA.Students.Count;
+                    int housed = DATA.Students.Count(s => s.Room != null);
+                    int notHoused = totalStudents - housed;
+
+                    dgvHousingReport.Rows.Add(totalStudents, housed, notHoused);
                     break;
 
                 case "Empty and Occupied Rooms":
                     dgvHousingReport.Columns.Add("Room", "Room");
                     dgvHousingReport.Columns.Add("Status", "Status");
 
-                    dgvHousingReport.Rows.Add("101", "Occupied");
-                    dgvHousingReport.Rows.Add("102", "Empty");
-                    dgvHousingReport.Rows.Add("103", "Occupied");
+                    foreach (var dorm in DATA.Dormitories)
+                    {
+                        foreach (var block in dorm.Blocks)
+                        {
+                            foreach (var room in block.Rooms)
+                            {
+                                string roomLabel = $"Dorm: {dorm.Name}, Block: {block.Name}, Room: {(int)room.RoomNum}";
+                                string status = room.IsFull() || room.Daneshgo.Count > 0 ? "Occupied" : "Empty";
+                                dgvHousingReport.Rows.Add(roomLabel, status);
+                            }
+                        }
+                    }
                     break;
 
                 case "Dormitory and Block Capacities":
@@ -56,9 +69,17 @@ namespace HostelManagement.Reports
                     dgvHousingReport.Columns.Add("TotalCapacity", "Total Capacity");
                     dgvHousingReport.Columns.Add("Remaining", "Remaining");
 
-                    dgvHousingReport.Rows.Add("Dorm A", "Block 1", "100", "20");
-                    dgvHousingReport.Rows.Add("Dorm A", "Block 2", "80", "5");
-                    dgvHousingReport.Rows.Add("Dorm B", "Block 1", "120", "30");
+                    foreach (var dorm in DATA.Dormitories)
+                    {
+                        foreach (var block in dorm.Blocks)
+                        {
+                            int totalCapacity = block.Rooms.Sum(r => r.Capacity);
+                            int used = block.Rooms.Sum(r => r.Daneshgo.Count);
+                            int remaining = totalCapacity - used;
+
+                            dgvHousingReport.Rows.Add(dorm.Name, block.Name, totalCapacity, remaining);
+                        }
+                    }
                     break;
             }
         }
