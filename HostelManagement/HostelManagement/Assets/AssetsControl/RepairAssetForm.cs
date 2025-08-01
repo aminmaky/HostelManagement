@@ -1,11 +1,7 @@
-﻿using System;
+﻿using HostelManagement.Blocks;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HostelManagement.Assets
@@ -15,23 +11,27 @@ namespace HostelManagement.Assets
         public RepairAssetForm()
         {
             InitializeComponent();
+            CmbFilter.Items.AddRange(new string[] { "All", "Healty", "Defective", "UnderRepair" });
+            CmbFilter.SelectedIndex = 0;
             LoadAssets();
         }
 
         private void LoadAssets(string filter = "All")
         {
-            /*
             LstAssets.Items.Clear();
-            var assets = AssetStorage.AllEquipments;
+
+            IEnumerable<Tool> assets = DATA.Tools;
 
             if (filter != "All")
-                assets = assets.Where(a => a.Status == filter).ToList();
+            {
+                if (Enum.TryParse(filter, out status parsedStatus))
+                    assets = assets.Where(a => a.Status == parsedStatus);
+            }
 
             foreach (var eq in assets)
             {
-                LstAssets.Items.Add($"{eq.AssetNumber} | {eq.Type} | {eq.Status}");
+                LstAssets.Items.Add($"{eq.PropertyNum} | {eq.Type} | {eq.Status}");
             }
-            */
         }
 
         private string GetSelectedAssetNumber()
@@ -41,48 +41,56 @@ namespace HostelManagement.Assets
 
             return LstAssets.SelectedItem.ToString().Split('|')[0].Trim();
         }
-        /*
-        private Equipment FindSelectedEquipment()
+
+        private Tool FindSelectedTool()
         {
             var num = GetSelectedAssetNumber();
-            return AssetStorage.AllEquipments.FirstOrDefault(e => e.AssetNumber == num);
+            return DATA.Tools.FirstOrDefault(t => t.PropertyNum == num);
         }
-        */
+
         private void BtnMarkDamaged_Click(object sender, EventArgs e)
         {
-            /*
-            var eq = FindSelectedEquipment();
-            if (eq == null) return;
+            var tool = FindSelectedTool();
+            if (tool == null)
+            {
+                MessageBox.Show("Please select an asset.");
+                return;
+            }
 
-            eq.Status = "معیوب";
+            tool.Status = status.Defective;
             LoadAssets(CmbFilter.SelectedItem?.ToString() ?? "All");
-            */
         }
 
         private void BtnSendToRepair_Click(object sender, EventArgs e)
         {
-            /*
-            var eq = FindSelectedEquipment();
-            if (eq == null || eq.Status != "معیوب")
+            var tool = FindSelectedTool();
+            if (tool == null)
             {
-                MessageBox.Show("Only damaged items can be sent to repair.", "Warning");
+                MessageBox.Show("Please select an asset.");
                 return;
             }
 
-            eq.Status = "در حال تعمیر";
+            if (tool.Status != status.Defective)
+            {
+                MessageBox.Show("Only defective items can be sent to repair.", "Warning");
+                return;
+            }
+
+            tool.Status = status.UnderRepair;
             LoadAssets(CmbFilter.SelectedItem?.ToString() ?? "All");
-            */
         }
 
         private void BtnMarkRepaired_Click(object sender, EventArgs e)
         {
-            /*
-            var eq = FindSelectedEquipment();
-            if (eq == null) return;
+            var tool = FindSelectedTool();
+            if (tool == null)
+            {
+                MessageBox.Show("Please select an asset.");
+                return;
+            }
 
-            eq.Status = "سالم";
+            tool.Status = status.Healty;
             LoadAssets(CmbFilter.SelectedItem?.ToString() ?? "All");
-            */
         }
 
         private void CmbFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +101,7 @@ namespace HostelManagement.Assets
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             new AssetManagementForm().Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

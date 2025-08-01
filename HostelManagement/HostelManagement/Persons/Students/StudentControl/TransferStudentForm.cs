@@ -56,28 +56,48 @@ namespace HostelManagement.Persons.Students
             }
         }
 
+        private void cmbBlock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbRoom.Items.Clear();
+            var selectedBlock = cmbBlock.SelectedItem as Block;
+
+            if (selectedBlock != null)
+            {
+                foreach (var room in selectedBlock.rooms)
+                    cmbRoom.Items.Add(room);
+            }
+
+            cmbRoom.SelectedIndex = -1;
+        }
+
         private void BtnTransfer_Click(object sender, EventArgs e)
         {
             var student = cmbStudent.SelectedItem as Student;
             var dorm = cmbDormitory.SelectedItem as Dormitory;
             var block = cmbBlock.SelectedItem as Block;
-            int roomNumber = (int)numRoom.Value;
+            var room = cmbRoom.SelectedItem as Room;
 
-            if (student == null || dorm == null || block == null || roomNumber <= 0)
+            if (student == null || dorm == null || block == null || room == null)
             {
-                MessageBox.Show("Please select all fields and enter a valid room number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (student.dormitory == dorm && student.Block == block && student.Room == roomNumber)
+            if (student.dormitory == dorm && student.Block == block && student.Room == room)
             {
                 MessageBox.Show("Student is already assigned to the selected room.");
+                return;
+            }
+            
+            if (room.IsFull())
+            {
+                MessageBox.Show("Room is full.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             student.dormitory = dorm;
             student.Block = block;
-            student.Room = roomNumber;
+            student.Room = room;
 
             MessageBox.Show("Student transferred successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             new StudentManagementForm().Show();
@@ -89,5 +109,7 @@ namespace HostelManagement.Persons.Students
         {
             this.Close();
         }
+
+        
     }
 }

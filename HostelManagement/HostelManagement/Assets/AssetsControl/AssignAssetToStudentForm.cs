@@ -1,12 +1,7 @@
 ﻿using HostelManagement.Blocks;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HostelManagement.Assets
@@ -16,54 +11,77 @@ namespace HostelManagement.Assets
         public AssignAssetToStudentForm()
         {
             InitializeComponent();
+        }
+
+        private void AssignAssetToStudentForm_Load(object sender, EventArgs e)
+        {
             LoadPersonalAssets();
         }
 
         private void LoadPersonalAssets()
         {
             CmbAssets.Items.Clear();
+            cmbStudents.Items.Clear();
 
-            //foreach (var eq in AssetStorage.AllEquipments)
-            //{
-            //    // فقط تجهیزاتی که هنوز به دانشجو تخصیص نیافته‌اند و شخصی هستند
-            //    if (IsPersonal(eq.Type) && string.IsNullOrWhiteSpace(eq.Student))
-            //    {
-            //        CmbAssets.Items.Add($"{eq.AssetNumber} - {eq.Type}");
-            //    }
-            //}
+            foreach (var student in DATA.Students)
+                cmbStudents.Items.Add(student);
+
+            foreach (var tool in DATA.Tools)
+            {
+                if (tool.Type != Asset.fridge && tool.OwnerName != null)
+                {
+                    CmbAssets.Items.Add(tool);
+                }
+            }
+
+            cmbStudents.SelectedIndex = -1;
+            CmbAssets.SelectedIndex = -1;
         }
 
-        private bool IsPersonal(string type)
+        public bool AssignToolToStudent(Student student, Tool tool)
         {
-            return type == "تخت" || type == "میز" || type == "صندلی" || type == "کمد";
+            if (tool.Type == Asset.fridge)
+            {
+                MessageBox.Show("Fridge cannot be assigned to a student individually.", "Invalid Operation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (student.tools == null)
+                student.tools = new List<Tool>();
+
+            if (student.tools.Any(t => t.Type == tool.Type))
+            {
+                MessageBox.Show($"This student already has a {tool.Type}.", "Assignment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            student.tools.Add(tool);
+            tool.OwnerName = student;
+
+            MessageBox.Show($"{tool.Type} assigned to {student.Firstname}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return true;
         }
 
         private void BtnAssign_Click(object sender, EventArgs e)
         {
-            if (CmbAssets.SelectedItem == null || string.IsNullOrWhiteSpace(TxtStudent.Text))
+            if (CmbAssets.SelectedItem == null || cmbStudents.SelectedItem == null)
             {
-                MessageBox.Show("Please select an asset and enter student info.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select an asset and a student.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string selectedAssetStr = CmbAssets.SelectedItem.ToString();
-            string assetNumber = selectedAssetStr.Split('-')[0].Trim();
-            string student = TxtStudent.Text.Trim();
+            Tool selectedTool = CmbAssets.SelectedItem as Tool;
+            Student selectedStudent = cmbStudents.SelectedItem as Student;
 
-            //Equipment eq = AssetStorage.AllEquipments.Find(e => e.AssetNumber == assetNumber);
-
-            //if (eq != null)
-            //{
-            //    eq.Student = student;
-            //    MessageBox.Show($"Asset {eq.AssetNumber} assigned to student {student}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Asset not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-            TxtStudent.Text = "";
-            CmbAssets.SelectedIndex = -1;
+            if (selectedTool != null && selectedStudent != null)
+            {
+                bool success = AssignToolToStudent(selectedStudent, selectedTool);
+                if (success)
+                {
+                    CmbAssets.Items.Remove(selectedTool);
+                    CmbAssets.SelectedIndex = -1;
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

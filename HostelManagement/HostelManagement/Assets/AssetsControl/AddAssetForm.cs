@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HostelManagement.Assets
 {
@@ -17,41 +19,63 @@ namespace HostelManagement.Assets
         {
             InitializeComponent();
         }
+        private void AddAssetForm_Load(object sender, EventArgs e)
+        {
+            comboBoxType.DataSource = Enum.GetNames(typeof(Asset));
+        }
+
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            string type = TxtType.Text.Trim();
+            string typeText = comboBoxType.SelectedItem?.ToString(); 
             string partNumber = CmbPartNumber.SelectedItem?.ToString();
-            string status = CmbStatus.SelectedItem?.ToString();
-            string room = TxtRoom.Text.Trim();
-            string ownerStudent = TxtOwner.Text.Trim();
+            string PropertyNumber = txtPropertyNumber.Text.Trim();
+            string statusText = CmbStatus.SelectedItem?.ToString();
+            //string roomText = TxtRoom.Text.Trim();
+            //string ownerName = TxtOwner.Text.Trim();
 
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(partNumber) || string.IsNullOrEmpty(status))
+            if (string.IsNullOrEmpty(typeText) || string.IsNullOrEmpty(partNumber) || string.IsNullOrEmpty(PropertyNumber) || string.IsNullOrEmpty(statusText))
             {
-                MessageBox.Show("Please fill all required fields (Type, Part Number, Status).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string assetNumber = GenerateAssetNumber(partNumber);
+            if (!Enum.TryParse(statusText, out status statusEnum))
+            {
+                MessageBox.Show("Invalid status type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            // Equipment newEquipment = new Equipment(type, partNumber, assetNumber, status, room, ownerStudent);
+            if (PropertyNumber.Length != 8 || !PropertyNumber.All(char.IsDigit))
+            {
+                MessageBox.Show("Property Number must be exactly 8 digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Asset typeEnum = typeText as Asset;
 
-            // Save equipment somewhere (e.g., database or list)
-            MessageBox.Show($"New asset added:\nAsset Number: {assetNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Tool newTool = new Tool(
+                typeEnum,
+                partNumber,
+                PropertyNumber,
+                statusEnum // ,
+                           // roomNum,
+                           // ownerName
+            );
+
+            DATA.Tools.Add(newTool);
+
+            MessageBox.Show($"New asset added:\nAsset Number: {PropertyNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Clear fields
-            TxtType.Text = "";
+            comboBoxType.SelectedIndex = -1;
+            txtPropertyNumber.Text = "";
             CmbPartNumber.SelectedIndex = -1;
             CmbStatus.SelectedIndex = -1;
-            TxtRoom.Text = "";
-            TxtOwner.Text = "";
+            // TxtRoom.Text = "";
+            // TxtOwner.Text = "";
         }
 
-        private string GenerateAssetNumber(string partNumber)
-        {
-            string timeComponent = DateTime.Now.Ticks.ToString().Substring(0, 8);
-            return timeComponent; // Simple 8-digit based on time
-        }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

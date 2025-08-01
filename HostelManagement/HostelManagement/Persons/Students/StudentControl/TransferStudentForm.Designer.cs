@@ -17,7 +17,6 @@ namespace HostelManagement.Persons.Students
         private Label lblDormitory;
         private Label lblBlock;
         private Label lblRoom;
-        private NumericUpDown numRoom;
         private Button btnTransfer;
         private Button btnBack;
 
@@ -37,10 +36,9 @@ namespace HostelManagement.Persons.Students
             cmbStudent = new ComboBox();
             cmbDormitory = new ComboBox();
             cmbBlock = new ComboBox();
-            numRoom = new NumericUpDown();
             btnTransfer = new Button();
             btnBack = new Button();
-            ((System.ComponentModel.ISupportInitialize)numRoom).BeginInit();
+            cmbRoom = new ComboBox();
             SuspendLayout();
             // 
             // lblStudent
@@ -103,16 +101,7 @@ namespace HostelManagement.Persons.Students
             cmbBlock.Name = "cmbBlock";
             cmbBlock.Size = new Size(249, 33);
             cmbBlock.TabIndex = 5;
-            // 
-            // numRoom
-            // 
-            numRoom.Location = new Point(188, 188);
-            numRoom.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
-            numRoom.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numRoom.Name = "numRoom";
-            numRoom.Size = new Size(249, 31);
-            numRoom.TabIndex = 7;
-            numRoom.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            cmbBlock.SelectedIndexChanged += cmbBlock_SelectedIndexChanged;
             // 
             // btnTransfer
             // 
@@ -134,11 +123,20 @@ namespace HostelManagement.Persons.Students
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += BtnBack_Click;
             // 
+            // cmbRoom
+            // 
+            cmbRoom.FormattingEnabled = true;
+            cmbRoom.Location = new Point(188, 188);
+            cmbRoom.Name = "cmbRoom";
+            cmbRoom.Size = new Size(249, 33);
+            cmbRoom.TabIndex = 10;
+            // 
             // TransferStudentForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(500, 375);
+            Controls.Add(cmbRoom);
             Controls.Add(lblStudent);
             Controls.Add(cmbStudent);
             Controls.Add(lblDormitory);
@@ -146,15 +144,15 @@ namespace HostelManagement.Persons.Students
             Controls.Add(lblBlock);
             Controls.Add(cmbBlock);
             Controls.Add(lblRoom);
-            Controls.Add(numRoom);
             Controls.Add(btnTransfer);
             Controls.Add(btnBack);
             Name = "TransferStudentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Transfer Student";
-            ((System.ComponentModel.ISupportInitialize)numRoom).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+
+        private ComboBox cmbRoom;
     }
 }

@@ -39,6 +39,11 @@ namespace HostelManagement.Dormitories
                 MessageBox.Show("Please fill out all fields and select a manager.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (capacity / 6 != 0)
+            {
+                MessageBox.Show("Wrong Capacity (Multiple 6).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             Dormitory NewDormitory = new Dormitory(name, address, capacity,
             manager/*, List<Block> selectedBlocks*/);

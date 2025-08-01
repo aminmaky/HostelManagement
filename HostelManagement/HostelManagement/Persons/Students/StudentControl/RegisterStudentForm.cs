@@ -60,7 +60,19 @@ namespace HostelManagement.Persons.Students
 
             cmbBlock.SelectedIndex = -1;
         }
+        private void cmbBlock_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbRoom.Items.Clear();
+            var selectedBlock = cmbBlock.SelectedItem as Block;
 
+            if (selectedBlock != null)
+            {
+                foreach (var room in selectedBlock.rooms)
+                    cmbRoom.Items.Add(room);
+            }
+
+            cmbRoom.SelectedIndex = -1;
+        }
 
 
         private void BtnRegister_Click(object sender, EventArgs e)
@@ -68,17 +80,22 @@ namespace HostelManagement.Persons.Students
             var student = FStudent;
             var dorm = cmbDormitory.SelectedItem as Dormitory;
             var block = cmbBlock.SelectedItem as Block;
-            int roomNumber = (int)numRoom.Value;
+            var room = cmbRoom.SelectedItem as Room;
 
-            if (dorm == null || block == null || roomNumber <= 0)
+            if (dorm == null || block == null || room == null)
             {
-                MessageBox.Show("Please select all fields and enter a valid room number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (room.IsFull())
+            {
+                MessageBox.Show("Room is full.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             student.dormitory = dorm;
             student.Block = block;
-            student.Room = roomNumber;
+            student.Room = room;
 
             MessageBox.Show("Student registered to dormitory successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             new StudentManagementForm().Show();

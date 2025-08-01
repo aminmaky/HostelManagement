@@ -12,10 +12,10 @@ namespace HostelManagement// .TempClasses
     public class Student : Person
     {
         public string StudentId;
-        public int Room;
+        public Room Room;
         public Block Block;
         public Dormitory dormitory;
-        public List<Tools> tools;
+        public List<Tool> tools;
         public Student(string firstname, string lastname, string idNum, string telNum, 
             string address, string StudentId/*, int Room, Block Block, Dormitory dormitory, List<Tools> tool*/)
             : base(firstname, lastname, idNum, telNum, address)

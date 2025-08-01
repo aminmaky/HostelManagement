@@ -1,70 +1,98 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
 
-using System;
-using System.Windows.Forms;
-using HostelManagement.Blocks;
+    using System;
+    using System.Windows.Forms;
+    using HostelManagement.Blocks;
 
-namespace HostelManagement.Assets
-{
-    public partial class AssignAssetToRoomForm : Form
+    namespace HostelManagement.Assets
     {
-        public AssignAssetToRoomForm()
+        public partial class AssignAssetToRoomForm : Form
         {
-            InitializeComponent();
-            LoadAssetList();
-        }
-
-        private void LoadAssetList()
-        {
-            // فرض: تجهیزات از یک منبع داده مثل لیست یا دیتابیس خوانده می‌شوند.
-            CmbAssets.Items.Clear();
-
-            //foreach (var equipment in AssetStorage.AllEquipments)
-            //{
-            //    CmbAssets.Items.Add($"{equipment.AssetNumber} - {equipment.Type}");
-            //}
-        }
-
-        private void BtnAssign_Click(object sender, EventArgs e)
-        {
-            if (CmbAssets.SelectedItem == null || string.IsNullOrWhiteSpace(TxtRoom.Text))
+            public AssignAssetToRoomForm()
             {
-                MessageBox.Show("Please select an asset and enter a room number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                InitializeComponent();
+                // LoadAssetList();
             }
 
-            string selectedAssetStr = CmbAssets.SelectedItem.ToString();
-            string assetNumber = selectedAssetStr.Split('-')[0].Trim();
-            string newRoom = TxtRoom.Text.Trim();
+            private void AssignAssetToRoomForm_Load(object sender, EventArgs e)
+            {
+                cmbDormitory.Items.AddRange(DATA.Dormitories.ToArray());
+                CmbAssets.Items.AddRange(DATA.Tools.Select(t => $"{t.PropertyNum} - {t.Type}").ToArray());
+            }
 
-            // Equipment eq = AssetStorage.AllEquipments.Find(e => e.AssetNumber == assetNumber);
 
-            //if (eq != null)
-            //{
-            //    eq.Room = newRoom;
-            //    MessageBox.Show($"Asset {eq.AssetNumber} assigned to Room {newRoom}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Asset not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            private void BtnAssign_Click(object sender, EventArgs e)
+            {
+                if (CmbAssets.SelectedItem == null || cmbRoom.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select an asset and a room.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            TxtRoom.Text = "";
-            CmbAssets.SelectedIndex = -1;
-        }
+                string selectedAssetStr = CmbAssets.SelectedItem.ToString();
+                string assetNumber = selectedAssetStr.Split('-')[0].Trim();
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            new AssetManagementForm().Show();
-            this.Close();
+                Tool selectedTool = DATA.Tools.FirstOrDefault(t => t.PropertyNum == assetNumber);
+                Room selectedRoom = cmbRoom.SelectedItem as Room;
+
+                if (selectedTool == null || selectedRoom == null)
+                {
+                    MessageBox.Show("Invalid asset or room.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (selectedTool.Type == Asset.fridge && selectedRoom.tool.Any(t => t.Type == Asset.fridge))
+                {
+                    MessageBox.Show("This room already has a fridge. Cannot assign another one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+            selectedRoom.tool.Add(selectedTool);
+
+                MessageBox.Show($"Asset {assetNumber} assigned to Room {selectedRoom.RoomNum}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+            private void btnCancel_Click(object sender, EventArgs e)
+            {
+                new AssetManagementForm().Show();
+                this.Close();
+            }
+
+            private void CmbDormitory_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                cmbBlock.Items.Clear();
+                var selectedDorm = cmbDormitory.SelectedItem as Dormitory;
+
+                if (selectedDorm?.Blocks != null)
+                {
+                    foreach (var block in selectedDorm.Blocks)
+                        cmbBlock.Items.Add(block);
+                }
+
+                cmbBlock.SelectedIndex = -1;
+            }
+            private void cmbBlock_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                cmbRoom.Items.Clear();
+                var selectedBlock = cmbBlock.SelectedItem as Block;
+
+                if (selectedBlock != null)
+                {
+                    foreach (var room in selectedBlock.rooms)
+                        cmbRoom.Items.Add(room);
+                }
+
+                cmbRoom.SelectedIndex = -1;
+            }
         }
     }
-}

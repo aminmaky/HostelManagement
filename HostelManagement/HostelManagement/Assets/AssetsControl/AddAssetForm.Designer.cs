@@ -7,13 +7,8 @@
         private Label LblType;
         private Label LblPartNumber;
         private Label LblStatus;
-        private Label LblRoom;
-        private Label LblOwner;
-        private TextBox TxtType;
         private ComboBox CmbPartNumber;
         private ComboBox CmbStatus;
-        private TextBox TxtRoom;
-        private TextBox TxtOwner;
         private Button BtnSubmit;
 
         protected override void Dispose(bool disposing)
@@ -26,17 +21,15 @@
         private void InitializeComponent()
         {
             LblType = new Label();
-            TxtType = new TextBox();
             LblPartNumber = new Label();
             CmbPartNumber = new ComboBox();
             LblStatus = new Label();
             CmbStatus = new ComboBox();
-            LblRoom = new Label();
-            TxtRoom = new TextBox();
-            LblOwner = new Label();
-            TxtOwner = new TextBox();
             BtnSubmit = new Button();
             btnCancel = new Button();
+            comboBoxType = new ComboBox();
+            txtPropertyNumber = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // LblType
@@ -47,13 +40,6 @@
             LblType.Size = new Size(53, 25);
             LblType.TabIndex = 0;
             LblType.Text = "Type:";
-            // 
-            // TxtType
-            // 
-            TxtType.Location = new Point(250, 27);
-            TxtType.Name = "TxtType";
-            TxtType.Size = new Size(200, 31);
-            TxtType.TabIndex = 1;
             // 
             // LblPartNumber
             // 
@@ -70,13 +56,13 @@
             CmbPartNumber.Items.AddRange(new object[] { "001", "002", "003", "004", "005" });
             CmbPartNumber.Location = new Point(250, 72);
             CmbPartNumber.Name = "CmbPartNumber";
-            CmbPartNumber.Size = new Size(200, 33);
+            CmbPartNumber.Size = new Size(201, 33);
             CmbPartNumber.TabIndex = 3;
             // 
             // LblStatus
             // 
             LblStatus.AutoSize = true;
-            LblStatus.Location = new Point(30, 120);
+            LblStatus.Location = new Point(31, 156);
             LblStatus.Name = "LblStatus";
             LblStatus.Size = new Size(64, 25);
             LblStatus.TabIndex = 4;
@@ -86,46 +72,14 @@
             // 
             CmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbStatus.Items.AddRange(new object[] { "Healthy", "Defective", "Under Repair" });
-            CmbStatus.Location = new Point(250, 117);
+            CmbStatus.Location = new Point(251, 153);
             CmbStatus.Name = "CmbStatus";
             CmbStatus.Size = new Size(200, 33);
             CmbStatus.TabIndex = 5;
             // 
-            // LblRoom
-            // 
-            LblRoom.AutoSize = true;
-            LblRoom.Location = new Point(30, 165);
-            LblRoom.Name = "LblRoom";
-            LblRoom.Size = new Size(145, 25);
-            LblRoom.TabIndex = 6;
-            LblRoom.Text = "Room (optional):";
-            // 
-            // TxtRoom
-            // 
-            TxtRoom.Location = new Point(250, 162);
-            TxtRoom.Name = "TxtRoom";
-            TxtRoom.Size = new Size(200, 31);
-            TxtRoom.TabIndex = 7;
-            // 
-            // LblOwner
-            // 
-            LblOwner.AutoSize = true;
-            LblOwner.Location = new Point(30, 210);
-            LblOwner.Name = "LblOwner";
-            LblOwner.Size = new Size(215, 25);
-            LblOwner.TabIndex = 8;
-            LblOwner.Text = "Owner Student (optional):";
-            // 
-            // TxtOwner
-            // 
-            TxtOwner.Location = new Point(250, 207);
-            TxtOwner.Name = "TxtOwner";
-            TxtOwner.Size = new Size(200, 31);
-            TxtOwner.TabIndex = 9;
-            // 
             // BtnSubmit
             // 
-            BtnSubmit.Location = new Point(290, 260);
+            BtnSubmit.Location = new Point(295, 206);
             BtnSubmit.Name = "BtnSubmit";
             BtnSubmit.Size = new Size(120, 40);
             BtnSubmit.TabIndex = 10;
@@ -134,7 +88,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(60, 260);
+            btnCancel.Location = new Point(65, 206);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(120, 40);
             btnCancel.TabIndex = 11;
@@ -142,28 +96,53 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // comboBoxType
+            // 
+            comboBoxType.FormattingEnabled = true;
+            comboBoxType.Location = new Point(250, 33);
+            comboBoxType.Name = "comboBoxType";
+            comboBoxType.Size = new Size(200, 33);
+            comboBoxType.TabIndex = 12;
+            // 
+            // txtPropertyNumber
+            // 
+            txtPropertyNumber.Location = new Point(251, 111);
+            txtPropertyNumber.Name = "txtPropertyNumber";
+            txtPropertyNumber.Size = new Size(200, 31);
+            txtPropertyNumber.TabIndex = 13;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(30, 117);
+            label1.Name = "label1";
+            label1.Size = new Size(154, 25);
+            label1.TabIndex = 14;
+            label1.Text = "Property Number:";
+            // 
             // AddAssetForm
             // 
-            ClientSize = new Size(480, 330);
+            ClientSize = new Size(480, 264);
+            Controls.Add(label1);
+            Controls.Add(txtPropertyNumber);
+            Controls.Add(comboBoxType);
             Controls.Add(btnCancel);
             Controls.Add(LblType);
-            Controls.Add(TxtType);
             Controls.Add(LblPartNumber);
             Controls.Add(CmbPartNumber);
             Controls.Add(LblStatus);
             Controls.Add(CmbStatus);
-            Controls.Add(LblRoom);
-            Controls.Add(TxtRoom);
-            Controls.Add(LblOwner);
-            Controls.Add(TxtOwner);
             Controls.Add(BtnSubmit);
             Name = "AddAssetForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add Equipment";
+            Load += AddAssetForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         private Button btnCancel;
+        private ComboBox comboBoxType;
+        private TextBox txtPropertyNumber;
+        private Label label1;
     }
 }

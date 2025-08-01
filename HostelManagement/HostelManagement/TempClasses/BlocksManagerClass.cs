@@ -11,8 +11,8 @@ namespace HostelManagement// .TempClasses
         public string Position;
         public Block controledBlock;
 
-        public BlocksManager(string firstname, string lastname, string idNum, string telNum, string address, string StudentId, int Room, Block Block,
-            Dormitory dormitory, List<Tools> tool, string position, Block controledBlock)
+        public BlocksManager(string firstname, string lastname, string idNum, string telNum, string address, string StudentId, Room Room, Block Block,
+            Dormitory dormitory, List<Tool> tool, string position, Block controledBlock)
             : base(firstname, lastname, idNum, telNum, address, StudentId/* , Room, Block, dormitory, tool*/ )
         {
             this.Position = position;

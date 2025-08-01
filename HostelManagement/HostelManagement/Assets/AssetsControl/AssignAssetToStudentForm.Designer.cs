@@ -7,7 +7,6 @@
         private Label LblAsset;
         private ComboBox CmbAssets;
         private Label LblStudent;
-        private TextBox TxtStudent;
         private Button BtnAssign;
 
         protected override void Dispose(bool disposing)
@@ -22,9 +21,9 @@
             LblAsset = new Label();
             CmbAssets = new ComboBox();
             LblStudent = new Label();
-            TxtStudent = new TextBox();
             BtnAssign = new Button();
             btnCancel = new Button();
+            cmbStudents = new ComboBox();
             SuspendLayout();
             // 
             // LblAsset
@@ -49,16 +48,9 @@
             LblStudent.AutoSize = true;
             LblStudent.Location = new Point(30, 80);
             LblStudent.Name = "LblStudent";
-            LblStudent.Size = new Size(199, 25);
+            LblStudent.Size = new Size(77, 25);
             LblStudent.TabIndex = 2;
-            LblStudent.Text = "Enter Student ID/Name:";
-            // 
-            // TxtStudent
-            // 
-            TxtStudent.Location = new Point(230, 74);
-            TxtStudent.Name = "TxtStudent";
-            TxtStudent.Size = new Size(200, 31);
-            TxtStudent.TabIndex = 3;
+            LblStudent.Text = "Student:";
             // 
             // BtnAssign
             // 
@@ -79,14 +71,22 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // cmbStudents
+            // 
+            cmbStudents.FormattingEnabled = true;
+            cmbStudents.Location = new Point(180, 77);
+            cmbStudents.Name = "cmbStudents";
+            cmbStudents.Size = new Size(250, 33);
+            cmbStudents.TabIndex = 6;
+            // 
             // AssignAssetToStudentForm
             // 
             ClientSize = new Size(450, 200);
+            Controls.Add(cmbStudents);
             Controls.Add(btnCancel);
             Controls.Add(LblAsset);
             Controls.Add(CmbAssets);
             Controls.Add(LblStudent);
-            Controls.Add(TxtStudent);
             Controls.Add(BtnAssign);
             Name = "AssignAssetToStudentForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -96,5 +96,6 @@
         }
 
         private Button btnCancel;
+        private ComboBox cmbStudents;
     }
 }
