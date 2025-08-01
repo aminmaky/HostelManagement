@@ -27,12 +27,12 @@ namespace HostelManagement
                 MessageBox.Show("Login successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 new MainForm().Show();
-                this.Hide();
+                // this.Hide();
 
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid username (admin) or password (1234).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

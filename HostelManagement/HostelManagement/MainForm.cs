@@ -20,6 +20,7 @@ namespace HostelManagement
         public MainForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void btnDormitories_Click(object sender, EventArgs e)
@@ -55,6 +56,13 @@ namespace HostelManagement
         private void MainForm_Load(object sender, EventArgs e)
         {
             DataStorage.SaveData(); // Save...
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataStorage.SaveData(); // Save...
+            this.Close();
+            new Login().Show();
         }
     }
 }

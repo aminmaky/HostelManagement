@@ -39,6 +39,7 @@
             btnPeople = new Button();
             btnAssets = new Button();
             btnReports = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnDormitories
@@ -86,9 +87,20 @@
             btnReports.Text = "Reports";
             btnReports.Click += btnReports_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(50, 302);
+            button1.Name = "button1";
+            button1.Size = new Size(200, 62);
+            button1.TabIndex = 5;
+            button1.Text = "Logout";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // MainForm
             // 
-            ClientSize = new Size(300, 320);
+            ClientSize = new Size(300, 403);
+            Controls.Add(button1);
             Controls.Add(btnDormitories);
             Controls.Add(btnBlocks);
             Controls.Add(btnPeople);
@@ -103,5 +115,7 @@
 
 
         #endregion
+
+        private Button button1;
     }
 }
