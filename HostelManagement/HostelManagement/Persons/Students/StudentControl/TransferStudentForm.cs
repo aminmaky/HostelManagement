@@ -16,6 +16,7 @@ namespace HostelManagement.Persons.Students
         public TransferStudentForm(Student fStudent)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             FStudent = fStudent;
             LoadData();
         }
@@ -106,10 +107,11 @@ namespace HostelManagement.Persons.Students
                     block: student.Block.Name
                 ));
             }
-
+            student.Room.Daneshgo.Remove(student);
             student.Dormitory = dorm;
             student.Block = block;
             student.Room = room;
+            room.Daneshgo.Add(student);
 
             MessageBox.Show("Student transferred successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             new StudentManagementForm().Show();

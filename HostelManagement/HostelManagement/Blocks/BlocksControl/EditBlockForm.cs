@@ -17,6 +17,7 @@ namespace HostelManagement.Blocks
         public EditBlockForm(Dormitory dormitory)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             this.dorm = dormitory;
         }
 

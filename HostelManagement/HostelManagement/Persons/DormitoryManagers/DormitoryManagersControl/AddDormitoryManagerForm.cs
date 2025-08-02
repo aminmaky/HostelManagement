@@ -18,6 +18,7 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
         {
             Index = index;
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)

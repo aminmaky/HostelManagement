@@ -39,7 +39,9 @@
             btnPeople = new Button();
             btnAssets = new Button();
             btnReports = new Button();
-            button1 = new Button();
+            LogoutBtn = new Button();
+            DataReseting = new Button();
+            DataSaving = new Button();
             SuspendLayout();
             // 
             // btnDormitories
@@ -87,20 +89,42 @@
             btnReports.Text = "Reports";
             btnReports.Click += btnReports_Click;
             // 
-            // button1
+            // LogoutBtn
             // 
-            button1.Location = new Point(50, 302);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 62);
-            button1.TabIndex = 5;
-            button1.Text = "Logout";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            LogoutBtn.Location = new Point(50, 302);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.Size = new Size(200, 62);
+            LogoutBtn.TabIndex = 5;
+            LogoutBtn.Text = "Logout";
+            LogoutBtn.UseVisualStyleBackColor = true;
+            LogoutBtn.Click += LogoutBtn_Click;
+            // 
+            // DataReseting
+            // 
+            DataReseting.Location = new Point(176, 399);
+            DataReseting.Name = "DataReseting";
+            DataReseting.Size = new Size(112, 34);
+            DataReseting.TabIndex = 6;
+            DataReseting.Text = "Reset Data";
+            DataReseting.UseVisualStyleBackColor = true;
+            DataReseting.Click += DataReseting_Click;
+            // 
+            // DataSaving
+            // 
+            DataSaving.Location = new Point(12, 399);
+            DataSaving.Name = "DataSaving";
+            DataSaving.Size = new Size(112, 34);
+            DataSaving.TabIndex = 7;
+            DataSaving.Text = "Save Data";
+            DataSaving.UseVisualStyleBackColor = true;
+            DataSaving.Click += DataSaving_Click;
             // 
             // MainForm
             // 
-            ClientSize = new Size(300, 403);
-            Controls.Add(button1);
+            ClientSize = new Size(300, 445);
+            Controls.Add(DataSaving);
+            Controls.Add(DataReseting);
+            Controls.Add(LogoutBtn);
             Controls.Add(btnDormitories);
             Controls.Add(btnBlocks);
             Controls.Add(btnPeople);
@@ -116,6 +140,8 @@
 
         #endregion
 
-        private Button button1;
+        private Button LogoutBtn;
+        private Button DataReseting;
+        private Button DataSaving;
     }
 }

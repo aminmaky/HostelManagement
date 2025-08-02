@@ -41,6 +41,7 @@
             lblRole = new Label();
             cmbRole = new ComboBox();
             btnLogin = new Button();
+            Closebtn = new Button();
             SuspendLayout();
             // 
             // lblUsername
@@ -92,16 +93,27 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(140, 150);
+            btnLogin.Location = new Point(240, 174);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(100, 30);
+            btnLogin.Size = new Size(100, 34);
             btnLogin.TabIndex = 6;
             btnLogin.Text = "Login";
             btnLogin.Click += btnLogin_Click;
             // 
-            // Form1
+            // Closebtn
+            // 
+            Closebtn.Location = new Point(30, 174);
+            Closebtn.Name = "Closebtn";
+            Closebtn.Size = new Size(112, 34);
+            Closebtn.TabIndex = 7;
+            Closebtn.Text = "Close";
+            Closebtn.UseVisualStyleBackColor = true;
+            Closebtn.Click += Closebtn_Click;
+            // 
+            // Login
             // 
             ClientSize = new Size(400, 220);
+            Controls.Add(Closebtn);
             Controls.Add(lblUsername);
             Controls.Add(txtUsername);
             Controls.Add(lblPassword);
@@ -109,7 +121,7 @@
             Controls.Add(lblRole);
             Controls.Add(cmbRole);
             Controls.Add(btnLogin);
-            Name = "Form1";
+            Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dormitory Management Login";
             ResumeLayout(false);
@@ -117,5 +129,7 @@
         }
 
         #endregion
+
+        private Button Closebtn;
     }
 }

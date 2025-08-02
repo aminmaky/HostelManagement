@@ -10,6 +10,7 @@ namespace HostelManagement.Reports
         public RepairRequestsReportForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void RepairRequestsReportForm_Load(object sender, EventArgs e)

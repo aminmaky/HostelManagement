@@ -11,6 +11,7 @@ namespace HostelManagement.Assets
         public TransferAssetForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             LoadAssets();
             CmbTransferType.SelectedIndexChanged += CmbTransferType_SelectedIndexChanged;
         }
@@ -133,7 +134,7 @@ namespace HostelManagement.Assets
 
         private bool IsPersonal(string type)
         {
-            return type == "bed" || type == "desk" || type == "chair" || type == "commode";
+            return type == "Bed" || type == "Desk" || type == "Chair" || type == "Commode";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

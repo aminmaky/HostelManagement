@@ -16,7 +16,6 @@ namespace HostelManagement
             ApplicationConfiguration.Initialize();
             DataStorage.LoadData();
             Application.Run(new Login());
-            Application.Run(new Login());
         }
     }
 

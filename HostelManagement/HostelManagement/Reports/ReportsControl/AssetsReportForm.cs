@@ -11,6 +11,7 @@ namespace HostelManagement.Reports
         public AssetsReportForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void AssetsReportForm_Load(object sender, EventArgs e)

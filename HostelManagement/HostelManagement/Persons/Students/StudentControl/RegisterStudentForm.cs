@@ -14,6 +14,7 @@ namespace HostelManagement.Persons.Students
         public RegisterStudentForm(Student fStudent)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             FStudent = fStudent;
             LoadData();
         }
@@ -96,7 +97,7 @@ namespace HostelManagement.Persons.Students
             student.Dormitory = dorm;
             student.Block = block;
             student.Room = room;
-
+            room.Daneshgo.Add(student);
             MessageBox.Show("Student registered to dormitory successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             new StudentManagementForm().Show();
             this.Close();

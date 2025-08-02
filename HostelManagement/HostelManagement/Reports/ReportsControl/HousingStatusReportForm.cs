@@ -10,6 +10,7 @@ namespace HostelManagement.Reports
         public HousingStatusReportForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void HousingStatusReportForm_Load(object sender, EventArgs e)

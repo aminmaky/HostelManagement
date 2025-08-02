@@ -13,6 +13,7 @@ namespace HostelManagement.Assets
         public AssignAssetToStudentForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void AssignAssetToStudentForm_Load(object sender, EventArgs e)

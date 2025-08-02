@@ -15,6 +15,7 @@ namespace HostelManagement.Dormitories
         public DormitoryListForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void DormitoryListForm_Load(object sender, EventArgs e)

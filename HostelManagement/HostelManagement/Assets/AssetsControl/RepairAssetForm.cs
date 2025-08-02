@@ -11,6 +11,7 @@ namespace HostelManagement.Assets
         public RepairAssetForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             CmbFilter.Items.Clear();
             CmbFilter.Items.AddRange(new string[] { "All", "Healty", "Defective", "UnderRepair" });
             CmbFilter.SelectedIndex = 0;

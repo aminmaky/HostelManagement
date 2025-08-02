@@ -20,6 +20,7 @@ namespace HostelManagement.Persons.DormitoryManagers.DormitoryManagersControl
             // DormitoryManager manager = new DormitoryManager(); // Must Be Delete!!
             InitializeComponent();
             currentManager = manager;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             // Fill inputs with current values
             txtFirstName.Text = currentManager.Firstname;

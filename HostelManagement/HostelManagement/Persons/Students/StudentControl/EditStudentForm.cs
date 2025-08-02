@@ -21,6 +21,7 @@ namespace HostelManagement.Persons.Students.StudentControl
         {
             FStudent = student;
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             LoadStudents();
         }
 

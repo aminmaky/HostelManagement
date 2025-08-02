@@ -18,6 +18,7 @@ namespace HostelManagement.Persons
         public PersonManagementForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void BtnDormitoryManagers_Click(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace HostelManagement.Dormitories
         public EditDormitoryForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void EditDormitoryForm_Load(object sender, EventArgs e)

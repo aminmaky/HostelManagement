@@ -15,6 +15,7 @@ namespace HostelManagement.Assets
         public AssetManagementForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void AssetManagementForm_Load(object sender, EventArgs e)

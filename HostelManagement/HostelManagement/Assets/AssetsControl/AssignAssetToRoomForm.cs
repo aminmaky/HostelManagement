@@ -19,6 +19,7 @@ namespace HostelManagement.Assets
         public AssignAssetToRoomForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             // LoadAssetList();
         }
 

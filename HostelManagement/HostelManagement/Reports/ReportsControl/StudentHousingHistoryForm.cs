@@ -15,6 +15,7 @@ namespace HostelManagement.Reports
         public StudentHousingHistoryForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void StudentHousingHistoryForm_Load(object sender, EventArgs e)

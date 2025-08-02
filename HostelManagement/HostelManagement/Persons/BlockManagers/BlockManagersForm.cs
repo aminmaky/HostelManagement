@@ -16,6 +16,7 @@ namespace HostelManagement.Persons.BlockManagers
         public BlockManagersForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
         private void BlockManagersForm_Load(object sender, EventArgs e)
         {

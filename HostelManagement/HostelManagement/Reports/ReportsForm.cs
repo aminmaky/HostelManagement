@@ -15,6 +15,7 @@ namespace HostelManagement.Reports
         public ReportsForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void ReportsForm_Load(object sender, EventArgs e)

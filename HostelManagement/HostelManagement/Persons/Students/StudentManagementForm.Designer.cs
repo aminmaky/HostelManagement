@@ -158,6 +158,7 @@
             Controls.Add(btnTransfer);
             Name = "StudentManagementForm";
             Text = "Student Management";
+            Load += StudentManagementForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

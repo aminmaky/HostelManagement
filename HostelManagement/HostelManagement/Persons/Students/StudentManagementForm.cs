@@ -19,6 +19,7 @@ namespace HostelManagement.Persons.Students
         public StudentManagementForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private List<Student> students => DATA.Students;
@@ -148,53 +149,5 @@ namespace HostelManagement.Persons.Students
             new PersonManagementForm().Show();
             this.Close();
         }
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        private void btnAddStudent_Click(object sender, EventArgs e)
-        {
-            new AddStudent().Show();
-            this.Hide();
-        }
-
-        private void btnDeleteStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEditStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSearchStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnViewStudentInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAssignDorm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTransferStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-        */
     }
 }

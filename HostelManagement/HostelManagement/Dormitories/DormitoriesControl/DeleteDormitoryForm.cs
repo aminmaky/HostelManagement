@@ -15,12 +15,14 @@ namespace HostelManagement.Dormitories
         public DeleteDormitoryForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void DeleteDormitoryForm_Load(object sender, EventArgs e)
         {
             cmbDormitories.DataSource = DATA.Dormitories;
             cmbDormitories.SelectedIndex = -1;
+            
             // Optional: Load dormitory list into comboBox
         }
 

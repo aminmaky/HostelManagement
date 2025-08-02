@@ -58,11 +58,31 @@ namespace HostelManagement
             DataStorage.SaveData(); // Save...
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            DataStorage.SaveData(); // Save...
             this.Close();
             new Login().Show();
+        }
+
+        private void DataReseting_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to reset all data?",
+                             "Confirm Reset",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                DataStorage.ResetData();
+                MessageBox.Show("All data has been reset.");
+            }
+
+        }
+
+        private void DataSaving_Click(object sender, EventArgs e)
+        {
+            DataStorage.SaveData(); // Save...
+            MessageBox.Show("All data has been savsd.");
         }
     }
 }

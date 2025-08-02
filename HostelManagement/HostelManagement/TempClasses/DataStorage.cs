@@ -65,5 +65,19 @@ namespace HostelManagement
             public List<BlocksManager> BlockManagers { get; set; }
             public List<Tool> Tools { get; set; }
         }
+        public static void ResetData()
+        {
+            DATA.Dormitories.Clear();
+            DATA.Blocks.Clear();
+            DATA.Students.Clear();
+            DATA.DormitoryManagers.Clear();
+            DATA.BlockManagers.Clear();
+            DATA.Tools.Clear();
+
+            string filePath = "data.json";
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+        }
+
     }
 }

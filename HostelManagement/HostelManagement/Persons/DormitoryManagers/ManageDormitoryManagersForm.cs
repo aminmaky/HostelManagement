@@ -20,6 +20,7 @@ namespace HostelManagement.Persons.DormitoryManagers
         public ManageDormitoryManagersForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void ManageDormitoryManagersForm_Load(object sender, EventArgs e)

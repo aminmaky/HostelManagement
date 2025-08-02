@@ -15,6 +15,7 @@ namespace HostelManagement.Blocks
         public BlockManagementForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void BlockManagementForm_Load(object sender, EventArgs e)
